@@ -140,8 +140,8 @@ You are ready to go, now a tab window will pop up into your browser with the fol
 
 There are two modes to run **MagGeo**. Sequential or Parallel, depending how much data you have to annotate. Sequential mode apply a traditional loops to going through the GPS track rows and process every row computing the magnetic components **MagGeo** is offering. If you have a big data set ( e.g. 1 million of records) you might want try the parallel mode. The parallel mode has some differences when you run the required libraries in a windows or Linux environment. We have tested **MagGeo** in a windows server environment, if you have Linux o MacOS you should not have any issue, the sequence is the same. 
 
-* [1. Sequential Mode](MagGeo_Parallel.ipynb)
-* [2. Parallel Mode](MagGeo_Sequential.ipynb)
+* [1. Sequential Mode](MagGeo_Sequential.ipynb)
+* [2. Parallel Mode](MagGeo_Parallel.ipynb)
 
 The following image will help you to understand how the sequential and parallel mode differ, and how in parallel mode you should be able to use the full capacity of your machine. However it is quite important to identify when we need to use a parallel mode. For small datasets running **MagGeo** could be even slower than the sequential mode. 
 
