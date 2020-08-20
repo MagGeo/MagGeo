@@ -43,8 +43,7 @@ The Earth's magnetic field is described by seven components. These are **Declina
 <img src="C:\Users\benit\OneDrive - University of St Andrews\St Andrews Project\Extension of ENV DATA\MagneticComponents-04.png" alt="2" style="zoom:40%;" />
 
 Considering the point of measurement (*p*) as the origin of a Cartesian system of reference, the x-axis is in the geographic meridian directed to the north, y-axis in the geographic parallel directed to the east and z-axis parallel to the vertical at the point and positive downwards. Then we have:
-$$
-F= \sqrt{X^{2}+Y^{2}+Z^{2}} \hspace{1cm}or\hspace{1cm} 
+![formula](https://render.githubusercontent.com/render/math?math=F= \sqrt{X^{2}+Y^{2}+Z^{2}} \hspace{1cm}or\hspace{1cm} 
 F= \sqrt{N^{2}+E^{2}+C^{2}} \\
 $$
 $$
