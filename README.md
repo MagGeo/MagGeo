@@ -57,7 +57,8 @@ The unit of magnetic field intensity, strictly flux density, most commonly used 
 
 There are three columns that  must be included to run the **MagGeo**. Make sure your GPS trajectory include all. **Latitude** , **Longitude** and **timestamp**.  Timestamp should follow the day/month/year Hour:Minute (**dd/mm/yyyy HH:MM**) format, Latitude and Longitude should be in decimal degrees ITFRS. Other Columns will be ignored. Here it is an example of how your GPS track should looks like.
 
-![table_example.png](attachment:table_example.png)
+
+<img src="/images/TableExample.png">
 
 Of course with knowledge of pandas and python you can manipulate your csv file and make the adjustment you need. Although if you want to run the **GeoMag** using our suggested steps, we would  recommend to set your GPS track csv file in a text editor before being included into **MagGeo**.
 
