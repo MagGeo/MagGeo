@@ -40,17 +40,14 @@ The Earth's magnetic field is described by seven components. These are **Declina
     That is why the relevance of <strong>MagGeo</strong> helping researchers to understand the small variations of the geomagnetic field across an animal movement trajectory. In particular having the annotated geomagnetic components at the the date and time the GPS point was collected.  The following image can help you to understand how the geomagnetic components can be represented and how are computed.
 </div>
 
-<img src="/images/MagneticComponents.png" alt="drawing" width="200">
+<img src="/images/MagneticComponents.png" alt="drawing" width="700">
 
 Considering the point of measurement (*p*) as the origin of a Cartesian system of reference, the x-axis is in the geographic meridian directed to the north, y-axis in the geographic parallel directed to the east and z-axis parallel to the vertical at the point and positive downwards. Then we have:
-$$ F= \sqrt{X^{2}+Y^{2}+Z^{2}} \hspace{1cm}or\hspace{1cm} 
-F= \sqrt{N^{2}+E^{2}+C^{2}} \\
-$$
-$$
-H = \sqrt{N^{2}+E^{2}} \\
-D = \arctan\frac{E}{N} \\
-I = \arctan\frac{C}{H} \\
-$$
+
+![equation](https://latex.codecogs.com/gif.latex?F=&space;\sqrt{X^{2}&plus;Y^{2}&plus;Z^{2}}&space;\hspace{1cm}&space;or\hspace{1cm}&space;F=&space;\sqrt{N^{2}&plus;E^{2}&plus;C^{2}})
+
+
+![equation](https://latex.codecogs.com/gif.latex?H&space;=&space;\sqrt{N^{2}&plus;E^{2}}&space;-&space;D&space;=&space;\arctan\frac{E}{N}&space;-&space;I&space;=&space;\arctan\frac{C}{H}&space;-)
 
 The unit of magnetic field intensity, strictly flux density, most commonly used in geomagnetism is the Tesla. At the Earth's surface the total intensity varies from 22,000 nanotesla (nT) to 67,000 nT.  The units of D and I are degrees.
 
