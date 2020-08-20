@@ -25,8 +25,6 @@ MagGeo has been deployed using a set of  Jupyter notebooks a powerful tool to ru
 
 However **MagGeo** use [**VirES**](https://swarm-vre.readthedocs.io/en/latest/Swarm_notebooks/02a__Intro-Swarm-viresclient.html) (Virtual environments for Earth Scientists) a platform for data & model access, analysis, and visualisation for ESA’s magnetic mission **Swarm**. This is a powerful client with the [viresclient API](https://swarm-vre.readthedocs.io/en/latest/Swarm_notebooks/02c__viresclient-API.html) that provide several classes and methods defined in the vires client package. The `viresclient` Python package allows you to connect to the VirES server to download [Swarm](https://earth.esa.int/web/guest/missions/esa-operational-eo-missions/swarm) data and data calculated using magnetic models.
 
-If you want to explore more about Jupyter Notebook and learn more about this tool you can clone or download the [FOSS4G UK 2019 Geoprocessing with Jupyter Notebooks workshop](https://github.com/samfranklin/foss4guk19-jupyter ). 
-
 # Background
 
 > ☝ Before moving on with this MagGeo you might want to take a look at:
@@ -81,7 +79,9 @@ You need to be familiar with the following frameworks:
 
 - [Miniconda](https://docs.conda.io/en/latest/miniconda.html):  Miniconda is a minimal installer (~70 MB) for conda, whereas Anaconda is ~700 MB and provides a full set of data science packages.
 
--  [Jupiter Notebook](https://jupyter.org/):  Jupyter notebook is popular environment for data scientists who are looking for a "pydata stack" (python packages of numpy, pandas, matplotlib, amongst others).  Jupyter notebooks, often referred to as iPython notebooks, offer a powerful and easy to use development environment to write code to explore, interact with and visualise data. Notebook allow you to run every step letting you to explore how the program is dealing with the data, making easy to share as a file or publish to the web. If you want to explore and learn how Jupiter Notebook works we have prepare a simple example for you.  `/notebook-overview.ipynb`
+-  [Jupiter Notebook](https://jupyter.org/):  Jupyter notebook is popular environment for data scientists who are looking for a "pydata stack" (python packages of numpy, pandas, matplotlib, amongst others).  Jupyter notebooks, often referred to as iPython notebooks, offer a powerful and easy to use development environment to write code to explore, interact with and visualise data. Notebook allow you to run every step letting you to explore how the program is dealing with the data, making easy to share as a file or publish to the web. If you want to explore and learn how Jupiter Notebook works we have prepare a simple example for you.  `/notebook-overview.ipynb`.
+
+If you want to explore more about Jupyter Notebook and learn more about this tool you can clone or download the [FOSS4G UK 2019 Geoprocessing with Jupyter Notebooks workshop](https://github.com/samfranklin/foss4guk19-jupyter ). 
 
 # How to build your Environment
 
