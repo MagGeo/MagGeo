@@ -60,7 +60,7 @@ There are three columns that  must be included to run the **MagGeo**. Make sure 
 
 <img src="/images/TableExample.png">
 
-Of course with knowledge of pandas and python you can manipulate your csv file and make the adjustment you need. Although if you want to run the **GeoMag** using our suggested steps, we would  recommend to set your GPS track csv file in a text editor before being included into **MagGeo**.
+Of course with knowledge of pandas and python you can manipulate your csv file and make the adjustment you need. Although if you want to run the **MagGeo** using our suggested steps, we would  recommend to set your GPS track csv file in a text editor before being included into **MagGeo**.
 
 ## Get your VirES for Swarm Token 
 
