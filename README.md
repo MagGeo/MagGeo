@@ -31,9 +31,9 @@ However **MagGeo** use [**VirES**](https://swarm-vre.readthedocs.io/en/latest/Sw
 
 ## Earth's Magnetic Field
 
-The Earth's magnetic field (or geomagnetic field ) is generated in the fluid outer core by a self-exciting dynamo process. Electrical currents flowing in the slowly moving molten iron generate the magnetic field. In addition to sources in the Earth's core the magnetic field observable at the Earth's surface has sources in the crust and in the ionosphere and magnetosphere[^1]
+The Earth's magnetic field (or geomagnetic field ) is generated in the fluid outer core by a self-exciting dynamo process. Electrical currents flowing in the slowly moving molten iron generate the magnetic field. In addition to sources in the Earth's core the magnetic field observable at the Earth's surface has sources in the crust and in the ionosphere and magnetosphere<sup>[1]</sup>.
 
-The Earth's magnetic field is described by seven components. These are **Declination (D)**, **Inclination (I)**, **Horizontal intensity (H)**, **Vertical intensity (Z)**, **total intensity (F)** and the **north (X)** and **east (Y)** components of the horizontal intensity. In most of the geomagnetic data sources the reference frame used to share the magnetic components is **NEC**, which is basically the same XYZ cartesian system.  By convention, declination is considered positive when measured east of north, Inclination and vertical intensity positive down, X (N) positive north, and Y(E) positive east. The magnetic field observed on Earth is constantly changing. [^2] 
+The Earth's magnetic field is described by seven components. These are **Declination (D)**, **Inclination (I)**, **Horizontal intensity (H)**, **Vertical intensity (Z)**, **total intensity (F)** and the **north (X)** and **east (Y)** components of the horizontal intensity. In most of the geomagnetic data sources the reference frame used to share the magnetic components is **NEC**, which is basically the same XYZ cartesian system.  By convention, declination is considered positive when measured east of north, Inclination and vertical intensity positive down, X (N) positive north, and Y(E) positive east. The magnetic field observed on Earth is constantly changing<sup>[2]</sup>. 
 
 <div class="alert alert-warning" role="alert">
   <strong>The Earth's magnetic field varies both in space and time</strong>
@@ -155,6 +155,8 @@ The following image will help you to understand how the sequential and parallel 
 
 # References
 
-[1](http://www.geomag.bgs.ac.uk/education/earthmag.html#_Toc2075547)
-[2](https://noaa.maps.arcgis.com/apps/MapJournal/index.html?appid=3b9045c4d1aa408694d3759d1aa5ede4)
+*[1](http://www.geomag.bgs.ac.uk/education/earthmag.html#_Toc2075547)
+
+*[2](https://noaa.maps.arcgis.com/apps/MapJournal/index.html?appid=3b9045c4d1aa408694d3759d1aa5ede4)
+
 
