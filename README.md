@@ -156,7 +156,6 @@ The following image will help you to understand how the sequential and parallel 
 # References
 
 *[1](http://www.geomag.bgs.ac.uk/education/earthmag.html#_Toc2075547)
-
 *[2](https://noaa.maps.arcgis.com/apps/MapJournal/index.html?appid=3b9045c4d1aa408694d3759d1aa5ede4)
 
 
