@@ -2,8 +2,6 @@
 
 ## Annotate Earth's magnetic components from Swarm into GPS tracks
 
-**Authors** | Fernando Benitez-Paez, Urška Demšar, Jed Long
-
 **Contact**  | [Fernando.Benitez@st-andrews.ac.uk](mailto:Fernando.Benitez@st-andrews.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), <jed.long@uwo.ca>
 
 **nbviewer URL** | https://nbviewer.jupyter.org/github/maggeo
