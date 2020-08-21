@@ -40,7 +40,7 @@ The Earth's magnetic field is described by seven components. These are **Declina
     That is why the relevance of <strong>MagGeo</strong> helping researchers to understand the small variations of the geomagnetic field across an animal movement trajectory. In particular having the annotated geomagnetic components at the the date and time the GPS point was collected.  The following image can help you to understand how the geomagnetic components can be represented and how are computed.
 </div>
 
-<img src="/images/MagneticComponents.png" alt="drawing" width="700">
+<img src="/images/MagneticComponents-Jupyter.png">
 
 Considering the point of measurement (*p*) as the origin of a Cartesian system of reference, the x-axis is in the geographic meridian directed to the north, y-axis in the geographic parallel directed to the east and z-axis parallel to the vertical at the point and positive downwards. Then we have:
 
@@ -146,8 +146,7 @@ There are two modes to run **MagGeo**. Sequential or Parallel, depending how muc
 
 The following image will help you to understand how the sequential and parallel mode differ, and how in parallel mode you should be able to use the full capacity of your machine. However it is quite important to identify when we need to use a parallel mode. For small datasets running **MagGeo** could be even slower than the sequential mode. 
 
-<img src="C:\Users\benit\OneDrive - University of St Andrews\St Andrews Project\Extension of ENV DATA\ParallelMode-07.png" style="zoom: 50%;" />
-
+<img src="/images/Sequential_ParallelMode-Jupyter.png">
 
 
 # Getting help
@@ -156,6 +155,6 @@ The following image will help you to understand how the sequential and parallel 
 
 # References
 
-[^1]: http://www.geomag.bgs.ac.uk/education/earthmag.html#_Toc2075547
-[^2]: https://noaa.maps.arcgis.com/apps/MapJournal/index.html?appid=3b9045c4d1aa408694d3759d1aa5ede4
+[1](http://www.geomag.bgs.ac.uk/education/earthmag.html#_Toc2075547)
+[2](https://noaa.maps.arcgis.com/apps/MapJournal/index.html?appid=3b9045c4d1aa408694d3759d1aa5ede4)
 
