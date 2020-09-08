@@ -91,8 +91,10 @@ def SwarmMagAnnotation (GPSLat,GPSLong,GPSDateTime,GPSTime,DT):
     Cgps = (SwarmData['Wj']*SwarmData['C']).sum()
 
     Hgps = np.sqrt((Ngps**2)+(Egps**2))
-    Dgps = np.arctan(Egps/Ngps)
+    DgpsRad = np.arctan(Egps/Ngps)
+    Dgps = np.degrees(DgpsRad)
     Fgps = np.sqrt((Ngps**2)+(Egps**2)+(Cgps**2))
-    Igps = np.arctan(Cgps/Hgps)
+    IgpsRad = np.arctan(Cgps/Hgps)
+    Igps = np.degrees(IgpsRad)
     resultrow = {'Latitude': GPSLat, 'Longitude': GPSLong, 'DateTime': GPSDateTime, 'Fgps':Fgps, 'N': Ngps, 'E': Egps, 'C':Cgps, 'H':Hgps, 'D':Dgps,'I':Igps, 'TotalPoints':TolSatPts, 'MinDist':MinDistance, 'AvDist':AvDistance}  
     return resultrow
