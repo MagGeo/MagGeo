@@ -1,0 +1,24 @@
+name: MagGeoEnv
+channels:
+  - conda-forge
+dependencies:
+  - python=3
+  - pandas
+  - notebook
+  - geopandas
+  - matplotlib
+  - viresclient
+ # - rasterio
+ # - descartes
+  - xarray
+  - cartopy
+ # - netcdf4
+  - seaborn
+  - geoplot
+  - gdal
+  - shapely
+  - numpy
+  - geojson
+  - requests
+  - cdflib
+  - chaosmagpy
