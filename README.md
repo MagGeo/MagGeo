@@ -28,7 +28,7 @@ MagGeo is entirely build in python and using Jupyter Notebook offers a several w
 - **Minimum Distance** mapped as MinDist, representing the minimum distance amount the set of identified point inside the Space Time cylinder and each GPS point location.
 - **Average Distance** mapped as AvDist, representing the average distance amount the set of distances between the identified Swarm Point in the Space Time cylinder and the GPS Points location.
 
-Researches can use the annotated table to analyze and study the variation across the date and time of each GPS point in the track. 
+Researchers particularly ecologists now can study the annotated table to analyze the Spatio-temporal variation across any GPS trajectory.
 
 <img src="./images/GitHubImage.png">
 
