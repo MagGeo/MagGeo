@@ -30,6 +30,9 @@ MagGeo is entirely build in python and using Jupyter Notebook offers a several w
 
 Researches can use the annotated table to analyze and study the variation across the date and time of each GPS point in the track. 
 
+<img src="./images/GitHubImage.png">
+
+
 ## How to install and Run MagGeo
 
 To install and run MagGeo you need to follow the following steps.
