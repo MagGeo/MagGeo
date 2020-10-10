@@ -121,11 +121,3 @@ The following image will help you to understand how the sequential and parallel 
 # Getting help
 
 **MagGeo** is work in progress and we are constantly making improvements that you call follow up with the commints made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions, bugs or improvements using **MagGeo** please email: [Fernando.Benitez@st-andrews.ac.uk](mailto:Fernando.Benitez@st-andrews.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), <jed.long@uwo.ca> 
-
-# References
-
-*[1](http://www.geomag.bgs.ac.uk/education/earthmag.html#_Toc2075547)
-
-*[2](https://noaa.maps.arcgis.com/apps/MapJournal/index.html?appid=3b9045c4d1aa408694d3759d1aa5ede4)
-
-
