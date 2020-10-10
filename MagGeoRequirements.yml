@@ -7,13 +7,8 @@ dependencies:
   - notebook
   - geopandas
   - matplotlib
-  - viresclient
- # - rasterio
- # - descartes
   - xarray
   - cartopy
- # - netcdf4
-  - seaborn
   - geoplot
   - gdal
   - shapely
@@ -21,4 +16,6 @@ dependencies:
   - geojson
   - requests
   - cdflib
-  - chaosmagpy
+  - pip:
+    - install viresclient
+    - install chaosmagpy
