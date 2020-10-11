@@ -65,7 +65,7 @@ git clone git@github.com:
 
 1. Open the **anaconda terminal app** from the *Start menu*.
 
-​*Check your terminal can use the conda program with:*
+​       *Check your terminal can use the conda program with:*
 
 ```
 conda --version
