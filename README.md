@@ -97,7 +97,9 @@ conda activate MagGeoEnv
 jupyter notebook
 ```
 
-You are ready to go, now a tab window will pop up into your browser with the following address https://localhost:8080, follow all the steps described in main Notebook.
+You are ready to go, now a tab window will pop up into your browser with the following address https://localhost:8080.
+Now you need to get a VirES client token, the step No 2, and afterwards, open one of the four Jupiter Notebooks from MagGeo, step No 3
+
 
 ### 2. Getting a VirES web client Token
 
