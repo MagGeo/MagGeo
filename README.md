@@ -64,17 +64,20 @@ git clone git@github.com:
 **For Windows users**, we recommend to use the **anaconda terminal app**. 
 
 1. Open the **anaconda terminal app** from the *Start menu*.
-2. You will need to change the directory to where you downloaded the code repository. If you're using the terminal on Linux or macOS, it's the same syntax to change directory.
 
-```
-cd MagGeoRepo
-```
-
-​		*Check your terminal can use the conda program with:*
+​*Check your terminal can use the conda program with:*
 
 ```
 conda --version
 ```
+
+2. You will need to change the directory to where you downloaded the code repository. Do not forget to unzip the folder before using it. 
+If you're using the terminal on Linux or macOS, it is the same syntax to change directory.
+
+```
+cd MagGeo-Annotation-Program
+```
+
 
 3. Create the conda environment using the environment yml file, this can take between 5 - 15 minutes:
 
