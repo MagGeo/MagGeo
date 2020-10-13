@@ -3,6 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3
+  - pip
   - pandas
   - notebook
   - geopandas
@@ -17,5 +18,5 @@ dependencies:
   - requests
   - cdflib
   - pip:
-    - install viresclient
-    - install chaosmagpy
+    - viresclient
+    - chaosmagpy
