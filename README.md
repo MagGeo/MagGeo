@@ -2,9 +2,11 @@
 
 ## Annotation tool to combine Earth's magnetic data from Swarm satellites with GPS trajectories
 
-**Contact**  | [Fernando.Benitez@st-andrews.ac.uk](mailto:Fernando.Benitez@st-andrews.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), <jed.long@uwo.ca>
+**Authors** | Fernando Benitez-Paez, Urška Demšar, Jed Long, Ciaran Beggan
 
-**nbviewer URL** | https://nbviewer.jupyter.org/github/maggeo
+**Contact**  | [Fernando.Benitez@st-andrews.ac.uk](mailto:Fernando.Benitez@st-andrews.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca), [ciar@bgs.ac.uk](mailto:Fernando.Benitez@st-andrews.ac.uk)
+
+**nbviewer URL** | https://nbviewer.jupyter.org/github/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo_Sequential.ipynb
 
 **Keywords** | Bird migration, data fusion, Earth’s magnetic field, Swarm, GPS tracking 
 
