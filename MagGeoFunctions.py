@@ -95,6 +95,7 @@ def Get_Swarm_residuals(startDateTime, endDateTime):
     dsB.drop(columns=['B_NEC_res_CHAOS_MCO_MLI_MMA'], inplace=True)
     dsC[['N_res','E_res','C_res']] = pd.DataFrame(dsC.B_NEC_res_CHAOS_MCO_MLI_MMA.tolist(), index= dsC.index)
     dsC.drop(columns=['B_NEC_res_CHAOS_MCO_MLI_MMA'], inplace=True)
+    #Remove the "bad Swarm" points in a range of -+ 2.000 nT
     dsA_filtered = dsA[dsA['F_res_CHAOS_MCO_MLI_MMA'].between(-2000, 2000)]
     dsB_filtered = dsB[dsB['F_res_CHAOS_MCO_MLI_MMA'].between(-2000, 2000)]
     dsC_filtered = dsC[dsA['F_res_CHAOS_MCO_MLI_MMA'].between(-2000, 2000)]
