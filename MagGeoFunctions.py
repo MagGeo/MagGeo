@@ -132,8 +132,8 @@ TotalSwarmRes_B = pd.read_csv('TotalSwarmRes_B.csv',low_memory=False, index_col=
 TotalSwarmRes_C = pd.read_csv('TotalSwarmRes_C.csv',low_memory=False, index_col='epoch')
 
 
-def ST_IDW_Process (GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime, DT):
-    
+def ST_IDW_Process (GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime):
+    DT=14400
     # 1. Runnig the DfTime_func function to filter by the defined Delta Time.
     time_kernel_A = DfTime_func(TotalSwarmRes_A,GPSTime,DT)
     time_kernel_B = DfTime_func(TotalSwarmRes_B,GPSTime,DT)

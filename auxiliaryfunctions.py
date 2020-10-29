@@ -27,7 +27,6 @@ def DistJ(ds, r, dt, DT):
     return eDist
 
 def DfTime_func (SwarmData, GPSTime, DT):
-#     DT= 14400 #deltaT of 14400 secs, 4 hours, if the Period is 1s. 1440 for 10s of period. 240 for data every 60s.
     DataFrame_Per_Time = []
     for index in SwarmData.index:
         if index == GPSTime:
