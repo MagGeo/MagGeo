@@ -210,7 +210,7 @@ def ST_IDW_Process (GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime):
 
 def CHAOS_ground_values(GPS_ResInt):
     
-    model = load_CHAOS_matfile('C:\\foss4guk19-jupyter-master\\Project_StAndrews\\Parallel\\CHAOS-7.mat')
+    model = load_CHAOS_matfile('./CHAOS-7.mat')
     theta = 90-GPS_ResInt['Latitude'].values
     phi = GPS_ResInt['Longitude'].values
     alt=GPS_ResInt['Altitude'].values
