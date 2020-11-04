@@ -26,6 +26,7 @@ MagGeo is entirely build in python and using Jupyter Notebook offers a several w
 - **Horizontal component** mapped as H in nanoTeslas (nT).
 - **Magnetic Declination or dip angle** mapped as D in degrees
 - **Magnetic Inclination** mapped as I in degrees
+- **Kp Index** mapped as kp
 - **Total Points** as the amount of Swarm measures included in the ST-IDW process from the trajectories requested in the three satellites.
 - **Minimum Distance** mapped as MinDist, representing the minimum distance amount the set of identified point inside the Space Time cylinder and each GPS point location.
 - **Average Distance** mapped as AvDist, representing the average distance amount the set of distances between the identified Swarm Point in the Space Time cylinder and the GPS Points location.
