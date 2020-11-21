@@ -133,6 +133,7 @@ TotalSwarmRes_C = pd.read_csv('TotalSwarmRes_C.csv',low_memory=False, index_col=
 
 
 def ST_IDW_Process (GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime):
+    
     DT=14400
     # 1. Runnig the DfTime_func function to filter by the defined Delta Time.
     time_kernel_A = DfTime_func(TotalSwarmRes_A,GPSTime,DT)
@@ -210,7 +211,7 @@ def ST_IDW_Process (GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime):
 
 def CHAOS_ground_values(GPS_ResInt):
     
-    model = load_CHAOS_matfile('./CHAOS-7.mat')
+    model = load_CHAOS_matfile(r'../CHAOS-7.mat')
     theta = 90-GPS_ResInt['Latitude'].values
     phi = GPS_ResInt['Longitude'].values
     alt=GPS_ResInt['Altitude'].values

@@ -14,8 +14,6 @@ def row_handler (GPSData):
         GPSTime = row['epoch']
         GPSAltitude = row['gpsAltitude']
         print("Process for:", index,"Date&Time:",GPSDateTime, "Epoch", GPSTime)
-#         result=ST_IDW_Process(GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime)
-#         dn.append(result)     
         try:
             result=ST_IDW_Process(GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime)
             dn.append(result)
