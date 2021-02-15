@@ -1,8 +1,9 @@
 name: MagGeoEnv
 channels:
   - conda-forge
+  - defaults
 dependencies:
-  - python=3
+  - python=3.8
   - pip
   - pandas
   - notebook
@@ -17,6 +18,14 @@ dependencies:
   - geojson
   - requests
   - cdflib
+  - Jinja2
+  - pytables
+  - tqdm
+  - scipy
+  - cython
+  - h5py
   - pip:
+    - cdflib
+    - hdf5storage
     - viresclient
     - chaosmagpy
