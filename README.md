@@ -1,4 +1,5 @@
 # MagGeo v1.0. 
+[![DOI](https://zenodo.org/badge/289120794.svg)](https://zenodo.org/badge/latestdoi/289120794)
 
 ## Annotation tool to combine Earth's magnetic data from Swarm satellites with GPS trajectories
 
@@ -10,7 +11,6 @@
 
 **Keywords** | Bird migration, data fusion, Earth’s magnetic field, Swarm, GPS tracking 
 
-**Cite this program** [![DOI](https://zenodo.org/badge/289120794.svg)](https://zenodo.org/badge/latestdoi/289120794)
 
 
 ## Overview
