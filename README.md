@@ -10,6 +10,9 @@
 
 **Keywords** | Bird migration, data fusion, Earth’s magnetic field, Swarm, GPS tracking 
 
+**Cite this program** [![DOI](https://zenodo.org/badge/289120794.svg)](https://zenodo.org/badge/latestdoi/289120794)
+
+
 ## Overview
 
 MagGeo is a tool that helps ecologists or animal movement researchers to link  earth's magnetic field data from satellite source to GPS trajectories. Inspired by the Environmental Data Automated Track Annotation System (Env-DATA) Service a tool from Movebank and help researcher to get a better understanding about the geomagnetic variations across the GPS trajectories. 
