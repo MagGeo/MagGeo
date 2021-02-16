@@ -1,4 +1,4 @@
-# MagGeo v1.0. 
+# MagGeo v2.0. 
 [![DOI](https://zenodo.org/badge/289120794.svg)](https://zenodo.org/badge/latestdoi/289120794)
 
 ## Annotation tool to combine Earth's magnetic data from Swarm satellites with GPS trajectories
