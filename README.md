@@ -17,7 +17,7 @@
 
 MagGeo is a tool that helps ecologists or animal movement researchers to link  earth's magnetic field data from satellite source to GPS trajectories. Inspired by the Environmental Data Automated Track Annotation System (Env-DATA) Service a tool from Movebank and help researcher to get a better understanding about the geomagnetic variations across the GPS trajectories. 
 
-MagGeo is entirely build in python and using Jupyter Notebook offers a several ways to annotate GPS tracks with the geomagnetic components using the data from one of the up-to-date satellite sources Swarm Constellation. MagGeo will create a enriched GPS track with the following components:
+MagGeo is entirely built-in python and using Jupyter Notebook offers several ways to annotate GPS tracks with the geomagnetic components using the data from one of the up-to-date satellite sources Swarm Constellation. MagGeo will create a enriched GPS track with the following components:
 
 - **Latitude** from the GPS Track.
 - **Longitude** from the GPS Track.
