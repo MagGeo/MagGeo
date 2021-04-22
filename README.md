@@ -1,6 +1,7 @@
 # MagGeo v2.0. 
 [![DOI](https://zenodo.org/badge/289120794.svg)](https://zenodo.org/badge/latestdoi/289120794)
 [![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Home.ipynb)
+[![nbgitpuller-VRE](https://img.shields.io/badge/nbgitpuller-VRE-blue)](https://vre.vires.services/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2FMagGeo%2FMagGeo-Annotation-Program&urlpath=tree%2FMagGeo-Annotation-Program%2FMagGeo+-+Home.ipynb&branch=master)
 
 ## Data fusion tool to combine Earth's magnetic data from Swarm satellites with GPS trajectories
 
