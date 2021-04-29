@@ -50,7 +50,7 @@ To install and run MagGeo you need to follow the following steps.
   - For Windows users, here's a link to the [Win64 Installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe). Download this and run the exe installer
   - For those on MacOS or Linux and are happy with the terminal, try either:
 
-```
+```bash
 # get the latest MacOS 64-bit installer
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
 bash Miniconda3-latest-MacOSX-x86_64.sh
@@ -61,45 +61,42 @@ bash Miniconda3-latest-MacOSX-x86_64.sh
 
 Download a copy of this repository, either downloading of the zip or via git, with:
 
-```
-git clone git@github.com: 
+```bash
+git clone https://github.com/MagGeo/MagGeo-Annotation-Program.git
 ```
 
 **For Windows users**, we recommend to use the **anaconda terminal app**.
 
 1. Open the **anaconda terminal app** from the *Start menu*.
 
-```
-```
-
 *Check your terminal can use the conda program with:*
 
-```
+```bash
 conda --version
 ```
 
 2. You will need to change the directory to where you downloaded the code repository. Do not forget to unzip the folder before using it.
    If you're using the terminal on Linux or macOS, it is the same syntax to change directory.
 
-```
+```bash
 cd MagGeo-Annotation-Program
 ```
 
 3. Create the conda environment using the environment yml file, this can take between 5 - 15 minutes:
 
-```
+```bash
 conda env create --file environment.yml
 ```
 
 4. Activate the environment
 
-```
+```bash
 conda activate MagGeoEnv
 ```
 
 5. Launch a Jupyter Notebook
 
-```
+```bash
 jupyter notebook
 ```
 
