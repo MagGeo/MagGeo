@@ -1,4 +1,4 @@
-# MagGeo 
+# MagGeo
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4543735.svg)](https://doi.org/10.5281/zenodo.4543735)
 [![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.jupyter.org/github/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Home.ipynb)
@@ -10,12 +10,11 @@
 
 **Contact**  | [Fernando.Benitez@st-andrews.ac.uk](mailto:Fernando.Benitez@st-andrews.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca), [ciar@bgs.ac.uk](mailto:Fernando.Benitez@st-andrews.ac.uk)
 
-**Keywords** | Bird migration, data fusion, Earth’s magnetic field, Swarm, GPS tracking 
-
+**Keywords** | Bird migration, data fusion, Earth’s magnetic field, Swarm, GPS tracking
 
 ## Overview
 
-MagGeo is a tool that helps ecologists or animal movement researchers to link  earth's magnetic field data from satellite source to GPS trajectories. Inspired by the Environmental Data Automated Track Annotation System (Env-DATA) Service a tool from Movebank and help researcher to get a better understanding about the geomagnetic variations across the GPS trajectories. 
+MagGeo is a tool that helps ecologists or animal movement researchers to link  earth's magnetic field data from satellite source to GPS trajectories. Inspired by the Environmental Data Automated Track Annotation System (Env-DATA) Service a tool from Movebank and help researcher to get a better understanding about the geomagnetic variations across the GPS trajectories.
 
 MagGeo is entirely built-in python and using a set of Jupyter Notebooks that offer several ways to link GPS tracks with the geomagnetic components using the data from one of the up-to-date satellite sources - Swarm Constellation. MagGeo will create an enriched GPS track with the following components:
 
@@ -38,14 +37,13 @@ Researchers, particularly ecologists now can study the annotated table to analyz
 
 <img src="./images/GitHubImage.png">
 
-
 ## How to install and Run MagGeo on your machine
 
 To install and run MagGeo you need to follow the following steps.
 
 ### 1. Install and Set up your Python environment
 
-**MagGeo** can be executed in any python environment you would like to use.  In the following steps we will suggest to use `Miniconda` together with a `requirements.yml` file that will provide all the packages with a virtual python environment.
+**MagGeo** can be executed in any python environment you would like to use.  In the following steps we will suggest to use `Miniconda` together with a `requirements.yml` or `environment.yml` file that will provide all the packages with a virtual python environment.
 
 - If you do not have either `Anaconda` or `miniconda` installed, then go and download `miniconda` from https://docs.conda.io/en/latest/miniconda.html.
   - Select the **Python 3.x option** rather than the 2.x version to download and run the installer
@@ -67,28 +65,30 @@ Download a copy of this repository, either downloading of the zip or via git, wi
 git clone git@github.com: 
 ```
 
-**For Windows users**, we recommend to use the **anaconda terminal app**. 
+**For Windows users**, we recommend to use the **anaconda terminal app**.
 
 1. Open the **anaconda terminal app** from the *Start menu*.
 
-​       *Check your terminal can use the conda program with:*
+```
+```
+
+*Check your terminal can use the conda program with:*
 
 ```
 conda --version
 ```
 
-2. You will need to change the directory to where you downloaded the code repository. Do not forget to unzip the folder before using it. 
-If you're using the terminal on Linux or macOS, it is the same syntax to change directory.
+2. You will need to change the directory to where you downloaded the code repository. Do not forget to unzip the folder before using it.
+   If you're using the terminal on Linux or macOS, it is the same syntax to change directory.
 
 ```
 cd MagGeo-Annotation-Program
 ```
 
-
 3. Create the conda environment using the environment yml file, this can take between 5 - 15 minutes:
 
 ```
-conda env create --file MagGeoRequirements.yml
+conda env create --file environment.yml
 ```
 
 4. Activate the environment
@@ -106,7 +106,6 @@ jupyter notebook
 You are ready to go, now a tab window will pop up into your browser with the following address https://localhost:8080.
 Now you need to get a VirES client token, the step No 2, and afterwards, open one of the four Jupiter Notebooks from MagGeo, step No 3
 
-
 ### 2. Sign Up at VirES for Swarm - VRE and get a web client Token
 
 **MagGeo** use [**VirES**](https://swarm-vre.readthedocs.io/en/latest/Swarm_notebooks/02a__Intro-Swarm-viresclient.html) (Virtual environments for Earth Scientists) a platform for data & model access, analysis, and visualization for ESA’s magnetic mission **Swarm**. This is a powerful client with the [viresclient API](https://swarm-vre.readthedocs.io/en/latest/Swarm_notebooks/02c__viresclient-API.html) that provide several classes and methods defined in the vires client package. The `viresclient` Python package allows you to connect to the VirES server to download [Swarm](https://earth.esa.int/web/guest/missions/esa-operational-eo-missions/swarm) data and data calculated using magnetic models.
@@ -118,17 +117,17 @@ Now you need to get a VirES client token, the step No 2, and afterwards, open on
 
 ### 3. Run MagGeo
 
-MagGeo is a set of Jupyter Notebooks, you will find four notebooks (.ipynp). 
+MagGeo is a set of Jupyter Notebooks, you will find four notebooks (.ipynp).
 
 * [Main Notebook](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Home.ipynb) : An initial and descriptive notebook where you can get detail information about MagGeo, the sample data used, background concepts and software requirements.
-* [Sequential Mode](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Sequential%20Mode.ipynb): Annotation Notebook applying a sequential mode. Using  a traditional loop to going through the GPS track rows and process every row computing the magnetic components. Particularly useful for small datasets. 
+* [Sequential Mode](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Sequential%20Mode.ipynb): Annotation Notebook applying a sequential mode. Using  a traditional loop to going through the GPS track rows and process every row computing the magnetic components. Particularly useful for small datasets.
 * [Parallel Mode](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Parallel%20Mode.ipynb):  If you have a "big" dataset ( e.g. 1 million of records) you might want try the parallel mode. The parallel mode has some differences when you run the required libraries in a windows or Linux environment. We have tested **MagGeo** in a windows server environment.
 * [Notebook basics](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/Notebook%20-%20Basics.ipynb): If you are not familiar with Jupiter Notebooks and want to learn about the basics over how to run the notebooks before try the annotate tool. You can try this notebook to get the basics elements to run cells, read data, and plot some a basic chart.
 
-The following image will help you to understand how the sequential and parallel mode differ, and how in parallel mode you should be able to use the full capacity of your machine. However it is quite important to identify when we need to use a parallel mode. For small datasets running **MagGeo** in Parallel mode could be even slower than the sequential mode. 
+The following image will help you to understand how the sequential and parallel mode differ, and how in parallel mode you should be able to use the full capacity of your machine. However it is quite important to identify when we need to use a parallel mode. For small datasets running **MagGeo** in Parallel mode could be even slower than the sequential mode.
 
 <img src="/images/Sequential_ParallelMode-Jupyter.png">
 
 # Problems?, Suggestions? - Contact us
 
-**MagGeo** is work in progress and we are constantly making improvements that you call follow up with the commints made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions, bugs or improvements using **MagGeo** please email: [Fernando.Benitez@st-andrews.ac.uk](mailto:Fernando.Benitez@st-andrews.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), <jed.long@uwo.ca> 
+**MagGeo** is work in progress and we are constantly making improvements that you call follow up with the commints made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions, bugs or improvements using **MagGeo** please email: [Fernando.Benitez@st-andrews.ac.uk](mailto:Fernando.Benitez@st-andrews.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), <jed.long@uwo.ca>
