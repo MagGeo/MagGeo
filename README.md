@@ -124,7 +124,7 @@ MagGeo is a set of Jupyter Notebooks, you will find four notebooks (.ipynp).
 
 The following image will help you to understand how the sequential and parallel mode differ, and how in parallel mode you should be able to use the full capacity of your machine. However it is quite important to identify when we need to use a parallel mode. For small datasets running **MagGeo** in Parallel mode could be even slower than the sequential mode.
 
-<img src="./images/Sequential_ParallelMode-Jupyter.png">
+<img src="/images/Sequential_ParallelMode-Jupyter.png">
 
 # Problems?, Suggestions? - Contact us
 
