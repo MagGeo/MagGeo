@@ -8,6 +8,7 @@ dependencies:
   - pandas
   - notebook
   - geopandas
+  - movingpandas
   - matplotlib
   - xarray
   - cartopy
@@ -24,6 +25,8 @@ dependencies:
   - scipy
   - cython
   - h5py
+  - hvplot
+  - bokeh
   - pip:
     - cdflib
     - hdf5storage
