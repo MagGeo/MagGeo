@@ -276,13 +276,29 @@ def CHAOS_ground_values(GPS_ResInt):
     B_t_ground = B_t_core + B_t_crust + B_t_magneto + B_t_swarm #(-X)
     B_phi_ground = B_phi_core + B_phi_crust +B_phi_magneto + B_phi_swarm #(Y)
 
+    #4b. Compute the CHOAS internal magnetic component (r,theta,phi) at ground level.
+    B_r_ground_internal = B_r_core + B_r_crust #(-Z)
+    B_t_ground_internal = B_t_core + B_t_crust #(-X)
+    B_phi_ground_internal = B_phi_core + B_phi_crust #(Y)
+
     #5. Convert B_r_, B_t_, and B_phi to XYZ (NEC)
     Z_chaos = -B_r_ground   #Z
     X_chaos = -B_t_ground   #X
     Y_chaos = B_phi_ground  #Y
 
+    #5b. Convert full field with CHOAS internal only B_r_, B_t_, and B_phi to XYZ (NEC)
+    Z_chaos_internal = -B_r_ground_internal #Z
+    X_chaos_internal = -B_t_ground_internal #X
+    Y_chaos_internal = B_phi_ground_internal #Y
+
     #6. Rotate the X(N) and Z(C) magnetic field values of the chaos models into the geodectic frame using the sd and cd (sine and cosine d from gg_to_geo) 
     X_obs = X_chaos*cd_ground + Z_chaos*sd_ground #New N
     Z_obs = Z_chaos*cd_ground - X_chaos*sd_ground #New C
     Y_obs = Y_chaos # New E
-    return X_obs, Y_obs, Z_obs
+
+    #6b. Rotate the X(N) and Z(C) magnetic field values of the internal part of chaos models into the geodetic frame using the sd and cd (sine and cosine d from gg_to_geo) 
+    X_obs_internal = X_chaos_internal *cd_ground + Z_chaos_internal*sd_ground #New N
+    Z_obs_internal = Z_chaos_internal *cd_ground - X_chaos_internal*sd_ground #New C
+    Y_obs_internal = Y_chaos_internal # New E
+
+    return X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal
