@@ -1,7 +1,5 @@
 import chaosmagpy as cp
 import pandas as pd
-from chaosmagpy import load_CHAOS_matfile
-from chaosmagpy.data_utils import mjd2000
 from viresclient import SwarmRequest
 import sys,os
 
@@ -255,12 +253,12 @@ def ST_IDW_Process (GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime, TotalSwarmRe
 
 def CHAOS_ground_values(GPS_ResInt):
     #1. Load the requiered parameters, including a local CHAOS model in mat format.
-    model = load_CHAOS_matfile(r'CHAOS-7.mat')
+    model = cp.load_CHAOS_matfile(r'CHAOS-7.mat')
     theta = 90-GPS_ResInt['Latitude'].values
     phi = GPS_ResInt['Longitude'].values
     alt=GPS_ResInt['Altitude'].values
     rad_geoc_ground, theta_geoc_ground, sd_ground, cd_ground = gg_to_geo(alt, theta) # gg_to_geo, will transfor the coordinates from geocentric values to geodesic values. Altitude must be in km
-    time= mjd2000(pd.DatetimeIndex(GPS_ResInt['DateTime']).year, pd.DatetimeIndex(GPS_ResInt['DateTime']).month, pd.DatetimeIndex(GPS_ResInt['DateTime']).day)
+    time= cp.data_utils.mjd2000(pd.DatetimeIndex(GPS_ResInt['DateTime']).year, pd.DatetimeIndex(GPS_ResInt['DateTime']).month, pd.DatetimeIndex(GPS_ResInt['DateTime']).day)
     
     #2. Compute the core, crust and magentoshpere contributions at the altitude level.
     B_r_core, B_t_core, B_phi_core = model.synth_values_tdep(time, rad_geoc_ground, theta_geoc_ground, phi) #Core Contribution
