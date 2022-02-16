@@ -1,13 +1,8 @@
 import datetime as dt
-import time
 from datetime import timedelta
-import calendar
-import sys,os
-from pathlib import Path
+import os
 import pandas as pd
 import numpy as np
-from viresclient import ClientConfig
-import matplotlib.pyplot as plt
 from viresclient import set_token
 from MagGeoFunctions import getGPSData
 from MagGeoFunctions import Get_Swarm_residuals
@@ -25,7 +20,7 @@ DateTime=input("Enter the date and time column name?: ") # i.e timestamp
 altitude = input("Enter the Altitude column name?, if you don't have the altitude column, just press Enter: ") 
 """""
 
-gpsfilename= "BirdGPSTrajectory.csv"
+gpsfilename= "BirdGPSTrajectoryTest.csv"
 Lat="location-lat"
 Long="location-long"
 DateTime="timestamp"
@@ -105,7 +100,8 @@ GPS_ResInt = pd.DataFrame(dn)
 GPS_ResInt.to_csv ('GPS_ResInt.csv', header=True)
 os.chdir(r"../")
 
-X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal =CHAOS_ground_values(GPS_ResInt)
+X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal = CHAOS_ground_values(GPS_ResInt)
+
 GPS_ResInt['N'] =pd.Series(X_obs)
 GPS_ResInt['E'] =pd.Series(Y_obs)
 GPS_ResInt['C'] =pd.Series(Z_obs)

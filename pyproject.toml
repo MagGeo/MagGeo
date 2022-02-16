@@ -1,16 +1,16 @@
 [tool.poetry]
 name = "MagGeo"
-version = "0.1.0"
+version = "0.2.0"
 description = "MagGeo is a tool that helps ecologists or animal movement researchers to link earth's magnetic field data from satellite source to GPS trajectories."
-authors = ["mfbenitezp <Fernando.Benitez@st-andrews.ac.uk>"]
+authors = ["Fernando Benitez-Paez <Fernando.Benitez@st-andrews.ac.uk>", "Urška Demšar <ud2@st-andrews.ac.uk>", "Jed Long <jed.long@uwo.ca>", "Ciaran Beggan <ciar@bgs.ac.uk>"]
 license = "GPL-3.0-only"
 
 [tool.poetry.dependencies]
 python = "^3.8"
 pandas = "^1.4.1"
-viresclient = "0.9.0"
+viresclient = "^0.10.0"
 matplotlib = "^3.5.1"
-chaosmagpy = "0.7.1"
+chaosmagpy = "^0.8"
 
 
 [tool.poetry.dev-dependencies]

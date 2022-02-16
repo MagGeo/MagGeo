@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import os
 from MagGeoFunctions import ST_IDW_Process
 from MagGeoFunctions import CHAOS_ground_values
 
@@ -32,9 +31,15 @@ def row_handler (GPSData):
     
     GPS_ResInt = pd.DataFrame(dn)
     GPS_ResInt.to_csv (r'./temp_data/GPS_ResInt.csv', header=True)
-    X_obs, Y_obs, Z_obs =CHAOS_ground_values(GPS_ResInt)
+
+    X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal =CHAOS_ground_values(GPS_ResInt)
     GPS_ResInt['N'] =pd.Series(X_obs)
     GPS_ResInt['E'] =pd.Series(Y_obs)
     GPS_ResInt['C'] =pd.Series(Z_obs)
+    GPS_ResInt['N_Obs'] =pd.Series(X_obs_internal)
+    GPS_ResInt['E_Obs'] =pd.Series(Y_obs_internal)
+    GPS_ResInt['C_Obs'] =pd.Series(Z_obs_internal)
+
     GPS_ResInt.drop(columns=['N_res', 'E_res','C_res'], inplace=True)
+
     return GPS_ResInt
