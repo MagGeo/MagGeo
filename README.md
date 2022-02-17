@@ -44,17 +44,17 @@ To install and run MagGeo you need to follow the following steps.
 
 ### 1. Install Poetry
 
-**MagGeo** use Poetry a tool for **dependency management** and **packaging** in Python. It allows MagGeo to use the tested libraries/dependencies requeried for a complete excecution.
+**MagGeo** use Poetry a tool for **dependency management** and **packaging** in Python. It allows MagGeo to use the tested libraries/dependencies requeried.
 
 Open a Terminal, got to [https://python-poetry.org/docs/#installation](https://python-poetry.org/docs/#installation), follow the install instructions that suits to your enviroment [OSX/Unix/Windows}.
 
-For instance on Febrary 2022 the command was the following (We recommend to visit the previous link to make sure you get the rigth command):
+For instance on Febrary 2022 the command use was the following (We recommend to visit the previous link to make sure you get the rigth command):
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 ```
 
-To make sure you get Poetry correctly installed, try:
+To make sure you get Poetry correctly installed, try out:
 
 ```bash
 poetry --version
@@ -96,13 +96,13 @@ poetry install
 
 ### 6. Run MagGeo using the sample data.
 
-MagGeo can me excuted in the same terminal you have been installing the previuos steps. If you want to get familiar with what MagGeo does and get an annotated GPS trajectory using the data we have included as example (data folder), run:
+MagGeo can be excuted using the same terminal you have been using in the previous steps. If you want to get familiar with MagGeo and get an annotated GPS trajectory using the data we have included as an example (data folder), run the following command:
 
 ```
 poetry run python MagGeo_SA.py -p parameters/default.yml
 ```
 
-After some seconds MagGeo will ask for your VirES token, just copy and paste insde the terminal and hit Enter.
+After some seconds MagGeo will ask you for the VirES token, just copy and paste inside the terminal and hit Enter.
 
 ![1645097550377.png](image/README/1645097550377.png)
 
@@ -112,7 +112,7 @@ Now MagGeo will start to download the Swarm Data.
 
 Once the data has been downloaded, MagGeo will process it to make the annotation process ( for more information about how it is done, visit [our methodological paper in Movement Ecology](https://movementecologyjournal.biomedcentral.com/track/pdf/10.1186/s40462-021-00268-4.pdf))
 
-The las step MagGeo does is annotate the gathered data, that would time more time depending how big your dataset is. In our example it only takes 4 seconds.
+The las step MagGeo does is annotating the gathered data, that would take more time depending how big your dataset is. In our example it only takes 4 seconds.
 
 ![1645097795359.png](image/README/1645097795359.png)
 
@@ -120,13 +120,13 @@ And **Congrats** **you got annotated data**. The results will be stored in the f
 
 #### 6.1 Run MagGeo using your data.
 
-If you are redy to annotate your GPS trajectories. You need to update the parameters files in MagGeo to let the program knows what are the correct parameters of your data.
+If you are redy to annotate your GPS trajectories. You need to update the parameters file in MagGeo to let the program know what are the correct values of your data.
 
-* Open and Update the following parameters in the file `default.yml` locadted in parameters folder:
-* `gpsfilename: "name_of_your_csv_trayectory.cvs"` Include the name of your Input data. The GPS trayectory you need to annotate with the geomagnetic satellite data. Do not forget the "" and the .csv extension.
+* Open and Update the following parameters in the file `default.yml` located in parameters folder:
+* `gpsfilename: "name_of_your_csv_trayectory.cvs"` Include the name of your Input data. The GPS trayectory you need to annotate with the geomagnetic satellite data.
 * `Lat: "latitude_column_name_in_your_trayectory"`
 * `Long: "longitude_column_name_in_your_trayectory"`
-* `DateTime: "Date_Time_column_name_in_your_trajectory"` make sure you have one column that includes Date and Time values.
+* `DateTime: "Date_Time_column_name_in_your_trajectory"` make sure you have one column that includes Date and Time values together.
 * `altitude: "altitude_column_name_in_your_trajectory"` if you do not have any altitute column, you can leave that in blank, including only `""`
 
 Save your changes, return to the Terminal and run:
