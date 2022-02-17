@@ -10,6 +10,7 @@ from MagGeoFunctions import Get_Swarm_residuals
 from MagGeoFunctions import ST_IDW_Process
 from MagGeoFunctions import CHAOS_ground_values
 
+
 set_token("https://vires.services/ows", set_default=True)
 os.chdir(r"./data")
 
@@ -95,6 +96,8 @@ if __name__ == '__main__':
             result_badPoint= {'Latitude': GPSLat, 'Longitude': GPSLong, 'Altitude':GPSAltitude, 'DateTime': GPSDateTime, 'N_res': np.nan, 'E_res': np.nan, 'C_res':np.nan, 'TotalPoints':0, 'Minimum_Distance':np.nan, 'Average_Distance':np.nan}  
             dn.append(result_badPoint)
             continue
+
+
 
 os.chdir(r"./temp_data")
 GPS_ResInt = pd.DataFrame(dn)
