@@ -22,14 +22,6 @@ from MagGeoFunctions import CHAOS_ground_values
 set_token("https://vires.services/ows", set_default=True)
 
 
-"""""
-gpsfilename=input("What is the name of your .csv file?: ") # i.e BirdGPSTrajectory.csv
-Lat=input("Enter the name of your Latitude column?: ") #i.e location-lat
-Long=input("Enter the name of your Longitud column?: ") # i.e location-long
-DateTime=input("Enter the date and time column name?: ") # i.e timestamp
-altitude = input("Enter the Altitude column name?, if you don't have the altitude column, just press Enter: ") 
-"""""
-
 @click.command()
 @click.option('-p',
               '--parameters-file',
@@ -38,8 +30,7 @@ altitude = input("Enter the Altitude column name?, if you don't have the altitud
 
 def main(parameters_file):
     """
-    Main function which runs the population initialisation, then chooses which model to run, either the Python/R
-    model or the OpenCL model
+    Main function which get the data from Swarm VirES client
     """
 
     print(f"--\nReading parameters file: {parameters_file}\n--")
@@ -49,10 +40,10 @@ def main(parameters_file):
 
             parameters = load(f,
                               Loader=SafeLoader)
-            maggeo_params = parameters["maggeo"]  # Parameters for the dynamic microsim (python)
+            maggeo_params = parameters["maggeo"] 
             gpsfilename = maggeo_params["gpsfilename"]
             Lat = maggeo_params["Lat"]
-            Long = maggeo_params["Long"] # Parameters for the disease model (r)
+            Long = maggeo_params["Long"] 
             DateTime = maggeo_params["DateTime"]
             altitude = maggeo_params["altitude"]
 
