@@ -1,7 +1,11 @@
+import warnings
+warnings.filterwarnings('ignore', message='Could not import Cartopy package. Plotting data on maps is not available in chaosmagpy')
+
 import chaosmagpy as cp
 import pandas as pd
 from viresclient import SwarmRequest
-import sys,os
+
+
 
 from gg_to_geo import gg_to_geo
 from auxiliaryfunctions import distance_to_GPS, Kradius, DistJ, DfTime_func
