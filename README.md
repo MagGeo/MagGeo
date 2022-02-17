@@ -42,80 +42,102 @@ Researchers, particularly ecologists now can study the annotated table to analyz
 
 To install and run MagGeo you need to follow the following steps.
 
-### 1. Install and Set up your Python environment
+### 1. Install Poetry
 
-**MagGeo** can be executed in any python environment you would like to use.  In the following steps we will suggest to use `Miniconda` together with a `requirements.yml` or `environment.yml` file that will provide all the packages with a virtual python environment.
+**MagGeo** use Poetry a tool for **dependency management** and **packaging** in Python. It allows MagGeo to use the tested libraries/dependencies requeried for a complete excecution.
 
-- If you do not have either `Anaconda` or `miniconda` installed, then go and download `miniconda` from https://docs.conda.io/en/latest/miniconda.html.
-  - Select the **Python 3.x option** rather than the 2.x version to download and run the installer
-  - For Windows users, here's a link to the [Win64 Installer](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe). Download this and run the exe installer
-  - For those on MacOS or Linux and are happy with the terminal, try either:
+Open a Terminal, got to [https://python-poetry.org/docs/#installation](https://python-poetry.org/docs/#installation), follow the install instructions that suits to your enviroment [OSX/Unix/Windows}.
+
+For instance on Febrary 2022 the command was the following (We recommend to visit the previous link to make sure you get the rigth command):
 
 ```bash
-# get the latest MacOS 64-bit installer
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-bash Miniconda3-latest-MacOSX-x86_64.sh
-# get the latest linux 64-bit installer
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-MacOSX-x86_64.sh
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 ```
 
-Download a copy of this repository, either downloading of the zip or via git, with:
+To make sure you get Poetry correctly installed, try:
+
+```bash
+poetry --version
+```
+
+If you see something like `Poetry 0.12.0` then you are ready to clone the MagGeo repo.
+
+### 2. Clone the MagGeo repository:
 
 ```bash
 git clone https://github.com/MagGeo/MagGeo-Annotation-Program.git
 ```
 
-**For Windows users**, we recommend to use the **anaconda terminal app**.
+### 3. Change the directory
 
-1. Open the **anaconda terminal app** from the *Start menu*.
-
-*Check your terminal can use the conda program with:*
-
-```bash
-conda --version
-```
-
-2. You will need to change the directory to where you downloaded the code repository. Do not forget to unzip the folder before using it.
-   If you're using the terminal on Linux or macOS, it is the same syntax to change directory.
+You will need to change the directory to where you cloned/downloaded the MagGeo repository. If you donwloaded it--Do not forget to unzip the folder before using it.
+If you're using the terminal on Linux or macOS, it is the same syntax to change directory.
 
 ```bash
 cd MagGeo-Annotation-Program
 ```
 
-3. Create the conda environment using the environment yml file, this can take between 5 - 15 minutes:
+### 4. Install the dependencies -- this shouldn't take more than a minute.
 
-```bash
-conda env create --file environment.yml
+Now we are going to use Poetry to get all the libraries/dependecnies MagGeo needs. Run  the following command.
+
+```
+poetry install
 ```
 
-4. Activate the environment
-
-```bash
-conda activate MagGeoEnv
-```
-
-5. Launch a Jupyter Notebook
-
-```bash
-jupyter notebook
-```
-
-You are ready to go, now a tab window will pop up into your browser with the following address https://localhost:8080.
-Now you need to get a VirES client token, the step No 2, and afterwards, open one of the four Jupiter Notebooks from MagGeo, step No 3
-
-### 2. Sign Up at VirES for Swarm - VRE and get a web client Token
+### 5. Sign Up at VirES for Swarm - VRE and get a web client Token
 
 **MagGeo** use [**VirES**](https://swarm-vre.readthedocs.io/en/latest/Swarm_notebooks/02a__Intro-Swarm-viresclient.html) (Virtual environments for Earth Scientists) a platform for data & model access, analysis, and visualization for ESA’s magnetic mission **Swarm**. This is a powerful client with the [viresclient API](https://swarm-vre.readthedocs.io/en/latest/Swarm_notebooks/02c__viresclient-API.html) that provide several classes and methods defined in the vires client package. The `viresclient` Python package allows you to connect to the VirES server to download [Swarm](https://earth.esa.int/web/guest/missions/esa-operational-eo-missions/swarm) data and data calculated using magnetic models.
 
-1. First to all you need to create an account and Sign up using https://vires.services/oauth/accounts/signup/
-2. Once you have created the account, Log In https://vires.services/
-3. Follow the instructions in https://viresclient.readthedocs.io/en/latest/access_token.html to get your token.
-4. Copy and Paste your token in section **1.3 Adding your VirES web client Token** once you are running MagGeo.
+1. First to all you need to create an account and Sign up using [https://vires.services/oauth/accounts/signup/](https://vires.services/oauth/accounts/signup/)
+2. Once you have created the account, Log In [https://vires.services/](https://vires.services/)
+3. Follow the instructions in [https://viresclient.readthedocs.io/en/latest/access_token.html](https://viresclient.readthedocs.io/en/latest/access_token.html) to get your token.
+4. Copy and Paste your token when MagGeo asks
 
-### 3. Run MagGeo
+### 6. Run MagGeo using the sample data.
 
-MagGeo is a set of Jupyter Notebooks, you will find four notebooks (.ipynp).
+MagGeo can me excuted in the same terminal you have been installing the previuos steps. If you want to get familiar with what MagGeo does and get an annotated GPS trajectory using the data we have included as example (data folder), run:
+
+```
+poetry run python MagGeo_SA.py -p parameters/default.yml
+```
+
+After some seconds MagGeo will ask for your VirES token, just copy and paste insde the terminal and hit Enter.
+
+![1645097550377.png](image/README/1645097550377.png)
+
+Now MagGeo will start to download the Swarm Data.
+
+![1645097698268.png](image/README/1645097698268.png)
+
+Once the data has been downloaded, MagGeo will process it to make the annotation process ( for more information about how it is done, visit [our methodological paper in Movement Ecology](https://movementecologyjournal.biomedcentral.com/track/pdf/10.1186/s40462-021-00268-4.pdf))
+
+The las step MagGeo does is annotate the gathered data, that would time more time depending how big your dataset is. In our example it only takes 4 seconds.
+
+![1645097795359.png](image/README/1645097795359.png)
+
+And **Congrats** **you got annotated data**. The results will be stored in the folder results for your futher analysis. You will find a .csv file named like **GeoMagResult_+name_of_your_csv_file_trajectory.**
+
+#### 6.1 Run MagGeo using your data.
+
+If you are redy to annotate your GPS trajectories. You need to update the parameters files in MagGeo to let the program knows what are the correct parameters of your data.
+
+* Open and Update the following parameters in the file `default.yml` locadted in parameters folder:
+* `gpsfilename: "name_of_your_csv_trayectory.cvs"` Include the name of your Input data. The GPS trayectory you need to annotate with the geomagnetic satellite data. Do not forget the "" and the .csv extension.
+* `Lat: "latitude_column_name_in_your_trayectory"`
+* `Long: "longitude_column_name_in_your_trayectory"`
+* `DateTime: "Date_Time_column_name_in_your_trajectory"` make sure you have one column that includes Date and Time values.
+* `altitude: "altitude_column_name_in_your_trajectory"` if you do not have any altitute column, you can leave that in blank, including only `""`
+
+Save your changes, return to the Terminal and run:
+
+```
+poetry run python MagGeo_SA.py -p parameters/default.yml
+```
+
+### 7. Run MagGeo cell by cell, using Jupyter Notebook.
+
+MagGeo includes a set of Jupyter Notebooks, you will find four notebooks (.ipynp).
 
 * [Main Notebook](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Home.ipynb) : An initial and descriptive notebook where you can get detail information about MagGeo, the sample data used, background concepts and software requirements.
 * [Sequential Mode](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Sequential%20Mode.ipynb): Annotation Notebook applying a sequential mode. Using  a traditional loop to going through the GPS track rows and process every row computing the magnetic components. Particularly useful for small datasets.

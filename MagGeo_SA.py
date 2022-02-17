@@ -1,5 +1,5 @@
 """
-Core MagGeo model.
+Core MagGeo model into Poetry.
 Created on Thrus Feb 17, 22
 @author: Fernando Benitez-Paez
 """
