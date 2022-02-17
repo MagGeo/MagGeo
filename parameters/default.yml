@@ -1,0 +1,10 @@
+######  Utility parameters for MagGeo (python) #####
+###### These can also be passed as command line arguments   #####
+
+maggeo:
+  gpsfilename: "BirdGPSTrajectoryTest.csv"  #Input data: The GPS trayectory you need to annotate with the geomagnetic satellite data.
+  Lat: "location-lat"
+  Long: "location-long"
+  DateTime: "timestamp"
+  altitude: "height"
+  #parallel-mode: FALSE # Whether to run MagGeo in parallel mode for big GPS trayectories, TRUE for parallel mode.
