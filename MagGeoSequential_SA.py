@@ -3,6 +3,7 @@ from datetime import timedelta
 import os
 import pandas as pd
 import numpy as np
+from tqdm import tqdm
 from viresclient import set_token
 from MagGeoFunctions import getGPSData
 from MagGeoFunctions import Get_Swarm_residuals
@@ -20,7 +21,7 @@ DateTime=input("Enter the date and time column name?: ") # i.e timestamp
 altitude = input("Enter the Altitude column name?, if you don't have the altitude column, just press Enter: ") 
 """""
 
-gpsfilename= "BirdGPSTrajectory.csv"
+gpsfilename= "BirdGPSTrajectoryTest.csv"
 Lat="location-lat"
 Long="location-long"
 DateTime="timestamp"
@@ -59,8 +60,8 @@ listdfa = []
 listdfb = []
 listdfc = []
 
-for d in uniquelist_dates:
-    print("Getting Swarm data for date:",d )
+for d in tqdm(uniquelist_dates, desc="Getting Swarm Data"):
+    #print("Getting Swarm data for date:",d )
     startdate = dt.datetime.combine(d, dt.datetime.min.time())
     enddate = startdate + hours_added
     SwarmResidualsA,SwarmResidualsB,SwarmResidualsC = Get_Swarm_residuals(startdate, enddate)
@@ -79,13 +80,13 @@ os.chdir(r"../")
 
 if __name__ == '__main__':
     dn = [] ## List used to add all the GPS points with the annotated MAG Data. See the last bullet point of this process        
-    for index, row in GPSData.iterrows():
-        GPSLat = row['gpsLat']
+    for index, row in tqdm(GPSData.iterrows(), total=GPSData.shape[0], desc="Annotating the GPS Trayectory"):
+        GPSLat = row['gpsLat']  
         GPSLong = row['gpsLong']
         GPSDateTime = row['gpsDateTime']
         GPSTime = row['epoch']
         GPSAltitude = row['gpsAltitude']
-        print("Process for:", index,"DateTime:",GPSDateTime)
+        #print("Process for:", index,"DateTime:",GPSDateTime)
         try:
             result=ST_IDW_Process(GPSLat,GPSLong,GPSAltitude, GPSDateTime,GPSTime, TotalSwarmRes_A, TotalSwarmRes_B, TotalSwarmRes_C)
             dn.append(result)
@@ -135,3 +136,4 @@ os.chdir(r"./results")
 outputfile ="GeoMagResult_"+gpsfilename
 export_csv = MagGeoResult.to_csv (outputfile, index = None, header=True)
 os.chdir(r"../")
+print("Congrats! MagGeo has processed your GPS trayectory. Find the annotated table: " + outputfile + " in the folder results.")
