@@ -20,7 +20,7 @@ DateTime=input("Enter the date and time column name?: ") # i.e timestamp
 altitude = input("Enter the Altitude column name?, if you don't have the altitude column, just press Enter: ") 
 """""
 
-gpsfilename= "BirdGPSTrajectoryTest.csv"
+gpsfilename= "BirdGPSTrajectory.csv"
 Lat="location-lat"
 Long="location-long"
 DateTime="timestamp"
