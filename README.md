@@ -42,27 +42,11 @@ Researchers, particularly ecologists now can study the annotated table to analyz
 
 To install and run MagGeo you need to follow the following steps.
 
-### 1. Install Poetry
+### 1. Install Miniconda
 
-MagGeo use Poetry a tool for dependency management and packaging in Python. It allows MagGeo to use the tested libraries/dependencies requeried.
+Recommended setup if starting without Python already
 
-Open a Terminal, go to [https://python-poetry.org/docs/#installation](https://python-poetry.org/docs/#installation), follow the install instructions that suits to your enviroment [OSX/Unix/Windows}.
-
-For instance on Febrary 2022 the command use was the following (We recommend to visit the previous link to make sure you get the rigth command):
-
-```bash
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-```
-
-To make sure you get Poetry correctly installed, try out:
-
-```bash
-poetry --version
-```
-
-If you see something like `Poetry 0.12.0` then you are ready to clone the MagGeo repo.
-
-Close the terminal
+Install Miniconda: [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
 
 ### 2. Clone the MagGeo repository:
 
@@ -81,15 +65,21 @@ If you're using the terminal on Linux or macOS, it is the same syntax to change 
 cd MagGeo-Annotation-Program
 ```
 
-### 4. Install the dependencies -- this shouldn't take more than a minute.
+### 4. Create MagGeoEnv environment  -- this should take around five minutes.
 
-Now we are going to use Poetry to get all the libraries/dependecnies MagGeo needs. Run  the following command.
+We have create a new virtual environment for you, thus you can keep MagGeo isolated from other python environment you might have. In the terminal run:
 
 ```
-poetry install
+conda env create --file environment.yml
 ```
 
-### 5. Sign Up at VirES for Swarm - VRE and get a web client Token
+### 5. Activate MagGeoEnv
+
+```
+conda activate MagGeoEnv
+```
+
+### 6. Sign Up at VirES for Swarm - VRE and get a web client Token
 
 **MagGeo** use [**VirES**](https://swarm-vre.readthedocs.io/en/latest/Swarm_notebooks/02a__Intro-Swarm-viresclient.html) (Virtual environments for Earth Scientists) a platform for data & model access, analysis, and visualization for ESA’s magnetic mission **Swarm**. This is a powerful client with the [viresclient API](https://swarm-vre.readthedocs.io/en/latest/Swarm_notebooks/02c__viresclient-API.html) that provide several classes and methods defined in the vires client package. The `viresclient` Python package allows you to connect to the VirES server to download [Swarm](https://earth.esa.int/web/guest/missions/esa-operational-eo-missions/swarm) data and data calculated using magnetic models.
 
@@ -103,13 +93,12 @@ poetry install
 MagGeo can be excuted using the same terminal you have been using in the previous steps. If you want to get familiar with MagGeo and get an annotated GPS trajectory using the data we have included as an example (data folder), run the following command:
 
 ```
-poetry run python MagGeo_SA.py -p parameters/default.yml
+python MagGeo_main.py -p parameters/default.yml
 ```
 
 After some seconds MagGeo will ask you for the VirES token, just copy and paste inside the terminal and hit Enter.
 
 ![img](./images/poetry_token.png)
-
 
 Now MagGeo will start to download the Swarm Data.
 
@@ -137,7 +126,7 @@ If you are redy to annotate your GPS trajectories. You need to update the parame
 Save your changes, return to the Terminal and run:
 
 ```
-poetry run python MagGeo_SA.py -p parameters/default.yml
+python MagGeo_main.py -p parameters/default.yml
 ```
 
 ### 7. Run MagGeo cell by cell, using Jupyter Notebook.
