@@ -108,17 +108,18 @@ poetry run python MagGeo_SA.py -p parameters/default.yml
 
 After some seconds MagGeo will ask you for the VirES token, just copy and paste inside the terminal and hit Enter.
 
-![1645097550377.png](image/README/1645097550377.png)
+![img](./images/poetry_token.png)
+
 
 Now MagGeo will start to download the Swarm Data.
 
-![1645097698268.png](image/README/1645097698268.png)
+![img](./images/poetry_data.png)
 
 Once the data has been downloaded, MagGeo will process it to make the annotation process ( for more information about how it is done, visit [our methodological paper in Movement Ecology](https://movementecologyjournal.biomedcentral.com/track/pdf/10.1186/s40462-021-00268-4.pdf))
 
 The las step MagGeo does is annotating the gathered data, that would take more time depending how big your dataset is. In our example it only takes 4 seconds.
 
-![1645097795359.png](image/README/1645097795359.png)
+![img](./images/poetry_annotate.png)
 
 And **Congrats** **you got annotated data**. The results will be stored in the folder results for your futher analysis. You will find a .csv file named like **GeoMagResult_+name_of_your_csv_file_trajectory.**
 
