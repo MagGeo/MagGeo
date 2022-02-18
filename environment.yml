@@ -70,6 +70,7 @@ dependencies:
 
  # MagGeo Dependencies
  - pip:
+    - markupsafe==2.0.1
     - viresclient
     - chaosmagpy
 
