@@ -1,0 +1,75 @@
+# Development environment for MagGeo
+name: MagGeoEnv
+# Only use conda-forge
+channels:
+ - conda-forge
+dependencies:
+ # Environment management tools
+ - python=3.8
+ - pip=22.0.3
+ # Jupyter & interactive stuff
+ - jupyter
+ - jupyterlab
+   #  - ipywidgets
+   #  - ipympl
+   #  - jupyter-resource-usage=0.6
+   #  - jupyterlab-git=0.32
+
+ # Scientific Python
+ - numpy
+ - scipy
+ #- sympy=1.8
+ #- dask=2021.8
+ #- dask-ml=1.9
+ #- dask-labextension=5.1
+ 
+ # Data tools
+ - pandas
+ - xarray
+ - netcdf4
+ - h5py
+ - pytables
+ - ipyleaflet
+ - flake8
+ - dask
+ - h5py
+ - netCDF4
+ - jinja2
+ #- networkx=2.6
+ #- zarr
+ #- intake
+ #- intake-xarray
+ # Visualisation
+ - matplotlib
+ #- seaborn=0.11
+
+ # Progress Bars and user interaction
+ - tqdm
+ - click
+ - PyYAML
+ - ipywidgets
+ 
+ # Geospatial
+ - geopandas
+ - cartopy
+
+
+ # Holoviz advanced visualisation tools
+ # - holoviews
+ - hvplot
+ - bokeh
+ # - geoviews
+ # - datashader
+ # - param
+ # - colorcet
+ # - pyct[cmd]
+ # - fastparquet
+ # - panel
+ # - jupyter-panel-proxy
+ # - selenium
+
+ # MagGeo Dependencies
+ - pip:
+    - viresclient
+    - chaosmagpy
+

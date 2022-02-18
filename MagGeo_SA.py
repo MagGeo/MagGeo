@@ -1,5 +1,5 @@
 """
-Core MagGeo model into Poetry.
+Core MagGeo model
 Created on Thrus Feb 17, 22
 @author: Fernando Benitez-Paez
 """
@@ -13,13 +13,11 @@ from tqdm import tqdm
 import click
 from yaml import load, SafeLoader
 from viresclient import set_token
+
 from MagGeoFunctions import getGPSData
 from MagGeoFunctions import Get_Swarm_residuals
 from MagGeoFunctions import ST_IDW_Process
 from MagGeoFunctions import CHAOS_ground_values
-
-
-set_token("https://vires.services/ows", set_default=True)
 
 
 @click.command()
@@ -34,6 +32,9 @@ def main(parameters_file):
     """
 
     print(f"--\nReading parameters file: {parameters_file}\n--")
+
+    set_token("https://vires.services/ows", set_default=True)
+
 
     try:
         with open(parameters_file, 'r') as f:
