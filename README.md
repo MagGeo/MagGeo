@@ -44,9 +44,9 @@ To install and run MagGeo you need to follow the following steps.
 
 ### 1. Install Poetry
 
-**MagGeo** use Poetry a tool for **dependency management** and **packaging** in Python. It allows MagGeo to use the tested libraries/dependencies requeried.
+MagGeo use Poetry a tool for dependency management and packaging in Python. It allows MagGeo to use the tested libraries/dependencies requeried.
 
-Open a Terminal, got to [https://python-poetry.org/docs/#installation](https://python-poetry.org/docs/#installation), follow the install instructions that suits to your enviroment [OSX/Unix/Windows}.
+Open a Terminal, go to [https://python-poetry.org/docs/#installation](https://python-poetry.org/docs/#installation), follow the install instructions that suits to your enviroment [OSX/Unix/Windows}.
 
 For instance on Febrary 2022 the command use was the following (We recommend to visit the previous link to make sure you get the rigth command):
 
@@ -62,7 +62,11 @@ poetry --version
 
 If you see something like `Poetry 0.12.0` then you are ready to clone the MagGeo repo.
 
+Close the terminal
+
 ### 2. Clone the MagGeo repository:
+
+Open a new terminal and run:
 
 ```bash
 git clone https://github.com/MagGeo/MagGeo-Annotation-Program.git
