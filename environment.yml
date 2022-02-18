@@ -8,56 +8,56 @@ dependencies:
  - python=3.8
  - pip=22.0.3
  # Jupyter & interactive stuff
- - jupyter
- - jupyterlab
+ - jupyter=1.0.0
+ - jupyterlab=3.2.9
    #  - ipywidgets
    #  - ipympl
    #  - jupyter-resource-usage=0.6
    #  - jupyterlab-git=0.32
 
  # Scientific Python
- - numpy
- - scipy
+ - numpy=1.22.2
+ - scipy=1.8.0
  #- sympy=1.8
  #- dask=2021.8
  #- dask-ml=1.9
  #- dask-labextension=5.1
  
  # Data tools
- - pandas
- - xarray
- - netcdf4
- - h5py
- - pytables
- - ipyleaflet
- - flake8
- - dask
- - h5py
- - netCDF4
- - jinja2
+ - pandas=1.4.1
+ - xarray=0.21.1
+ - netcdf4=1.5.8
+ - h5py=1.12.1
+ - pytables=3.7.0
+ - ipyleaflet=0.15.0
+ - flake8=4.0.1
+ - dask=2022.2.0
+ - h5py=1.12.1
+ - netCDF4=1.5.8
+ - jinja2=2.11.3
  #- networkx=2.6
  #- zarr
  #- intake
  #- intake-xarray
  # Visualisation
- - matplotlib
+ - matplotlib=3.5.1
  #- seaborn=0.11
 
  # Progress Bars and user interaction
- - tqdm
- - click
- - PyYAML
- - ipywidgets
+ - tqdm=4.62.3
+ - click=8.0.3
+ - PyYAML=6.0
+ - ipywidgets=7.6.5
  
  # Geospatial
- - geopandas
- - cartopy
+ - geopandas=0.10.2
+ - cartopy=0.20.2
 
 
  # Holoviz advanced visualisation tools
  # - holoviews
- - hvplot
- - bokeh
+ - hvplot=0.7.3
+ - bokeh=2.4.2
  # - geoviews
  # - datashader
  # - param
@@ -71,6 +71,6 @@ dependencies:
  # MagGeo Dependencies
  - pip:
     - markupsafe==2.0.1
-    - viresclient
-    - chaosmagpy
+    - viresclient=0.10.0
+    - chaosmagpy=0.8
 
