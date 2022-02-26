@@ -1,4 +1,4 @@
-# Development environment for MagGeo
+ # Development environment for MagGeo
 name: MagGeoEnv
 # Only use conda-forge
 channels:
@@ -50,14 +50,14 @@ dependencies:
  - ipywidgets=7.6.5
  
  # Geospatial
- - geopandas=0.10.2
- - cartopy=0.20.2
+ #- geopandas=0.10.2
+ #- cartopy=0.20.2
 
 
  # Holoviz advanced visualisation tools
  # - holoviews
- - hvplot=0.7.3
- - bokeh=2.4.2
+ #- hvplot=0.7.3
+ #- bokeh=2.4.2
  # - geoviews
  # - datashader
  # - param
