@@ -1,14 +1,20 @@
 import warnings
 warnings.filterwarnings('ignore', message='Could not import Cartopy package. Plotting data on maps is not available in chaosmagpy')
 
+import sys, os
+from pathlib import Path
 import chaosmagpy as cp
 import pandas as pd
 from viresclient import SwarmRequest
 
 
+import utilities
+from utilities.gg_to_geo import gg_to_geo
+from utilities.auxiliaryfunctions import distance_to_GPS, Kradius, DistJ, DfTime_func
 
-from gg_to_geo import gg_to_geo
-from auxiliaryfunctions import distance_to_GPS, Kradius, DistJ, DfTime_func
+base_dir = str(Path(os.getcwd()).parent)  # Get main MagGeo directory (should be parent to this file)
+data_dir = os.path.join(base_dir, "data")
+utilities_dir = os.path.join(base_dir, "utilities")
 
 
 # 0. Get the GPS track in a CSV format.
@@ -18,7 +24,7 @@ from auxiliaryfunctions import distance_to_GPS, Kradius, DistJ, DfTime_func
 def getGPSData(gpsfilename,Lat,Long,DateTime,altitude):
     
     if altitude == '':
-        nfp = pd.read_csv(gpsfilename, parse_dates=[0], encoding='utf-8', dayfirst=True, usecols=[Lat, Long, DateTime])
+        nfp = pd.read_csv(os.path.join(data_dir,gpsfilename), parse_dates=[0], encoding='utf-8', dayfirst=True, usecols=[Lat, Long, DateTime])
         nfp['gpsAltitude'] = 0
         nfp.rename(columns={Lat: 'gpsLat', Long: 'gpsLong', DateTime: 'gpsDateTime', altitude: 'gpsAltitude'}, inplace = True)
         # Convert the gpsDateTime to datetime python object
@@ -33,7 +39,7 @@ def getGPSData(gpsfilename,Lat,Long,DateTime,altitude):
         nfp['dates'] = nfp['gpsDateTime'].dt.date
         nfp['times'] = nfp['gpsDateTime'].dt.time
     else:
-        nfp = pd.read_csv(gpsfilename, parse_dates=[0], encoding='utf-8', dayfirst=True, usecols=[Lat, Long, DateTime, altitude])
+        nfp = pd.read_csv(os.path.join(data_dir,gpsfilename), parse_dates=[0], encoding='utf-8', dayfirst=True, usecols=[Lat, Long, DateTime, altitude])
         nfp.rename(columns={Lat: 'gpsLat', Long: 'gpsLong', DateTime: 'gpsDateTime', altitude: 'gpsAltitude'}, inplace = True)
         nfp.loc[(nfp['gpsAltitude'] < 0) | (nfp['gpsAltitude'].isnull()), 'gpsAltitude'] = 0
         # Convert the gpsDateTime to datetime python object
@@ -257,7 +263,7 @@ def ST_IDW_Process (GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime, TotalSwarmRe
 
 def CHAOS_ground_values(GPS_ResInt):
     #1. Load the requiered parameters, including a local CHAOS model in mat format.
-    model = cp.load_CHAOS_matfile(r'CHAOS-7.mat')
+    model = cp.load_CHAOS_matfile(os.path.join(utilities_dir,'CHAOS-7.mat'))
     theta = 90-GPS_ResInt['Latitude'].values
     phi = GPS_ResInt['Longitude'].values
     alt=GPS_ResInt['Altitude'].values

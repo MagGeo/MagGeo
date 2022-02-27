@@ -1,18 +1,25 @@
 import pandas as pd
 import numpy as np
-from MagGeoFunctions import ST_IDW_Process
-from MagGeoFunctions import CHAOS_ground_values
+import sys, os
+from pathlib import Path
+from tqdm import tqdm
+import utilities
+from utilities.MagGeoFunctions import ST_IDW_Process
+from utilities.MagGeoFunctions import CHAOS_ground_values
 
-TotalSwarmRes_A = pd.read_csv(r'./temp_data/TotalSwarmRes_A.csv',low_memory=False, index_col='epoch')
+base_dir = str(Path(os.getcwd()).parent)  # Get main MagGeo directory (should be parent to this file)
+temp_results_dir = os.path.join(base_dir, "temp_data")
+
+TotalSwarmRes_A = pd.read_csv(os.path.join(temp_results_dir,"TotalSwarmRes_A.csv"),low_memory=False, index_col='epoch')
 TotalSwarmRes_A['timestamp'] = pd.to_datetime(TotalSwarmRes_A['timestamp'])
-TotalSwarmRes_B = pd.read_csv(r'./temp_data/TotalSwarmRes_B.csv',low_memory=False, index_col='epoch')
+TotalSwarmRes_B = pd.read_csv(os.path.join(temp_results_dir,"TotalSwarmRes_B.csv"),low_memory=False, index_col='epoch')
 TotalSwarmRes_B['timestamp'] = pd.to_datetime(TotalSwarmRes_B['timestamp'])
-TotalSwarmRes_C = pd.read_csv(r'./temp_data/TotalSwarmRes_C.csv',low_memory=False, index_col='epoch')
+TotalSwarmRes_C = pd.read_csv(os.path.join(temp_results_dir,"TotalSwarmRes_C.csv"),low_memory=False, index_col='epoch')
 TotalSwarmRes_C['timestamp'] = pd.to_datetime(TotalSwarmRes_C['timestamp'])
 
 def row_handler (GPSData):
     dn = [] ## List used to add all the GPS points with the annotated MAG Data. See the last bullet point of this process        
-    for index, row in GPSData.iterrows():
+    for index, row in tqdm(GPSData.iterrows(), total=GPSData.shape[0], desc="Annotating the GPS Trayectory"):
         GPSLat = row['gpsLat']
         GPSLong = row['gpsLong']
         GPSDateTime = row['gpsDateTime']
@@ -30,7 +37,7 @@ def row_handler (GPSData):
 
     
     GPS_ResInt = pd.DataFrame(dn)
-    GPS_ResInt.to_csv (r'./temp_data/GPS_ResInt.csv', header=True)
+    GPS_ResInt.to_csv (os.path.join(temp_results_dir,"GPS_ResInt.csv"), header=True)
 
     X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal =CHAOS_ground_values(GPS_ResInt)
     GPS_ResInt['N'] =pd.Series(X_obs)
