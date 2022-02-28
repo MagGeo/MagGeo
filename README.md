@@ -53,7 +53,7 @@ Install Miniconda: [https://docs.conda.io/en/latest/miniconda.html](https://docs
 Open a new terminal and run:
 
 ```bash
-git clone https://github.com/MagGeo/MagGeo-Annotation-Program.git
+git clone -b minconda_version https://github.com/MagGeo/MagGeo-Annotation-Program.git
 ```
 
 ### 3. Change the directory
@@ -86,14 +86,14 @@ conda activate MagGeoEnv
 1. First to all you need to create an account and Sign up using [https://vires.services/oauth/accounts/signup/](https://vires.services/oauth/accounts/signup/)
 2. Once you have created the account, Log In [https://vires.services/](https://vires.services/)
 3. Follow the instructions in [https://viresclient.readthedocs.io/en/latest/access_token.html](https://viresclient.readthedocs.io/en/latest/access_token.html) to get your token.
-4. Copy and Paste your token when MagGeo asks
+4. Copy and Paste your token after --token in the following command
 
 ### 6. Run MagGeo using the sample data.
 
 MagGeo can be excuted using the same terminal you have been using in the previous steps. If you want to get familiar with MagGeo and get an annotated GPS trajectory using the data we have included as an example (data folder), run the following command:
 
 ```
-python MagGeo_main.py -p parameters/default.yml
+python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE
 ```
 
 After some seconds MagGeo will ask you for the VirES token, just copy and paste inside the terminal and hit Enter.
@@ -126,7 +126,7 @@ If you are redy to annotate your GPS trajectories. You need to update the parame
 Save your changes, return to the Terminal and run:
 
 ```
-python MagGeo_main.py -p parameters/default.yml
+python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE
 ```
 
 ### 7. Run MagGeo cell by cell, using Jupyter Notebook.
