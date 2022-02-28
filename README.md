@@ -13,42 +13,17 @@
 
 **Keywords** | Bird migration, data fusion, Earth’s magnetic field, Swarm, GPS tracking
 
-## Overview
-
-MagGeo is a tool that helps ecologists or animal movement researchers to link  earth's magnetic field data from satellite source to GPS trajectories. Inspired by the Environmental Data Automated Track Annotation System (Env-DATA) Service a tool from Movebank and help researcher to get a better understanding about the geomagnetic variations across the GPS trajectories.
-
-MagGeo is entirely built-in python and using a set of Jupyter Notebooks that offer several ways to link GPS tracks with the geomagnetic components using the data from one of the up-to-date satellite sources - Swarm Constellation. MagGeo will create an enriched GPS track with the following components:
-
-- **Latitude** from the GPS Track.
-- **Longitude** from the GPS Track.
-- **Timestamp** from the GPS Track.
-- **Magnetic Field Intensity** mapped as Fgps in nanoTeslas (nT).
-- **N (Northwards) component** mapped as N in nanoTeslas (nT).
-- **E (Eastwards) component** mapped as E. in nanoteslas (nT).
-- **C (Downwards or Center)** component mapped as C in nanoTeslas (nT).
-- **Horizontal component** mapped as H in nanoTeslas (nT).
-- **Magnetic Declination or dip angle** mapped as D in degrees
-- **Magnetic Inclination** mapped as I in degrees
-- **Kp Index** mapped as kp
-- **Total Points** as the amount of Swarm measures included in the ST-IDW process from the trajectories requested in the three satellites.
-- **Minimum Distance** mapped as MinDist, representing the minimum distance amount the set of identified point inside the Space Time cylinder and each GPS point location.
-- **Average Distance** mapped as AvDist, representing the average distance amount the set of distances between the identified Swarm Point in the Space Time cylinder and the GPS Points location.
-
-Researchers, particularly ecologists now can study the annotated table to analyze the geomagnetic Spatio-temporal variation across any GPS trajectory.
-
-<img src="./images/GitHubImage.png">
-
-## How to install and Run MagGeo on your machine
+# How to install and Run MagGeo on your machine
 
 To install and run MagGeo you need to follow the following steps.
 
-### 1. Install Miniconda
+## 1. Install Miniconda
 
 Recommended setup if starting without Python already
 
 Install Miniconda: [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
 
-### 2. Clone the MagGeo repository:
+## 2. Clone the MagGeo repository:
 
 Open a new terminal and run:
 
@@ -56,7 +31,7 @@ Open a new terminal and run:
 git clone -b minconda_version https://github.com/MagGeo/MagGeo-Annotation-Program.git
 ```
 
-### 3. Change the directory
+## 3. Change the directory
 
 You will need to change the directory to where you cloned/downloaded the MagGeo repository. If you donwloaded it--Do not forget to unzip the folder before using it.
 If you're using the terminal on Linux or macOS, it is the same syntax to change directory.
@@ -65,7 +40,7 @@ If you're using the terminal on Linux or macOS, it is the same syntax to change 
 cd MagGeo-Annotation-Program
 ```
 
-### 4. Create MagGeoEnv environment  -- this should take around five minutes.
+## 4. Create MagGeoEnv environment  -- this should take around five minutes.
 
 We have create a new virtual environment for you, thus you can keep MagGeo isolated from other python environment you might have. In the terminal run:
 
@@ -73,13 +48,13 @@ We have create a new virtual environment for you, thus you can keep MagGeo isola
 conda env create --file environment.yml
 ```
 
-### 5. Activate MagGeoEnv
+## 5. Activate MagGeoEnv
 
 ```
 conda activate MagGeoEnv
 ```
 
-### 6. Sign Up at VirES for Swarm - VRE and get a web client Token
+## 6. Sign Up at VirES for Swarm - VRE and get a web client Token
 
 **MagGeo** use [**VirES**](https://swarm-vre.readthedocs.io/en/latest/Swarm_notebooks/02a__Intro-Swarm-viresclient.html) (Virtual environments for Earth Scientists) a platform for data & model access, analysis, and visualization for ESA’s magnetic mission **Swarm**. This is a powerful client with the [viresclient API](https://swarm-vre.readthedocs.io/en/latest/Swarm_notebooks/02c__viresclient-API.html) that provide several classes and methods defined in the vires client package. The `viresclient` Python package allows you to connect to the VirES server to download [Swarm](https://earth.esa.int/web/guest/missions/esa-operational-eo-missions/swarm) data and data calculated using magnetic models.
 
@@ -88,7 +63,7 @@ conda activate MagGeoEnv
 3. Follow the instructions in [https://viresclient.readthedocs.io/en/latest/access_token.html](https://viresclient.readthedocs.io/en/latest/access_token.html) to get your token.
 4. Copy and Paste your token after --token in the following command
 
-### 6. Run MagGeo using the sample data.
+## 6. Run MagGeo using the sample data.
 
 MagGeo can be excuted using the same terminal you have been using in the previous steps. If you want to get familiar with MagGeo and get an annotated GPS trajectory using the data we have included as an example (data folder), run the following command:
 
@@ -112,7 +87,7 @@ The las step MagGeo does is annotating the gathered data, that would take more t
 
 And **Congrats** **you got annotated data**. The results will be stored in the folder results for your futher analysis. You will find a .csv file named like **GeoMagResult_+name_of_your_csv_file_trajectory.**
 
-#### 6.1 Run MagGeo using your data.
+### 6.1 Run MagGeo using your data.
 
 If you are redy to annotate your GPS trajectories. You need to update the parameters file in MagGeo to let the program know what are the correct values of your data.
 
@@ -129,7 +104,7 @@ Save your changes, return to the Terminal and run:
 python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE
 ```
 
-### 7. Run MagGeo cell by cell, using Jupyter Notebook.
+## 7. Run MagGeo step by step, using Jupyter Notebook.
 
 MagGeo includes a set of Jupyter Notebooks, you will find four notebooks (.ipynp).
 
@@ -141,6 +116,31 @@ MagGeo includes a set of Jupyter Notebooks, you will find four notebooks (.ipynp
 The following image will help you to understand how the sequential and parallel mode differ, and how in parallel mode you should be able to use the full capacity of your machine. However it is quite important to identify when we need to use a parallel mode. For small datasets running **MagGeo** in Parallel mode could be even slower than the sequential mode.
 
 <img src="./images/Sequential_ParallelMode-Jupyter.png">
+
+# What's MagGeo
+
+MagGeo is a tool that helps ecologists or animal movement researchers to link  earth's magnetic field data from satellite source to GPS trajectories. Inspired by the Environmental Data Automated Track Annotation System (Env-DATA) Service a tool from Movebank and help researcher to get a better understanding about the geomagnetic variations across the GPS trajectories.
+
+MagGeo is entirely built-in python and using a set of Jupyter Notebooks that offer several ways to link GPS tracks with the geomagnetic components using the data from one of the up-to-date satellite sources - Swarm Constellation. MagGeo will create an enriched GPS track with the following components:
+
+- **Latitude** from the GPS Track.
+- **Longitude** from the GPS Track.
+- **Timestamp** from the GPS Track.
+- **Magnetic Field Intensity** mapped as Fgps in nanoTeslas (nT).
+- **N (Northwards) component** mapped as N in nanoTeslas (nT).
+- **E (Eastwards) component** mapped as E. in nanoteslas (nT).
+- **C (Downwards or Center)** component mapped as C in nanoTeslas (nT).
+- **Horizontal component** mapped as H in nanoTeslas (nT).
+- **Magnetic Declination or dip angle** mapped as D in degrees
+- **Magnetic Inclination** mapped as I in degrees
+- **Kp Index** mapped as kp
+- **Total Points** as the amount of Swarm measures included in the ST-IDW process from the trajectories requested in the three satellites.
+- **Minimum Distance** mapped as MinDist, representing the minimum distance amount the set of identified point inside the Space Time cylinder and each GPS point location.
+- **Average Distance** mapped as AvDist, representing the average distance amount the set of distances between the identified Swarm Point in the Space Time cylinder and the GPS Points location.
+
+Researchers, particularly ecologists now can study the annotated table to analyze the geomagnetic Spatio-temporal variation across any GPS trajectory.
+
+<img src="./images/GitHubImage.png">
 
 # Problems?, Suggestions? - Contact us
 
