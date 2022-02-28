@@ -33,7 +33,6 @@ dependencies:
  - PyYAML=6.0
  - ipywidgets=7.6.5
  
-
  # MagGeo Dependencies
  - pip:
     - markupsafe==2.0.1
