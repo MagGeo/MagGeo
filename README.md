@@ -63,7 +63,7 @@ conda activate MagGeoEnv
 3. Follow the instructions in [https://viresclient.readthedocs.io/en/latest/access_token.html](https://viresclient.readthedocs.io/en/latest/access_token.html) to get your token.
 4. Copy and Paste your token after --token in the following command
 
-## 6. Run MagGeo using the sample data.
+## 7. Run MagGeo using the sample data.
 
 MagGeo can be excuted using the same terminal you have been using in the previous steps. If you want to get familiar with MagGeo and get an annotated GPS trajectory using the data we have included as an example (data folder), run the following command (replace your virES token where is requiered):
 
@@ -83,7 +83,7 @@ The last step MagGeo does is annotating the gathered data, that would take more 
 
 And **Congrats** **you got annotated data**. The results will be stored in the folder results for your futher analysis. You will find a .csv file named like **GeoMagResult_+name_of_your_csv_file_trajectory.**
 
-### 6.1 Run MagGeo using your data.
+### 7.1 Run MagGeo using your data.
 
 If you are ready to annotate your GPS trajectories. You need to update the parameters file in MagGeo to let the program know what are the correct values of your data.
 
@@ -100,7 +100,7 @@ Save your changes, return to the Terminal and run:
 python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE
 ```
 
-## 7. Run MagGeo step by step, using Jupyter Notebook.
+## 8. Run MagGeo step by step, using Jupyter Notebook.
 
 MagGeo includes a set of Jupyter Notebooks, you will find four notebooks (.ipynp) in the Notebooks folder.
 
