@@ -104,10 +104,20 @@ python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE
 
 MagGeo includes a set of Jupyter Notebooks, you will find four notebooks (.ipynp) in the Notebooks folder.
 
-* [Main Notebook](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Home.ipynb) : An initial and descriptive notebook where you can get detail information about MagGeo, the sample data used, background concepts and software requirements.
-* [Sequential Mode](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Sequential%20Mode.ipynb): Annotation Notebook applying a sequential mode. Using  a traditional loop to going through the GPS track rows and process every row computing the magnetic components. Particularly useful for small datasets.
-* [Parallel Mode](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Parallel%20Mode.ipynb):  If you have a "big" dataset ( e.g. 1 million of records) you might want try the parallel mode. The parallel mode has some differences when you run the required libraries in a windows or Linux environment. We have tested **MagGeo** in a windows server environment.
-* [Notebook basics](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/Notebook%20-%20Basics.ipynb): If you are not familiar with Jupiter Notebooks and want to learn about the basics over how to run the notebooks before try the annotate tool. You can try this notebook to get the basics elements to run cells, read data, and plot some a basic chart.
+> In a Terminal, make sure you are using ```MagGeoEnv``` environment, and run:
+
+```
+jupyter notebook
+```
+
+A Jupyter Notebook dashboard will comes out in your browser locally (e.g. http://localhost:8888) then you can explore MagGeo and its content. Go to Notebooks folder and open any of the following notebook for a step by step process. You can add cells to make your own test or analysis, but be aware that any change you do at the code migth affects the correct performance of the program.
+
+![img](./images/JupyterDashboard.png)
+
+> * [Main Notebook](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Home.ipynb) : An initial and descriptive notebook where you can get detail information about MagGeo, the sample data used, background concepts and software requirements.
+> * [Sequential Mode](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Sequential%20Mode.ipynb): Annotation Notebook applying a sequential mode. Using  a traditional loop to going through the GPS track rows and process every row computing the magnetic components. Particularly useful for small datasets.
+> * [Parallel Mode](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Parallel%20Mode.ipynb):  If you have a "big" dataset ( e.g. 1 million of records) you might want try the parallel mode. The parallel mode has some differences when you run the required libraries in a windows or Linux environment. We have tested **MagGeo** in a windows server environment.
+> * [Notebook basics](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/Notebook%20-%20Basics.ipynb): If you are not familiar with Jupiter Notebooks and want to learn about the basics over how to run the notebooks before try the annotate tool. You can try this notebook to get the basics elements to run cells, read data, and plot some a basic chart.
 
 The following image will help you to understand how the sequential and parallel mode differ, and how in parallel mode you should be able to use the full capacity of your machine. However it is quite important to identify when we need to use a parallel mode. For small datasets running **MagGeo** in Parallel mode could be even slower than the sequential mode.
 
