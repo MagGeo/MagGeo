@@ -2,7 +2,6 @@ import warnings
 warnings.filterwarnings('ignore', message='Could not import Cartopy package. Plotting data on maps is not available in chaosmagpy')
 
 import sys, os
-from pathlib import Path
 import chaosmagpy as cp
 import pandas as pd
 from viresclient import SwarmRequest
@@ -12,16 +11,12 @@ import utilities
 from utilities.gg_to_geo import gg_to_geo
 from utilities.auxiliaryfunctions import distance_to_GPS, Kradius, DistJ, DfTime_func
 
-base_dir = str(Path(os.getcwd()).parent)  # Get main MagGeo directory (should be parent to this file)
-data_dir = os.path.join(base_dir, "data")
-utilities_dir = os.path.join(base_dir, "utilities")
-
 
 # 0. Get the GPS track in a CSV format.
 # Input: csv file store in the data folder, validate if there is a altitute attribute.
 # Output: GPS Data as pandas DF.
 
-def getGPSData(gpsfilename,Lat,Long,DateTime,altitude):
+def getGPSData(data_dir, gpsfilename,Lat,Long,DateTime,altitude):
     
     if altitude == '':
         nfp = pd.read_csv(os.path.join(data_dir,gpsfilename), parse_dates=[0], encoding='utf-8', dayfirst=True, usecols=[Lat, Long, DateTime])
@@ -261,7 +256,7 @@ def ST_IDW_Process (GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime, TotalSwarmRe
     resultrowGPS = {'Latitude': GPSLat, 'Longitude': GPSLong, 'Altitude': GPSAltitude, 'DateTime': GPSDateTime, 'N_res': N_res_int, 'E_res': E_res_int, 'C_res':C_res_int, 'TotalPoints':TolSatPts, 'Minimum_Distance':MinDistance, 'Average_Distance':AvDistance, 'Kp':kp_Avg}  
     return resultrowGPS
 
-def CHAOS_ground_values(GPS_ResInt):
+def CHAOS_ground_values(utilities_dir,GPS_ResInt):
     #1. Load the requiered parameters, including a local CHAOS model in mat format.
     model = cp.load_CHAOS_matfile(os.path.join(utilities_dir,'CHAOS-7.mat'))
     theta = 90-GPS_ResInt['Latitude'].values

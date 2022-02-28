@@ -1,39 +1,45 @@
 """
-Core MagGeo Main Model
+Core MagGeo_Sequential Model
 Created on Thrus Feb 17, 22
 @author: Fernando Benitez-Paez
 """
 
 import datetime as dt
 from datetime import timedelta
-import os
+import sys,os
+from matplotlib.pyplot import pause
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
 import click
+
 from yaml import load, SafeLoader
 from viresclient import set_token
 
-from MagGeoFunctions import getGPSData
-from MagGeoFunctions import Get_Swarm_residuals
-from MagGeoFunctions import ST_IDW_Process
-from MagGeoFunctions import CHAOS_ground_values
+sys.path.append("utilities")
+from utilities.MagGeoFunctions import getGPSData
+from utilities.MagGeoFunctions import Get_Swarm_residuals
+from utilities.MagGeoFunctions import ST_IDW_Process
+from utilities.MagGeoFunctions import CHAOS_ground_values
 
 
 @click.command()
 @click.option('-p',
               '--parameters-file',
               type=click.Path(exists=True),
-              help="Parameters file to use to configure the model. This must be located in the working directory.")
+              help="Parameters file to use to configure the model.")
+@click.option('--token',
+              help="Enter your VirES Token.")
 
-def main(parameters_file):
+
+def main(parameters_file, token):
     """
     Main function which get the data from Swarm VirES client
     """
 
     print(f"--\nReading parameters file: {parameters_file}\n--")
 
-    set_token("https://vires.services/ows", set_default=True)
+    set_token(token=token)
 
 
     try:
@@ -52,11 +58,14 @@ def main(parameters_file):
         print('Error in parameters file format')
         raise error
     
-    
-    os.chdir(r"./data")
-    GPSData = getGPSData(gpsfilename,Lat,Long,DateTime,altitude)
-    os.chdir(r"../")
+    base_dir=os.getcwd()
+    temp_results_dir = os.path.join(base_dir, "temp_data")
+    results_dir = os.path.join(base_dir, "results")
+    data_dir = os.path.join(base_dir, "data")
+    utilities_dir = os.path.join(base_dir, "utilities")
 
+    GPSData = getGPSData(data_dir,gpsfilename,Lat,Long,DateTime,altitude)
+    
     datestimeslist = []
     for index, row in GPSData.iterrows():
         datetimerow  = row['gpsDateTime']
@@ -97,14 +106,18 @@ def main(parameters_file):
         listdfb.append(SwarmResidualsB)
         listdfc.append(SwarmResidualsC)
 
-    os.chdir(r"./temp_data")
+    base_dir = os.getcwd()  # Get main MagGeo directory
+    temp_results_dir = os.path.join(base_dir, "temp_data")
+    results_dir = os.path.join(base_dir, "results")
+    data_dir = os.path.join(base_dir, "data")
+    
     TotalSwarmRes_A = pd.concat(listdfa, join='outer', axis=0)
-    TotalSwarmRes_A.to_csv ('TotalSwarmRes_A.csv', header=True)
+    TotalSwarmRes_A.to_csv (os.path.join(temp_results_dir,'TotalSwarmRes_A.csv'), header=True)
     TotalSwarmRes_B = pd.concat(listdfb, join='outer', axis=0)
-    TotalSwarmRes_B.to_csv ('TotalSwarmRes_B.csv', header=True)
+    TotalSwarmRes_B.to_csv (os.path.join(temp_results_dir,'TotalSwarmRes_B.csv'), header=True)
     TotalSwarmRes_C = pd.concat(listdfc, join='outer', axis=0)
-    TotalSwarmRes_C.to_csv ('TotalSwarmRes_C.csv', header=True)
-    os.chdir(r"../")
+    TotalSwarmRes_C.to_csv (os.path.join(temp_results_dir,'TotalSwarmRes_C.csv'), header=True)
+    TotalSwarmRes_A #If you need to take a look of the Swarm Data, you can print TotalSwarmRes_B, or TotalSwarmRes_C
 
     dn = [] ## List used to add all the GPS points with the annotated MAG Data. See the last bullet point of this process        
     for index, row in tqdm(GPSData.iterrows(), total=GPSData.shape[0], desc="Annotating the GPS Trayectory"):
@@ -118,17 +131,16 @@ def main(parameters_file):
             result=ST_IDW_Process(GPSLat,GPSLong,GPSAltitude, GPSDateTime,GPSTime, TotalSwarmRes_A, TotalSwarmRes_B, TotalSwarmRes_C)
             dn.append(result)
         except:
-            print("Ups!.That was a bad Swarm Point, let's keep working with the next point")
+            #print("Ups!.That was a bad Swarm Point, let's keep working with the next point")
             result_badPoint= {'Latitude': GPSLat, 'Longitude': GPSLong, 'Altitude':GPSAltitude, 'DateTime': GPSDateTime, 'N_res': np.nan, 'E_res': np.nan, 'C_res':np.nan, 'TotalPoints':0, 'Minimum_Distance':np.nan, 'Average_Distance':np.nan}  
             dn.append(result_badPoint)
             continue
     
-    os.chdir(r"./temp_data")
+    
     GPS_ResInt = pd.DataFrame(dn)
-    GPS_ResInt.to_csv ('GPS_ResInt.csv', header=True)
-    os.chdir(r"../")
-
-    X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal = CHAOS_ground_values(GPS_ResInt)
+    GPS_ResInt.to_csv (os.path.join(temp_results_dir,"GPS_ResInt.csv"), header=True)
+    
+    X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal = CHAOS_ground_values(utilities_dir,GPS_ResInt)
 
     GPS_ResInt['N'] =pd.Series(X_obs)
     GPS_ResInt['E'] =pd.Series(Y_obs)
@@ -148,18 +160,16 @@ def main(parameters_file):
     GPS_ResInt['I'] = np.degrees(IgpsRad)
     GPS_ResInt['F'] = np.sqrt((GPS_ResInt['N']**2)+(GPS_ResInt['E']**2)+(GPS_ResInt['C']**2))
 
-    os.chdir(r"./data")
-    originalGPSTrack=pd.read_csv(gpsfilename)
+    
+    originalGPSTrack=pd.read_csv(os.path.join(data_dir,gpsfilename))
     MagGeoResult = pd.concat([originalGPSTrack, GPS_ResInt], axis=1)
     #Drop duplicated columns. Latitude, Longitued, and DateTime will not be part of the final result.
     MagGeoResult.drop(columns=['Latitude', 'Longitude', 'DateTime'], inplace=True)
-    os.chdir(r"../")
-
+    
     #Exporting the CSV file
-    os.chdir(r"./results")
+    
     outputfile ="GeoMagResult_"+gpsfilename
-    export_csv = MagGeoResult.to_csv (outputfile, index = None, header=True)
-    os.chdir(r"../")
+    export_csv = MagGeoResult.to_csv (os.path.join(results_dir,outputfile), index = None, header=True)    
     print("Congrats! MagGeo has processed your GPS trayectory. Find the annotated table: " + outputfile + " in the folder results.")
 
 if __name__ == '__main__':

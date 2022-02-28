@@ -9,6 +9,7 @@ from utilities.MagGeoFunctions import CHAOS_ground_values
 
 base_dir = str(Path(os.getcwd()).parent)  # Get main MagGeo directory (should be parent to this file)
 temp_results_dir = os.path.join(base_dir, "temp_data")
+utilities_dir = os.path.join(base_dir, "utilites")
 
 TotalSwarmRes_A = pd.read_csv(os.path.join(temp_results_dir,"TotalSwarmRes_A.csv"),low_memory=False, index_col='epoch')
 TotalSwarmRes_A['timestamp'] = pd.to_datetime(TotalSwarmRes_A['timestamp'])
@@ -39,7 +40,7 @@ def row_handler (GPSData):
     GPS_ResInt = pd.DataFrame(dn)
     GPS_ResInt.to_csv (os.path.join(temp_results_dir,"GPS_ResInt.csv"), header=True)
 
-    X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal =CHAOS_ground_values(GPS_ResInt)
+    X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal =CHAOS_ground_values(utilities_dir,GPS_ResInt)
     GPS_ResInt['N'] =pd.Series(X_obs)
     GPS_ResInt['E'] =pd.Series(Y_obs)
     GPS_ResInt['C'] =pd.Series(Z_obs)
