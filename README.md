@@ -65,23 +65,19 @@ conda activate MagGeoEnv
 
 ## 6. Run MagGeo using the sample data.
 
-MagGeo can be excuted using the same terminal you have been using in the previous steps. If you want to get familiar with MagGeo and get an annotated GPS trajectory using the data we have included as an example (data folder), run the following command:
+MagGeo can be excuted using the same terminal you have been using in the previous steps. If you want to get familiar with MagGeo and get an annotated GPS trajectory using the data we have included as an example (data folder), run the following command (replace your virES token where is requiered):
 
 ```
 python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE
 ```
 
-After some seconds MagGeo will ask you for the VirES token, just copy and paste inside the terminal and hit Enter.
-
-![img](./images/poetry_token.png)
-
 Now MagGeo will start to download the Swarm Data.
 
 ![img](./images/poetry_data.png)
 
-Once the data has been downloaded, MagGeo will process it to make the annotation process ( for more information about how it is done, visit [our methodological paper in Movement Ecology](https://movementecologyjournal.biomedcentral.com/track/pdf/10.1186/s40462-021-00268-4.pdf))
+Once the data has been downloaded, MagGeo will process it to make the annotation process ( for more information about how this is done, visit [our methodological paper in Movement Ecology](https://movementecologyjournal.biomedcentral.com/track/pdf/10.1186/s40462-021-00268-4.pdf))
 
-The las step MagGeo does is annotating the gathered data, that would take more time depending how big your dataset is. In our example it only takes 4 seconds.
+The last step MagGeo does is annotating the gathered data, that would take more time depending how big is your dataset. In our example it only takes 4 seconds.
 
 ![img](./images/poetry_annotate.png)
 
@@ -89,7 +85,7 @@ And **Congrats** **you got annotated data**. The results will be stored in the f
 
 ### 6.1 Run MagGeo using your data.
 
-If you are redy to annotate your GPS trajectories. You need to update the parameters file in MagGeo to let the program know what are the correct values of your data.
+If you are ready to annotate your GPS trajectories. You need to update the parameters file in MagGeo to let the program know what are the correct values of your data.
 
 * Open and Update the following parameters in the file `default.yml` located in parameters folder:
 * `gpsfilename: "name_of_your_csv_trayectory.cvs"` Include the name of your Input data. The GPS trayectory you need to annotate with the geomagnetic satellite data.
@@ -106,7 +102,7 @@ python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE
 
 ## 7. Run MagGeo step by step, using Jupyter Notebook.
 
-MagGeo includes a set of Jupyter Notebooks, you will find four notebooks (.ipynp).
+MagGeo includes a set of Jupyter Notebooks, you will find four notebooks (.ipynp) in the Notebooks folder.
 
 * [Main Notebook](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Home.ipynb) : An initial and descriptive notebook where you can get detail information about MagGeo, the sample data used, background concepts and software requirements.
 * [Sequential Mode](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/MagGeo%20-%20Sequential%20Mode.ipynb): Annotation Notebook applying a sequential mode. Using  a traditional loop to going through the GPS track rows and process every row computing the magnetic components. Particularly useful for small datasets.
