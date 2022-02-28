@@ -1,15 +1,20 @@
+import warnings
+warnings.filterwarnings('ignore', message='Could not import Cartopy package. Plotting data on maps is not available in chaosmagpy')
+
 import pandas as pd
 import numpy as np
 import sys, os
+import chaosmagpy as cp
 from pathlib import Path
 from tqdm import tqdm
 import utilities
 from utilities.MagGeoFunctions import ST_IDW_Process
-from utilities.MagGeoFunctions import CHAOS_ground_values
+from utilities.gg_to_geo import gg_to_geo
+#from utilities.MagGeoFunctions import CHAOS_ground_values
 
-base_dir = str(Path(os.getcwd()).parent)  # Get main MagGeo directory (should be parent to this file)
+# Get main MagGeo directory (should be parent to this file)
+base_dir=os.path.dirname(os.getcwd())
 temp_results_dir = os.path.join(base_dir, "temp_data")
-utilities_dir = os.path.join(base_dir, "utilites")
 
 TotalSwarmRes_A = pd.read_csv(os.path.join(temp_results_dir,"TotalSwarmRes_A.csv"),low_memory=False, index_col='epoch')
 TotalSwarmRes_A['timestamp'] = pd.to_datetime(TotalSwarmRes_A['timestamp'])
@@ -40,7 +45,61 @@ def row_handler (GPSData):
     GPS_ResInt = pd.DataFrame(dn)
     GPS_ResInt.to_csv (os.path.join(temp_results_dir,"GPS_ResInt.csv"), header=True)
 
-    X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal =CHAOS_ground_values(utilities_dir,GPS_ResInt)
+    def CHAOS_ground_values(GPS_ResInt):
+        
+        base_dir=os.path.dirname(os.getcwd())
+        utilities_dir = os.path.join(base_dir, "utilities")
+        
+        #1. Load the requiered parameters, including a local CHAOS model in mat format.
+        model = cp.load_CHAOS_matfile(os.path.join(utilities_dir,'CHAOS-7.mat'))
+        theta = 90-GPS_ResInt['Latitude'].values
+        phi = GPS_ResInt['Longitude'].values
+        alt=GPS_ResInt['Altitude'].values
+        rad_geoc_ground, theta_geoc_ground, sd_ground, cd_ground = gg_to_geo(alt, theta) # gg_to_geo, will transfor the coordinates from geocentric values to geodesic values. Altitude must be in km
+        time= cp.data_utils.mjd2000(pd.DatetimeIndex(GPS_ResInt['DateTime']).year, pd.DatetimeIndex(GPS_ResInt['DateTime']).month, pd.DatetimeIndex(GPS_ResInt['DateTime']).day)
+        
+        #2. Compute the core, crust and magentoshpere contributions at the altitude level.
+        B_r_core, B_t_core, B_phi_core = model.synth_values_tdep(time, rad_geoc_ground, theta_geoc_ground, phi) #Core Contribution
+        B_r_crust, B_t_crust, B_phi_crust = model.synth_values_static(rad_geoc_ground, theta_geoc_ground, phi) #Crust Contribution
+        B_r_magneto, B_t_magneto, B_phi_magneto = model.synth_values_gsm(time, rad_geoc_ground, theta_geoc_ground, phi) #Magnetosphere contribution.
+
+        #3. Change the direcction of the axis from XYZ to r,theta and phi.
+        B_r_swarm, B_t_swarm, B_phi_swarm = -GPS_ResInt['C_res'], -GPS_ResInt['N_res'], GPS_ResInt['E_res']
+
+        #4. Compute the magnetic component (r,theta,phi) at ground level.
+        B_r_ground = B_r_core + B_r_crust + B_r_magneto + B_r_swarm #(-Z)
+        B_t_ground = B_t_core + B_t_crust + B_t_magneto + B_t_swarm #(-X)
+        B_phi_ground = B_phi_core + B_phi_crust +B_phi_magneto + B_phi_swarm #(Y)
+
+        #4b. Compute the CHOAS internal magnetic component (r,theta,phi) at ground level.
+        B_r_ground_internal = B_r_core + B_r_crust #(-Z)
+        B_t_ground_internal = B_t_core + B_t_crust #(-X)
+        B_phi_ground_internal = B_phi_core + B_phi_crust #(Y)
+
+        #5. Convert B_r_, B_t_, and B_phi to XYZ (NEC)
+        Z_chaos = -B_r_ground   #Z
+        X_chaos = -B_t_ground   #X
+        Y_chaos = B_phi_ground  #Y
+
+        #5b. Convert full field with CHOAS internal only B_r_, B_t_, and B_phi to XYZ (NEC)
+        Z_chaos_internal = -B_r_ground_internal #Z
+        X_chaos_internal = -B_t_ground_internal #X
+        Y_chaos_internal = B_phi_ground_internal #Y
+
+        #6. Rotate the X(N) and Z(C) magnetic field values of the chaos models into the geodectic frame using the sd and cd (sine and cosine d from gg_to_geo) 
+        X_obs = X_chaos*cd_ground + Z_chaos*sd_ground #New N
+        Z_obs = Z_chaos*cd_ground - X_chaos*sd_ground #New C
+        Y_obs = Y_chaos # New E
+
+        #6b. Rotate the X(N) and Z(C) magnetic field values of the internal part of chaos models into the geodetic frame using the sd and cd (sine and cosine d from gg_to_geo) 
+        X_obs_internal = X_chaos_internal *cd_ground + Z_chaos_internal*sd_ground #New N
+        Z_obs_internal = Z_chaos_internal *cd_ground - X_chaos_internal*sd_ground #New C
+        Y_obs_internal = Y_chaos_internal # New E
+
+        return X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal
+
+    X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal =CHAOS_ground_values(GPS_ResInt)
+
     GPS_ResInt['N'] =pd.Series(X_obs)
     GPS_ResInt['E'] =pd.Series(Y_obs)
     GPS_ResInt['C'] =pd.Series(Z_obs)
