@@ -140,7 +140,7 @@ def main(parameters_file, token):
     GPS_ResInt = pd.DataFrame(dn)
     GPS_ResInt.to_csv (os.path.join(temp_results_dir,"GPS_ResInt.csv"), header=True)
     
-    X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal = CHAOS_ground_values(utilities_dir,GPS_ResInt)
+    X_obs, Y_obs, Z_obs, X_obs_internal, Y_obs_internal, Z_obs_internal = CHAOS_ground_values(GPS_ResInt)
 
     GPS_ResInt['N'] =pd.Series(X_obs)
     GPS_ResInt['E'] =pd.Series(Y_obs)
