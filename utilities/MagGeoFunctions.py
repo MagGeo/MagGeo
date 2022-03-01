@@ -256,13 +256,13 @@ def ST_IDW_Process (GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime, TotalSwarmRe
     resultrowGPS = {'Latitude': GPSLat, 'Longitude': GPSLong, 'Altitude': GPSAltitude, 'DateTime': GPSDateTime, 'N_res': N_res_int, 'E_res': E_res_int, 'C_res':C_res_int, 'TotalPoints':TolSatPts, 'Minimum_Distance':MinDistance, 'Average_Distance':AvDistance, 'Kp':kp_Avg}  
     return resultrowGPS
 
-def CHAOS_ground_values(GPS_ResInt):
+def CHAOS_ground_values(utilities_dir,GPS_ResInt):
     
     #base_dir=os.path.dirname(os.getcwd())
     #utilities_dir = os.path.join(base_dir, "utilities")
     
     #1. Load the requiered parameters, including a local CHAOS model in mat format.
-    model = cp.load_CHAOS_matfile("utilities/CHAOS-7.mat")
+    model = cp.load_CHAOS_matfile(os.path.join(utilities_dir,"CHAOS-7.mat"))
     theta = 90-GPS_ResInt['Latitude'].values
     phi = GPS_ResInt['Longitude'].values
     alt=GPS_ResInt['Altitude'].values
