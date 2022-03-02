@@ -88,9 +88,9 @@ And **Congrats** **you got annotated data**. The results will be stored in the f
 If you are ready to annotate your GPS trajectories. You need to update the parameters file in MagGeo to let the program know what are the correct values of your data.
 
 * Open and Update the following parameters in the file `default.yml` located in parameters folder:
-* `gpsfilename: "name_of_your_csv_trayectory.cvs"` Include the name of your Input data. The GPS trayectory you need to annotate with the geomagnetic satellite data.
-* `Lat: "latitude_column_name_in_your_trayectory"`
-* `Long: "longitude_column_name_in_your_trayectory"`
+* `gpsfilename: "name_of_your_trajectory.cvs"` Include the name of your Input data. The GPS trajectory you need to annotate with the geomagnetic satellite data.
+* `Lat: "latitude_column_name_in_your_trajectory"`
+* `Long: "longitude_column_name_in_your_trajectory"`
 * `DateTime: "Date_Time_column_name_in_your_trajectory"` make sure you have one column that includes Date and Time values together.
 * `altitude: "altitude_column_name_in_your_trajectory"` if you do not have any altitute column, you can leave that in blank, including only `""`
 
