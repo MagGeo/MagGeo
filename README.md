@@ -28,7 +28,7 @@ Install Miniconda: [https://docs.conda.io/en/latest/miniconda.html](https://docs
 Open a new terminal and run:
 
 ```bash
-git clone -b minconda_version https://github.com/MagGeo/MagGeo-Annotation-Program.git
+git clone https://github.com/MagGeo/MagGeo-Annotation-Program.git
 ```
 
 ## 3. Change the directory
@@ -104,7 +104,7 @@ python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE
 
 MagGeo includes a set of Jupyter Notebooks, you will find four notebooks (.ipynp) in the Notebooks folder.
 
-> In a Terminal, make sure you are using ```MagGeoEnv``` environment, and run:
+> In a Terminal, make sure you are using ``MagGeoEnv`` environment, and run:
 
 ```
 jupyter notebook
