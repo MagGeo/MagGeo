@@ -1,5 +1,5 @@
  # Development environment for MagGeo
-name: MagGeoEnv3
+name: MagGeoEnv
 # Only use conda-forge
 channels:
  - conda-forge
