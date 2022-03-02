@@ -7,4 +7,4 @@ maggeo:
   Long: "location-long"
   DateTime: "timestamp"
   altitude: "height"
-  #parallel-mode: FALSE # Whether to run MagGeo in parallel mode for big GPS trayectories, TRUE for parallel mode.
+  #parallel-mode: FALSE # Whether to run MagGeo in parallel mode for big GPS trajectories, TRUE for parallel mode.
