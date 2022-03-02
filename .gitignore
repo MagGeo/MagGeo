@@ -1,2 +1,8 @@
-.ipynb_checkpoints
+*.ipynb_checkpoints
 __pycache__
+.DS_Store
+.vscode/*
+temp_data/*
+results/*
+!temp_data/.gitkeep
+!results/.gitkeep

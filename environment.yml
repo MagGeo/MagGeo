@@ -1,34 +1,52 @@
+ # Development environment for MagGeo
 name: MagGeoEnv
+# Only use conda-forge
 channels:
-  - conda-forge
-  - defaults
+ - conda-forge
 dependencies:
-  - python=3.8
-  - pip
-  - pandas
-  - notebook
-  - geopandas
-  - movingpandas
-  - matplotlib
-  - xarray
-  - cartopy
-  - geoplot
-  - gdal
-  - shapely
-  - numpy
-  - geojson
-  - requests
-  - cdflib
-  - Jinja2
-  - pytables
-  - tqdm
-  - scipy
-  - cython
-  - h5py
-  - hvplot
-  - bokeh
-  - pip:
-    - cdflib
-    - hdf5storage
-    - viresclient
-    - chaosmagpy
+ # Environment management tools
+ - python=3.8
+ - pip=22.0.3
+ # Jupyter & interactive stuff
+ - jupyter=1.0.0
+ - jupyterlab=3.2.9
+
+ # Scientific Python
+ - numpy=1.22.2
+ - scipy=1.8.0
+
+ # Data tools
+ - pandas=1.4.1
+ - xarray=0.21.1
+ - netcdf4=1.5.8
+ - pytables=3.7.0
+ - ipyleaflet=0.15.0
+ - flake8=4.0.1
+ - dask=2022.2.0
+ - h5py=3.6.0
+ - jinja2=2.11.3
+ - matplotlib=3.5.1
+ - scikit-learn=1.0.2
+
+ # Progress Bars and user interaction
+ - tqdm=4.62.3
+ - click=8.0.3
+ - PyYAML=6.0
+ - ipywidgets=7.6.5
+
+ # Geospatial
+ - cartopy=0.20.2
+ - geoplot=0.5.0
+ - geoviews=1.9.4
+ - geopandas=0.10.2
+
+ # Holoviz advanced visualisation tools
+ - holoviews
+ - hvplot=0.7.3
+ - bokeh=2.4.2
+
+ # MagGeo Dependencies
+ - pip:
+    - markupsafe==2.0.1
+    - viresclient==0.10.0
+    - chaosmagpy==0.8
