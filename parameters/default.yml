@@ -2,9 +2,9 @@
 ###### These can also be passed as command line arguments   #####
 
 maggeo:
-  gpsfilename: "BirdGPSTrajectoryTest.csv"  #Input data: The GPS trajectory you need to annotate with the geomagnetic satellite data.
+  gpsfilename: "UrskaDataTest2.csv"  #Input data: The GPS trajectory you need to annotate with the geomagnetic satellite data.
   Lat: "location-lat"
   Long: "location-long"
   DateTime: "timestamp"
-  altitude: "height"
+  altitude: ""
   #parallel-mode: FALSE # Whether to run MagGeo in parallel mode for big GPS trajectories, TRUE for parallel mode.

@@ -26,7 +26,9 @@ Install Miniconda: [https://docs.conda.io/en/latest/miniconda.html](https://docs
 
 ## 2. Clone the MagGeo repository:
 
-Open a new terminal and run:
+>You will need Git (version control system) to clone MagGeo, install first accordingly  (https://git-scm.com/downloads)
+
+Open a new terminal (MacOS, Linux) or command prompt (Windows) and run:
 
 ```bash
 git clone https://github.com/MagGeo/MagGeo-Annotation-Program.git
@@ -88,6 +90,7 @@ And **Congrats** **you got annotated data**. The results will be stored in the f
 
 If you are ready to annotate your GPS trajectories. You need to update the parameters file in MagGeo to let the program know what are the correct values of your data.
 
+* Copy the csv file with your trajectories into the data folder.
 * Open and Update the following parameters in the file `default.yml` located in parameters folder:
 * `gpsfilename: "name_of_your_trajectory.cvs"` Include the name of your Input data. The GPS trajectory you need to annotate with the geomagnetic satellite data.
 * `Lat: "latitude_column_name_in_your_trajectory"`
@@ -149,6 +152,31 @@ Researchers, particularly ecologists now can study the annotated table to analyz
 
 <img src="./images/GitHubImage.png">
 
+# Troubleshooting
+
+- **Command prompt does not find conda**:
+    After step No 3, windows users do not find conda command. 
+
+    **Cause**: The miniconda/anaconda path is not included in your %PATH environment
+
+    **Solution**:
+    Add miniconda path to Windows environment.
+    Instructions: https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/
+
+    Usually located in ``C:\ProgramData\Miniconda3\condabin``
+    You should search for file ``conda.bat`` and copy the path where this file is.
+- **Python not found**:
+    Before step step 7, for windows users in some cases python command is not found.
+
+    **Cause**:
+    In some cases for windows users, when python is installed using MagGeoEnv, the path is not included. 
+    **Solution**: Add the conda python path to your environment
+    
+    ``C:\ProgramData\Miniconda3``
+
 # Problems? Suggestions? - Contact us
 
-**MagGeo** is work in progress and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions, bugs or improvements using **MagGeo** please email: [fbenitez@turing.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca)
+**MagGeo** is work in progress and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions please email: [fbenitez@turing.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca)
+
+For **errors**, or **improvements** please submit an issue in this repo, describing the problem you have.
+
