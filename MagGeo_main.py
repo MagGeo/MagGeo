@@ -110,14 +110,23 @@ def main(parameters_file, token):
     temp_results_dir = os.path.join(base_dir, "temp_data")
     results_dir = os.path.join(base_dir, "results")
     data_dir = os.path.join(base_dir, "data")
+
+    #TODO:
+    #FInd a more elegant way to concante the the list from Swarm and then read it to get the type of columns is requiered, Timestamp as datetime and epoch as index.
     
-    TotalSwarmRes_A = pd.concat(listdfa, join='outer', axis=0)
-    TotalSwarmRes_A.to_csv (os.path.join(temp_results_dir,'TotalSwarmRes_A.csv'), header=True)
-    TotalSwarmRes_B = pd.concat(listdfb, join='outer', axis=0)
-    TotalSwarmRes_B.to_csv (os.path.join(temp_results_dir,'TotalSwarmRes_B.csv'), header=True)
-    TotalSwarmRes_C = pd.concat(listdfc, join='outer', axis=0)
-    TotalSwarmRes_C.to_csv (os.path.join(temp_results_dir,'TotalSwarmRes_C.csv'), header=True)
-    TotalSwarmRes_A #If you need to take a look of the Swarm Data, you can print TotalSwarmRes_B, or TotalSwarmRes_C
+    PdSwarmRes_A = pd.concat(listdfa, join='outer', axis=0)
+    PdSwarmRes_A.to_csv (os.path.join(temp_results_dir,'TotalSwarmRes_A.csv'), header=True)
+    PdSwarmRes_B = pd.concat(listdfb, join='outer', axis=0)
+    PdSwarmRes_B.to_csv (os.path.join(temp_results_dir,'TotalSwarmRes_B.csv'), header=True)
+    PdSwarmRes_C = pd.concat(listdfc, join='outer', axis=0)
+    PdSwarmRes_C.to_csv (os.path.join(temp_results_dir,'TotalSwarmRes_C.csv'), header=True)
+
+    TotalSwarmRes_A = pd.read_csv(os.path.join(temp_results_dir,"TotalSwarmRes_A.csv"),low_memory=False, index_col='epoch')
+    TotalSwarmRes_A['timestamp'] = pd.to_datetime(TotalSwarmRes_A['timestamp'])
+    TotalSwarmRes_B = pd.read_csv(os.path.join(temp_results_dir,"TotalSwarmRes_B.csv"),low_memory=False, index_col='epoch')
+    TotalSwarmRes_B['timestamp'] = pd.to_datetime(TotalSwarmRes_B['timestamp'])
+    TotalSwarmRes_C = pd.read_csv(os.path.join(temp_results_dir,"TotalSwarmRes_C.csv"),low_memory=False, index_col='epoch')
+    TotalSwarmRes_C['timestamp'] = pd.to_datetime(TotalSwarmRes_C['timestamp'])
 
     dn = [] ## List used to add all the GPS points with the annotated MAG Data. See the last bullet point of this process        
     for index, row in tqdm(GPSData.iterrows(), total=GPSData.shape[0], desc="Annotating the GPS Trayectory"):
