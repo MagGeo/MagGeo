@@ -1,0 +1,26 @@
+---
+title: "Troubleshooting"
+toc: true
+---
+
+# Troubleshooting
+
+- **Command prompt does not find conda**:
+    After step No 3, windows users do not find conda command. 
+
+    **Cause**: The miniconda/anaconda path is not included in your %PATH environment
+
+    **Solution**:
+    Add miniconda path to Windows environment.
+    Instructions: https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/
+
+    Usually located in ``C:\ProgramData\Miniconda3\condabin``
+    You should search for file ``conda.bat`` and copy the path where this file is.
+- **Python not found**:
+    Before step step 7, for windows users in some cases python command is not found.
+
+    **Cause**:
+    In some cases for windows users, when python is installed using MagGeoEnv, the path is not included. 
+    **Solution**: Add the conda python path to your environment
+    
+    ``C:\ProgramData\Miniconda3``
