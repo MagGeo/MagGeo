@@ -112,7 +112,7 @@ def main(parameters_file, token):
     data_dir = os.path.join(base_dir, "data")
 
     #TODO:
-    #FInd a more elegant way to concante the the list from Swarm and then read it to get the type of columns is requiered, Timestamp as datetime and epoch as index.
+    #Find a more elegant way to concante the the list from Swarm and then read it to get the type of columns is requiered, Timestamp as datetime and epoch as index.
     
     PdSwarmRes_A = pd.concat(listdfa, join='outer', axis=0)
     PdSwarmRes_A.to_csv (os.path.join(temp_results_dir,'TotalSwarmRes_A.csv'), header=True)
