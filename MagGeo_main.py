@@ -1,6 +1,6 @@
 """
 Core MagGeo_Sequential Model
-Created on Thrus Feb 17, 22
+Created on Thur Feb 17, 22
 @author: Fernando Benitez-Paez
 """
 
