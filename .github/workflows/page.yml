@@ -1,37 +1,25 @@
-# This is a basic workflow to help you get started with Actions
+name: Deploy site
 
-name: deploy site
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [master]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Install quarto
-        run: |
-          wget https://github.com/quarto-dev/quarto-cli/releases/download/v0.9.4/quarto-0.9.4-linux-amd64.deb
-          sudo dpkg -i quarto-0.9.4-linux-amd64.deb
-      - name: Render
-        run: |
-          cd docs
-          quarto render
-
-      - name: Publish
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/_site
+    - name: Install quarto
+      run: |
+        wget https://github.com/quarto-dev/quarto-cli/releases/download/v0.9.4/quarto-0.9.4-linux-amd64.deb
+        sudo dpkg -i quarto-0.9.4-linux-amd64.deb
+    - name: Render
+      run: |
+        cd docs
+        quarto render
+    - name: Publish
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/_site

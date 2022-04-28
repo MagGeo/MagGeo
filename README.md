@@ -76,13 +76,13 @@ python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE
 
 Now MagGeo will start to download the Swarm Data.
 
-![img](./images/poetry_data.png)
+![img](/docs/images/poetry_data.png)
 
 Once the data has been downloaded, MagGeo will process it to make the annotation process ( for more information about how this is done, visit [our methodological paper in Movement Ecology](https://movementecologyjournal.biomedcentral.com/track/pdf/10.1186/s40462-021-00268-4.pdf))
 
 The last step MagGeo does is annotating the gathered data, that would take more time depending how big is your dataset. In our example it only takes 4 seconds.
 
-![img](./images/poetry_annotate.png)
+![img](/docs/images/poetry_annotate.png)
 
 And **Congrats** **you got annotated data**. The results will be stored in the folder results for your futher analysis. You will find a .csv file named like **GeoMagResult_+name_of_your_csv_file_trajectory.**
 
@@ -116,7 +116,7 @@ jupyter notebook
 
 A Jupyter Notebook dashboard will comes out in your browser locally (e.g. http://localhost:8888) then you can explore MagGeo and its content. Go to Notebooks folder and open any of the following notebook for a step by step process. You can add cells to make your own test or analysis, but be aware that any change you do at the code migth affects the correct performance of the program.
 
-![img](./images/JupyterDashboard.png)
+![img](/docs/images/JupyterDashboard.png)
 
 > * [Main Notebook](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/Notebooks/MagGeo%20-%20Home.ipynb) : An initial and descriptive notebook where you can get detail information about MagGeo, the sample data used, background concepts and software requirements.
 > * [Sequential Mode](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/Notebooks/MagGeo%20-%20Sequential%20Mode.ipynb): Annotation Notebook applying a sequential mode. Using  a traditional loop to going through the GPS track rows and process every row computing the magnetic components. Particularly useful for small datasets.
@@ -125,7 +125,7 @@ A Jupyter Notebook dashboard will comes out in your browser locally (e.g. http:/
 
 The following image will help you to understand how the sequential and parallel mode differ, and how in parallel mode you should be able to use the full capacity of your machine. However it is quite important to identify when we need to use a parallel mode. For small datasets running **MagGeo** in Parallel mode could be even slower than the sequential mode.
 
-<img src="./images/Sequential_ParallelMode-Jupyter.png">
+<img src="/doc/images/Sequential_ParallelMode-Jupyter.png">
 
 # What's MagGeo
 
@@ -150,7 +150,7 @@ MagGeo is entirely built-in python and using a set of Jupyter Notebooks that off
 
 Researchers, particularly ecologists now can study the annotated table to analyze the geomagnetic Spatio-temporal variation across any GPS trajectory.
 
-<img src="./images/GitHubImage.png">
+<img src="/docs/images/GitHubImage.png">
 
 # Troubleshooting
 
