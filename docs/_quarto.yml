@@ -2,33 +2,21 @@ project:
   type: website
 
 website:
-  title: "MagGeo - Documentation"
+  title: "MagGeo"
   sidebar:
     style: "docked"
     search: true
     contents:
       - index.qmd
-      - section: "What's MagGeo"
-      - section: "The science behind"
       - section: "Using it"
         contents:
           - installation.qmd
           - using_maggeo.qmd
-          - transform_it.qmd
-          - created_areas.qmd
-          - outputs.qmd
           - troubleshooting.qmd
-      - section: "Understanding it"
+      - section: "Notebooks"
         contents:
-          - understanding.qmd
-          - modelling_methods.qmd
-          - data_sources.qmd
-      - section: "Extending it"
-        contents:
-          - developer_guide.qmd
-          - code_walkthrough.qmd
-          - performance.qmd
-
+          - sequential.qmd
+          - parallel.qmd
 format:
   html:
     theme: cosmo
