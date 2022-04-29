@@ -3,8 +3,6 @@ title: "Troubleshooting"
 toc: true
 ---
 
-# Troubleshooting
-
 - **Command prompt does not find conda**:
     After step No 3, windows users do not find conda command. 
 
