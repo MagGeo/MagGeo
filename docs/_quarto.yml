@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "MagGeo"
+  title: " MagGeo: Data fusion tool to combine magnetic data with GPS trajectories"
   sidebar:
     style: "docked"
     search: true
