@@ -7,7 +7,7 @@ toc: true
 
 MagGeo is a tool that helps ecologists or animal movement researchers to link  earth's magnetic field data from satellite source to GPS trajectories. Inspired by the Environmental Data Automated Track Annotation System (Env-DATA) Service a tool from Movebank and help researcher to get a better understanding about the geomagnetic variations across the GPS trajectories.
 
-MagGeo is entirely built-in python and using a set of Jupyter Notebooks that offer several ways to link GPS tracks with the geomagnetic components using the data from one of the up-to-date satellite sources - Swarm Constellation. MagGeo will create an enriched GPS track with the following components:
+MagGeo is entirely built-in python and includes a two Jupyter Notebooks that offer two ways to link GPS tracks with the geomagnetic components using the data from one of the up-to-date satellite sources - Swarm Constellation. MagGeo will create an enriched GPS track with the following components:
 
 - **Latitude** from the GPS Track.
 - **Longitude** from the GPS Track.
@@ -26,8 +26,8 @@ MagGeo is entirely built-in python and using a set of Jupyter Notebooks that off
 
 Researchers, particularly ecologists now can study the annotated table to analyze the geomagnetic Spatio-temporal variation across any GPS trajectory.
 
-# Problems? Suggestions? - Contact us
+# Suggestions? - Contact us
 
 **MagGeo** is work in progress and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions please email: [fbenitez@turing.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca)
 
-For **errors**, or **improvements** please submit an issue in this repo, describing the problem you have.
+For **errors**, or **improvements** please submit an [issue](https://github.com/MagGeo/MagGeo/issues) in this repo, describing the problem.

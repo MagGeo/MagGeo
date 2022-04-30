@@ -2,6 +2,7 @@ project:
   type: website
 
 website:
+  favicon: /images/path1806.png
   title: " MagGeo: Data fusion tool to combine magnetic data with GPS trajectories"
   sidebar:
     style: "docked"
