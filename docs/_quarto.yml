@@ -4,19 +4,26 @@ project:
 website:
   title: " MagGeo: Data fusion tool to combine magnetic data with GPS trajectories"
   sidebar:
-    style: "docked"
+    style: "floating"
     search: true
     contents:
       - index.qmd
-      - section: "Using it"
+      - section: "How to use it"
         contents:
           - installation.qmd
           - using_maggeo.qmd
           - troubleshooting.qmd
+      - section: "The science behind" 
+        contents: 
+          - intro.qmd
+          - relevant_concepts.qmd
+          - calculation_mag_components.qmd
+          - how_does_it_works.qmd
+          - data_requeriments.qmd
       - section: "Notebooks"
         contents:
           - SequentialMode.ipynb
-          - parallel.qmd
+          - ParallelMode.ipynb
 format:
   html:
     theme: cosmo

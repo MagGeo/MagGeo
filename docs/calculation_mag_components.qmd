@@ -1,0 +1,22 @@
+---
+title: "Calculation of Magnetic Components"
+toc: true
+---
+
+<img src="./images/VerticalContributionsMagneticField.png" style="width:500px;height:300px;float: left; margin-right: 1em;margin-bottom: 1em;" >
+Swarm data provide information on the earth's magnetic field at the orbit level, which is above the ionosphere, where geomagnetic field is affected by the electrical currents induced by the interaction of the solar wind and magnetosphere ( see the figure above to understand the vertical contributions of the earth' magentic field). This means that to obtain the values of the magnetic field on the Earth’s surface where animals are migrating, the raw measurements from Swarm need to be corrected removing the effects from the modeled values from core, crust and magnetosphere. We do this in three steps. **1.** We download the swarm residuals for the GPS date, getting essentially the unmodelled ionospheric field contribution that we haven’t captured in any of the other models. **2.** because at the ground level the core and crust contriutiosn are stringen than the ones at the satellite altitude, We use the CHAOS model to compute the core, crust and magnetoshpere contributions for the particular, latitude, longitude, datetime and altitude of each GPS point. **3.** Finally we add those values modelled by CHAOS values with the Swarm resiuals, computing a comprenhensive magneitc values than include the stronger core and crust contributions and the unmodellled values from the satellite altitude that capture  all the inoshpere field contributions. For details of this correction see Supplementary Information 1 in our main paper.
+
+<img src="./images/IonosphericCorrections.png" style="width:700px;height:400px">
+
+<div class="alert alert-warning" role="alert">
+  <strong>🔎 CHAOS: </strong>
+It is a comprehensive field model, containing the modelled contributions of the time-varying core, the static crustal field, the average time-varying magnetosphere. We show calculation of the residuals (adding this parameter <code>residuals=True</code>) which means: data - <code>CHAOS(Core+Static+Magnetosphere)</code>.
+    
+</div>
+
+The **CHAOS** model is available on the server as model variables:
+
+- CHAOS-Core: SH degree 1-20
+- CHAOS-Static: SH degree 21-110
+- CHAOS-MMA-Primary: Magnetosphere external field, SH degree 1-2
+- CHAOS-MMA-Secondary: Magnetosphere internal induced field, SH degree 1-2

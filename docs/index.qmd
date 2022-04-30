@@ -1,9 +1,7 @@
 ---
-title: "Home"
+title: "What's MagGeo"
 toc: true
 ---
-
-# What's MagGeo
 
 <img src="/images/GitHubImage2.png">
 
@@ -33,4 +31,3 @@ Researchers, particularly ecologists now can study the annotated table to analyz
 **MagGeo** is work in progress and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions please email: [fbenitez@turing.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca)
 
 For **errors**, or **improvements** please submit an issue in this repo, describing the problem you have.
-
