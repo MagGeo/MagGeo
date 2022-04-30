@@ -15,7 +15,7 @@ website:
           - troubleshooting.qmd
       - section: "Notebooks"
         contents:
-          - sequential.qmd
+          - SequentialMode.ipynb
           - parallel.qmd
 format:
   html:
