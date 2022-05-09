@@ -13,6 +13,7 @@ website:
         contents:
           - installation.qmd
           - using_maggeo.qmd
+          - data_requeriments.qmd
           - troubleshooting.qmd
       - section: "The science behind" 
         contents: 
@@ -20,7 +21,6 @@ website:
           - relevant_concepts.qmd
           - calculation_mag_components.qmd
           - how_does_it_works.qmd
-          - data_requeriments.qmd
       - section: "Notebooks"
         contents:
           - SequentialMode.ipynb
