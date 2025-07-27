@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2025-07-27">
 
-<title>3&nbsp; MagGeo - Sequential Mode – MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
+<title>1&nbsp; MagGeo - Sequential Mode – MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -310,6 +310,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./intro.html"> 
 <span class="menu-text">About MagGeo</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./background.html"> 
+<span class="menu-text">Key Concepts</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -323,7 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./SequentialMode.html">Notebooks</a></li><li class="breadcrumb-item"><a href="./SequentialMode.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">MagGeo - Sequential Mode</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./SequentialMode.html">Notebooks</a></li><li class="breadcrumb-item"><a href="./SequentialMode.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MagGeo - Sequential Mode</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -359,7 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./installation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Installation</span></span></a>
+ <span class="menu-text">Installing MagGeo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -394,7 +398,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./background.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Key Concepts</span></span></a>
+ <span class="menu-text">Key Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -423,13 +427,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./SequentialMode.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">MagGeo - Sequential Mode</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MagGeo - Sequential Mode</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ParallelMode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">MagGeo - Parallel Mode</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">MagGeo - Parallel Mode</span></span></a>
   </div>
 </li>
       </ul>
@@ -450,19 +454,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">3.1</span> Overview</a></li>
-  <li><a href="#data-requirements" id="toc-data-requirements" class="nav-link" data-scroll-target="#data-requirements"><span class="header-section-number">3.2</span> Data requirements</a></li>
-  <li><a href="#import-the-required-python-libraries" id="toc-import-the-required-python-libraries" class="nav-link" data-scroll-target="#import-the-required-python-libraries"><span class="header-section-number">3.3</span> Import the required python libraries</a></li>
-  <li><a href="#add-your-vires-web-client-token" id="toc-add-your-vires-web-client-token" class="nav-link" data-scroll-target="#add-your-vires-web-client-token"><span class="header-section-number">3.4</span> Add your VirES web client Token</a></li>
-  <li><a href="#read-the-gps-track" id="toc-read-the-gps-track" class="nav-link" data-scroll-target="#read-the-gps-track"><span class="header-section-number">3.5</span> Read the GPS track</a></li>
-  <li><a href="#validate-the-correct-amount-of-swarm-measures" id="toc-validate-the-correct-amount-of-swarm-measures" class="nav-link" data-scroll-target="#validate-the-correct-amount-of-swarm-measures"><span class="header-section-number">3.6</span> Validate the correct amount of Swarm measures</a></li>
-  <li><a href="#download-swarm-residuals-data" id="toc-download-swarm-residuals-data" class="nav-link" data-scroll-target="#download-swarm-residuals-data"><span class="header-section-number">3.7</span> Download Swarm residuals data</a></li>
-  <li><a href="#spatio-temporal-filter-and-interpolation-process-st-idw" id="toc-spatio-temporal-filter-and-interpolation-process-st-idw" class="nav-link" data-scroll-target="#spatio-temporal-filter-and-interpolation-process-st-idw"><span class="header-section-number">3.8</span> Spatio-Temporal filter and interpolation process (ST-IDW)</a></li>
-  <li><a href="#compute-the-magnetic-components-at-the-trajectory-altitute-using-chaos-model" id="toc-compute-the-magnetic-components-at-the-trajectory-altitute-using-chaos-model" class="nav-link" data-scroll-target="#compute-the-magnetic-components-at-the-trajectory-altitute-using-chaos-model"><span class="header-section-number">3.9</span> Compute the magnetic components at the trajectory altitute using CHAOS model</a></li>
-  <li><a href="#the-final-result" id="toc-the-final-result" class="nav-link" data-scroll-target="#the-final-result"><span class="header-section-number">3.10</span> The final result</a></li>
-  <li><a href="#export-the-final-results-to-a-csv-file" id="toc-export-the-final-results-to-a-csv-file" class="nav-link" data-scroll-target="#export-the-final-results-to-a-csv-file"><span class="header-section-number">3.11</span> Export the final results to a CSV file</a></li>
-  <li><a href="#validate-the-results-optional" id="toc-validate-the-results-optional" class="nav-link" data-scroll-target="#validate-the-results-optional"><span class="header-section-number">3.12</span> Validate the results ( Optional)</a></li>
-  <li><a href="#map-the-gps-track-using-the-annotated-magnetic-values-optional" id="toc-map-the-gps-track-using-the-annotated-magnetic-values-optional" class="nav-link" data-scroll-target="#map-the-gps-track-using-the-annotated-magnetic-values-optional"><span class="header-section-number">3.13</span> Map the GPS Track using the annotated Magnetic Values (Optional)</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1.1</span> Overview</a></li>
+  <li><a href="#data-requirements" id="toc-data-requirements" class="nav-link" data-scroll-target="#data-requirements"><span class="header-section-number">1.2</span> Data requirements</a></li>
+  <li><a href="#import-the-required-python-libraries" id="toc-import-the-required-python-libraries" class="nav-link" data-scroll-target="#import-the-required-python-libraries"><span class="header-section-number">1.3</span> Import the required python libraries</a></li>
+  <li><a href="#add-your-vires-web-client-token" id="toc-add-your-vires-web-client-token" class="nav-link" data-scroll-target="#add-your-vires-web-client-token"><span class="header-section-number">1.4</span> Add your VirES web client Token</a></li>
+  <li><a href="#read-the-gps-track" id="toc-read-the-gps-track" class="nav-link" data-scroll-target="#read-the-gps-track"><span class="header-section-number">1.5</span> Read the GPS track</a></li>
+  <li><a href="#validate-the-correct-amount-of-swarm-measures" id="toc-validate-the-correct-amount-of-swarm-measures" class="nav-link" data-scroll-target="#validate-the-correct-amount-of-swarm-measures"><span class="header-section-number">1.6</span> Validate the correct amount of Swarm measures</a></li>
+  <li><a href="#download-swarm-residuals-data" id="toc-download-swarm-residuals-data" class="nav-link" data-scroll-target="#download-swarm-residuals-data"><span class="header-section-number">1.7</span> Download Swarm residuals data</a></li>
+  <li><a href="#spatio-temporal-filter-and-interpolation-process-st-idw" id="toc-spatio-temporal-filter-and-interpolation-process-st-idw" class="nav-link" data-scroll-target="#spatio-temporal-filter-and-interpolation-process-st-idw"><span class="header-section-number">1.8</span> Spatio-Temporal filter and interpolation process (ST-IDW)</a></li>
+  <li><a href="#compute-the-magnetic-components-at-the-trajectory-altitute-using-chaos-model" id="toc-compute-the-magnetic-components-at-the-trajectory-altitute-using-chaos-model" class="nav-link" data-scroll-target="#compute-the-magnetic-components-at-the-trajectory-altitute-using-chaos-model"><span class="header-section-number">1.9</span> Compute the magnetic components at the trajectory altitute using CHAOS model</a></li>
+  <li><a href="#the-final-result" id="toc-the-final-result" class="nav-link" data-scroll-target="#the-final-result"><span class="header-section-number">1.10</span> The final result</a></li>
+  <li><a href="#export-the-final-results-to-a-csv-file" id="toc-export-the-final-results-to-a-csv-file" class="nav-link" data-scroll-target="#export-the-final-results-to-a-csv-file"><span class="header-section-number">1.11</span> Export the final results to a CSV file</a></li>
+  <li><a href="#validate-the-results-optional" id="toc-validate-the-results-optional" class="nav-link" data-scroll-target="#validate-the-results-optional"><span class="header-section-number">1.12</span> Validate the results ( Optional)</a></li>
+  <li><a href="#map-the-gps-track-using-the-annotated-magnetic-values-optional" id="toc-map-the-gps-track-using-the-annotated-magnetic-values-optional" class="nav-link" data-scroll-target="#map-the-gps-track-using-the-annotated-magnetic-values-optional"><span class="header-section-number">1.13</span> Map the GPS Track using the annotated Magnetic Values (Optional)</a></li>
   </ul>
 </nav>
     </div>
@@ -470,9 +474,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./SequentialMode.html">Notebooks</a></li><li class="breadcrumb-item"><a href="./SequentialMode.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">MagGeo - Sequential Mode</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./SequentialMode.html">Notebooks</a></li><li class="breadcrumb-item"><a href="./SequentialMode.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MagGeo - Sequential Mode</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">MagGeo - Sequential Mode</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MagGeo - Sequential Mode</span></h1>
 </div>
 
 
@@ -498,13 +502,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Authors</strong> | Fernando Benitez-Paez, Urška Demšar, Jed Long, Ciaran Beggan</p>
 <p><strong>Contact</strong> | <a href="mailto:Fernando.Benitez@st-andrews.ac.uk">Fernando.Benitez@st-andrews.ac.uk</a>, <a href="mailto:ud2@st-andrews.ac.uk">ud2@st-andrews.ac.uk</a>, <a href="mailto:jed.long@uwo.ca">jed.long@uwo.ca</a>, <a href="mailto:Fernando.Benitez@st-andrews.ac.uk">ciar@bgs.ac.uk</a></p>
 <p><strong>Keywords</strong> | Bird migration, data fusion, Earth’s magnetic field, Swarm, GPS tracking</p>
-<section id="overview" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">3.1</span> Overview</h2>
+<section id="overview" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1.1</span> Overview</h2>
 <p>This Jupyter Notebook will guide you through the required steps to annotate your GPS tracking data with the earth’s magnetic field data from Swarm (European Space Agency). This version is called Sequential Mode, alternatively you can use Parallel Mode to take advantage of parallelized computing if required. More information about the Swarm satellites can be found in the Main Document on the MagGeo github repository. This script will use a sequential loop to run the annotation process for each GPS Point (row) from your data.</p>
 <p>To execute the code, you can go through each cell (pressing <code>Crtl+Enter</code>), you will also find inner comments <code>##</code> to describe each particular step. If you are not familiar with using Jupyter Notebooks, you might want to take some time to learn how first, for example take a look at the <code>notebook-basics.ipynb</code> Notebook inside MagGeo.</p>
 </section>
-<section id="data-requirements" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="data-requirements"><span class="header-section-number">3.2</span> Data requirements</h2>
+<section id="data-requirements" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="data-requirements"><span class="header-section-number">1.2</span> Data requirements</h2>
 <div class="alert alert-warning" role="alert">
 <p><strong>🔎 Your trajectory must be in a csv format:</strong></p>
 <p>There are three columns that must be included in your GPS trajectory. Make sure your GPS trajectory includes <strong>Latitude</strong> , <strong>Longitude</strong> and <strong>timestamp</strong>. We suggest that the Timestamp column follow the day/month/year Hour:Minute (<strong>dd/mm/yyyy HH:MM:SS</strong>) format, Latitude and Longitude should be in decimal degrees (WGS84). Optionally an altitude column can be used providing altitude (the altitude must be in <strong>km</strong>). Other Columns will be ignored. Here it is an example of how your GPS track should look:</p>
@@ -512,8 +516,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For this example we are reading the <strong>BirdGPSTrajectory.csv</strong> file. If you want to run the method using your own csv file, make sure you store your the file in the <code>./data</code> folder. For more information about the dataset we used in this example go to the Main Notebook.</p>
 </div>
 </section>
-<section id="import-the-required-python-libraries" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="import-the-required-python-libraries"><span class="header-section-number">3.3</span> Import the required python libraries</h2>
+<section id="import-the-required-python-libraries" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="import-the-required-python-libraries"><span class="header-section-number">1.3</span> Import the required python libraries</h2>
 <div id="cell-4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T10:54:58.836683Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T10:54:51.818976Z&quot;}}">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime <span class="im">as</span> dt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> timedelta</span>
@@ -532,15 +536,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utilities.MagGeoFunctions <span class="im">import</span> CHAOS_ground_values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="add-your-vires-web-client-token" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="add-your-vires-web-client-token"><span class="header-section-number">3.4</span> Add your VirES web client Token</h2>
+<section id="add-your-vires-web-client-token" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="add-your-vires-web-client-token"><span class="header-section-number">1.4</span> Add your VirES web client Token</h2>
 <p>The <strong>VirES client API</strong>, requires a token. Before start you need to get your own VirES token. You can visit https://vires.services/ to get yours, and then add it into the next cell.</p>
 <div id="cell-6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T10:55:48.016921Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T10:55:02.161379Z&quot;}}">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>set_token(<span class="st">"https://vires.services/ows"</span>, set_default<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="read-the-gps-track" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="read-the-gps-track"><span class="header-section-number">3.5</span> Read the GPS track</h2>
+<section id="read-the-gps-track" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="read-the-gps-track"><span class="header-section-number">1.5</span> Read the GPS track</h2>
 <p>The following steps will load the GPS track from a csv file, and set some requirements before downloading geomagnetic data from Swarm. If your csv track file doesnt not have any altitude attribute, MagGeo will use sea level as your altitude (i.e., 0 Km). <strong>Altitude column units must be Km</strong></p>
 <div id="cell-8" class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>base_dir<span class="op">=</span>os.path.dirname(os.getcwd())</span>
@@ -568,8 +572,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>GPSData</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="validate-the-correct-amount-of-swarm-measures" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="validate-the-correct-amount-of-swarm-measures"><span class="header-section-number">3.6</span> Validate the correct amount of Swarm measures</h2>
+<section id="validate-the-correct-amount-of-swarm-measures" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="validate-the-correct-amount-of-swarm-measures"><span class="header-section-number">1.6</span> Validate the correct amount of Swarm measures</h2>
 <p>The following loop is identifiying the time and validating if the time is less than 4:00 hours and more than 20:00 hours to bring one extra day of data. The result of this validation is written in an empty python list which will be later validated to get the unique dates. This avoids duplicate downloading of data for the same day and reduces overall computational time.</p>
 <div id="cell-12" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T10:56:43.029375Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T10:56:42.421248Z&quot;}}">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>datestimeslist <span class="op">=</span> []</span>
@@ -600,8 +604,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>uniquelist_dates</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="download-swarm-residuals-data" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="download-swarm-residuals-data"><span class="header-section-number">3.7</span> Download Swarm residuals data</h2>
+<section id="download-swarm-residuals-data" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="download-swarm-residuals-data"><span class="header-section-number">1.7</span> Download Swarm residuals data</h2>
 <p>Once the date and time columns have been defined and the unique dates are identified the script can start the download process. Usually the data from Swarm is requested using only one satellite, however <strong>MagGeo</strong> will use the magnetic measures from the three satellite of the Swarm Mission (Alpha, Bravo, Charlie). Be aware satellite Charlie, got its AMS broken earlier in the mission, although the initial dates still have valid data MagGeo can use.</p>
 <div class="alert alert-info" role="alert">
 📘 <strong>Be aware:</strong> Due to the amount of dates in the demo GPS track (42 days), the time to process the sample data will take approximately 10 minutes. Unfortunatly the download process migth be a slow process, particually for the magnetic models data MagGeo requieres.
@@ -647,8 +651,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>TotalSwarmRes_A.head(<span class="dv">10</span>) <span class="co">#If you need to take a look of the Swarm Data, you can print TotalSwarmRes_B, or TotalSwarmRes_C</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="spatio-temporal-filter-and-interpolation-process-st-idw" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="spatio-temporal-filter-and-interpolation-process-st-idw"><span class="header-section-number">3.8</span> Spatio-Temporal filter and interpolation process (ST-IDW)</h2>
+<section id="spatio-temporal-filter-and-interpolation-process-st-idw" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="spatio-temporal-filter-and-interpolation-process-st-idw"><span class="header-section-number">1.8</span> Spatio-Temporal filter and interpolation process (ST-IDW)</h2>
 <p>Once we have requested the swarm data, now we need to <code>filter</code> in space and time the available points to compute the magnetic values (NEC frame) for each GPS point based on its particular date and time. The function <code>ST_IDW_Process</code> takes the GPS track and the downloaded data from swarm to filter in space and time based on the criteria defined in our method. With the swarm data filtered we interpolate (IDW) the NEC components for each GPS data point.</p>
 <div id="cell-20" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:35:15.192588Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:33:12.563586Z&quot;}}" data-scrolled="true">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
@@ -678,8 +682,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>GPS_ResInt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="compute-the-magnetic-components-at-the-trajectory-altitute-using-chaos-model" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="compute-the-magnetic-components-at-the-trajectory-altitute-using-chaos-model"><span class="header-section-number">3.9</span> Compute the magnetic components at the trajectory altitute using CHAOS model</h2>
+<section id="compute-the-magnetic-components-at-the-trajectory-altitute-using-chaos-model" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="compute-the-magnetic-components-at-the-trajectory-altitute-using-chaos-model"><span class="header-section-number">1.9</span> Compute the magnetic components at the trajectory altitute using CHAOS model</h2>
 <p>The function <code>CHAOS_ground_values</code> is used to run the calculation of magnetic components. This adjustment requeries the magnetic components at the trajectory altitude (or at the ground level) using CHAOS (theta, phi, radial). This process also further conducts the rotation and transformation between a geocentric earth-based reference system (CHAOS) and geodetic earth-based reference system (GPS track). Once the corrected values are calculated the non-necesary columns are removed. For more information about this process go to the Main Notebook.</p>
 <div id="cell-24" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:16.074230Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:12.175530Z&quot;}}" data-scrolled="true">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
@@ -695,8 +699,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>GPS_ResInt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="the-final-result" class="level2" data-number="3.10">
-<h2 data-number="3.10" class="anchored" data-anchor-id="the-final-result"><span class="header-section-number">3.10</span> The final result</h2>
+<section id="the-final-result" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="the-final-result"><span class="header-section-number">1.10</span> The final result</h2>
 <p>With the NEC components for each GPS Track point, it is possible to compute the aditional magnetic components. For more information about the magnetic components and their relevance go to the main paper or notebook.</p>
 <div class="alert alert-info" role="alert">
 <pre><code>&lt;strong&gt;📘 The annotated dataframe will include the following attributes:&lt;/strong&gt; If you need more information about how the geomagnetic components are described go to the main MagGeo Notebook (Add Link).
@@ -739,8 +743,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>MagGeoResult</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="export-the-final-results-to-a-csv-file" class="level2" data-number="3.11">
-<h2 data-number="3.11" class="anchored" data-anchor-id="export-the-final-results-to-a-csv-file"><span class="header-section-number">3.11</span> Export the final results to a CSV file</h2>
+<section id="export-the-final-results-to-a-csv-file" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="export-the-final-results-to-a-csv-file"><span class="header-section-number">1.11</span> Export the final results to a CSV file</h2>
 <div id="cell-30" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:29.447788Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:29.407782Z&quot;}}">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Exporting the CSV file</span></span>
@@ -748,8 +752,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>export_csv <span class="op">=</span> MagGeoResult.to_csv (os.path.join(results_dir,outputfile), index <span class="op">=</span> <span class="va">None</span>, header<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="validate-the-results-optional" class="level2" data-number="3.12">
-<h2 data-number="3.12" class="anchored" data-anchor-id="validate-the-results-optional"><span class="header-section-number">3.12</span> Validate the results ( Optional)</h2>
+<section id="validate-the-results-optional" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="validate-the-results-optional"><span class="header-section-number">1.12</span> Validate the results ( Optional)</h2>
 <p>To validate the results we plot the <code>Fgps</code>column.</p>
 <div id="cell-32" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:37.230806Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:36.970752Z&quot;}}">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Creating a copy of the results and setting the Datetime Column as dataframe index.</span></span>
@@ -762,8 +766,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'# of measurements'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="map-the-gps-track-using-the-annotated-magnetic-values-optional" class="level2" data-number="3.13">
-<h2 data-number="3.13" class="anchored" data-anchor-id="map-the-gps-track-using-the-annotated-magnetic-values-optional"><span class="header-section-number">3.13</span> Map the GPS Track using the annotated Magnetic Values (Optional)</h2>
+<section id="map-the-gps-track-using-the-annotated-magnetic-values-optional" class="level2" data-number="1.13">
+<h2 data-number="1.13" class="anchored" data-anchor-id="map-the-gps-track-using-the-annotated-magnetic-values-optional"><span class="header-section-number">1.13</span> Map the GPS Track using the annotated Magnetic Values (Optional)</h2>
 <p>Now we are going to plot the annotated GPS track stored into the MagDataFinal dataframe to see the different magnetic components in a map to have a better prespective of the impact of the earth magnetic field.</p>
 <div id="cell-34" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:41.688780Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:40.712029Z&quot;}}">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ValidateDF.plot(kind<span class="op">=</span><span class="st">"scatter"</span>, x<span class="op">=</span><span class="st">"Latitude"</span>, y<span class="op">=</span><span class="st">"Longitude"</span>,</span>
@@ -1280,7 +1284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ParallelMode.html" class="pagination-link" aria-label="MagGeo - Parallel Mode">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">MagGeo - Parallel Mode</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">MagGeo - Parallel Mode</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

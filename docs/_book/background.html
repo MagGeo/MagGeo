@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2025-07-27">
 
-<title>2&nbsp; Key Concepts – MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
+<title>Key Concepts – MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -295,6 +295,10 @@ div.csl-indent {
     <a class="nav-link" href="./intro.html"> 
 <span class="menu-text">About MagGeo</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./background.html"> 
+<span class="menu-text">Key Concepts</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -308,7 +312,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">The science behind</a></li><li class="breadcrumb-item"><a href="./background.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Key Concepts</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">The science behind</a></li><li class="breadcrumb-item"><a href="./background.html">Key Concepts</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -344,7 +348,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./installation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Installation</span></span></a>
+ <span class="menu-text">Installing MagGeo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -379,7 +383,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./background.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Key Concepts</span></span></a>
+ <span class="menu-text">Key Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -408,13 +412,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./SequentialMode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">MagGeo - Sequential Mode</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MagGeo - Sequential Mode</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ParallelMode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">MagGeo - Parallel Mode</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">MagGeo - Parallel Mode</span></span></a>
   </div>
 </li>
       </ul>
@@ -437,30 +441,30 @@ div.csl-indent {
   <ul>
   <li><a href="#animal-navigation-fundamentals" id="toc-animal-navigation-fundamentals" class="nav-link active" data-scroll-target="#animal-navigation-fundamentals">1. Animal Navigation Fundamentals</a>
   <ul class="collapse">
-  <li><a href="#true-navigation" id="toc-true-navigation" class="nav-link" data-scroll-target="#true-navigation"><span class="header-section-number">2.0.1</span> True Navigation</a></li>
-  <li><a href="#navigation-mechanisms" id="toc-navigation-mechanisms" class="nav-link" data-scroll-target="#navigation-mechanisms"><span class="header-section-number">2.0.2</span> Navigation Mechanisms</a></li>
+  <li><a href="#true-navigation" id="toc-true-navigation" class="nav-link" data-scroll-target="#true-navigation">True Navigation</a></li>
+  <li><a href="#navigation-mechanisms" id="toc-navigation-mechanisms" class="nav-link" data-scroll-target="#navigation-mechanisms">Navigation Mechanisms</a></li>
   </ul></li>
-  <li><a href="#geomagnetic-navigation" id="toc-geomagnetic-navigation" class="nav-link" data-scroll-target="#geomagnetic-navigation"><span class="header-section-number">2.1</span> 2. Geomagnetic Navigation</a></li>
-  <li><a href="#earths-magnetic-field" id="toc-earths-magnetic-field" class="nav-link" data-scroll-target="#earths-magnetic-field"><span class="header-section-number">2.2</span> 3. Earth’s Magnetic Field</a>
+  <li><a href="#geomagnetic-navigation" id="toc-geomagnetic-navigation" class="nav-link" data-scroll-target="#geomagnetic-navigation">2. Geomagnetic Navigation</a></li>
+  <li><a href="#earths-magnetic-field" id="toc-earths-magnetic-field" class="nav-link" data-scroll-target="#earths-magnetic-field">3. Earth’s Magnetic Field</a>
   <ul class="collapse">
-  <li><a href="#magnetic-field-measurements-and-coordinate-systems" id="toc-magnetic-field-measurements-and-coordinate-systems" class="nav-link" data-scroll-target="#magnetic-field-measurements-and-coordinate-systems"><span class="header-section-number">2.2.1</span> Magnetic Field Measurements and Coordinate Systems</a></li>
+  <li><a href="#magnetic-field-measurements-and-coordinate-systems" id="toc-magnetic-field-measurements-and-coordinate-systems" class="nav-link" data-scroll-target="#magnetic-field-measurements-and-coordinate-systems">Magnetic Field Measurements and Coordinate Systems</a></li>
   </ul></li>
-  <li><a href="#spatial-and-temporal-variation" id="toc-spatial-and-temporal-variation" class="nav-link" data-scroll-target="#spatial-and-temporal-variation"><span class="header-section-number">2.3</span> 4. Spatial and Temporal Variation</a>
+  <li><a href="#spatial-and-temporal-variation" id="toc-spatial-and-temporal-variation" class="nav-link" data-scroll-target="#spatial-and-temporal-variation">4. Spatial and Temporal Variation</a>
   <ul class="collapse">
-  <li><a href="#global-spatial-patterns" id="toc-global-spatial-patterns" class="nav-link" data-scroll-target="#global-spatial-patterns"><span class="header-section-number">2.3.1</span> Global Spatial Patterns</a></li>
-  <li><a href="#temporal-variations" id="toc-temporal-variations" class="nav-link" data-scroll-target="#temporal-variations"><span class="header-section-number">2.3.2</span> Temporal Variations</a></li>
+  <li><a href="#global-spatial-patterns" id="toc-global-spatial-patterns" class="nav-link" data-scroll-target="#global-spatial-patterns">Global Spatial Patterns</a></li>
+  <li><a href="#temporal-variations" id="toc-temporal-variations" class="nav-link" data-scroll-target="#temporal-variations">Temporal Variations</a></li>
   </ul></li>
-  <li><a href="#geomagnetic-storms-and-solar-wind" id="toc-geomagnetic-storms-and-solar-wind" class="nav-link" data-scroll-target="#geomagnetic-storms-and-solar-wind"><span class="header-section-number">2.4</span> 5. Geomagnetic Storms and Solar Wind</a>
+  <li><a href="#geomagnetic-storms-and-solar-wind" id="toc-geomagnetic-storms-and-solar-wind" class="nav-link" data-scroll-target="#geomagnetic-storms-and-solar-wind">5. Geomagnetic Storms and Solar Wind</a>
   <ul class="collapse">
-  <li><a href="#storm-related-disruption" id="toc-storm-related-disruption" class="nav-link" data-scroll-target="#storm-related-disruption"><span class="header-section-number">2.4.1</span> Storm-Related Disruption</a></li>
+  <li><a href="#storm-related-disruption" id="toc-storm-related-disruption" class="nav-link" data-scroll-target="#storm-related-disruption">Storm-Related Disruption</a></li>
   </ul></li>
-  <li><a href="#geomagnetic-data-sources" id="toc-geomagnetic-data-sources" class="nav-link" data-scroll-target="#geomagnetic-data-sources"><span class="header-section-number">2.5</span> 6. Geomagnetic Data Sources</a>
+  <li><a href="#geomagnetic-data-sources" id="toc-geomagnetic-data-sources" class="nav-link" data-scroll-target="#geomagnetic-data-sources">6. Geomagnetic Data Sources</a>
   <ul class="collapse">
-  <li><a href="#terrestrial-observatory-networks" id="toc-terrestrial-observatory-networks" class="nav-link" data-scroll-target="#terrestrial-observatory-networks"><span class="header-section-number">2.5.1</span> Terrestrial Observatory Networks</a></li>
-  <li><a href="#satellite-based-measurements" id="toc-satellite-based-measurements" class="nav-link" data-scroll-target="#satellite-based-measurements"><span class="header-section-number">2.5.2</span> Satellite-Based Measurements</a></li>
-  <li><a href="#geomagnetic-indices-and-activity-monitoring" id="toc-geomagnetic-indices-and-activity-monitoring" class="nav-link" data-scroll-target="#geomagnetic-indices-and-activity-monitoring"><span class="header-section-number">2.5.3</span> Geomagnetic Indices and Activity Monitoring</a></li>
+  <li><a href="#terrestrial-observatory-networks" id="toc-terrestrial-observatory-networks" class="nav-link" data-scroll-target="#terrestrial-observatory-networks">Terrestrial Observatory Networks</a></li>
+  <li><a href="#satellite-based-measurements" id="toc-satellite-based-measurements" class="nav-link" data-scroll-target="#satellite-based-measurements">Satellite-Based Measurements</a></li>
+  <li><a href="#geomagnetic-indices-and-activity-monitoring" id="toc-geomagnetic-indices-and-activity-monitoring" class="nav-link" data-scroll-target="#geomagnetic-indices-and-activity-monitoring">Geomagnetic Indices and Activity Monitoring</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2.6</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -468,9 +472,9 @@ div.csl-indent {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">The science behind</a></li><li class="breadcrumb-item"><a href="./background.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Key Concepts</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">The science behind</a></li><li class="breadcrumb-item"><a href="./background.html">Key Concepts</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Key Concepts</span></h1>
+<h1 class="title">Key Concepts</h1>
 </div>
 
 
@@ -493,16 +497,16 @@ div.csl-indent {
 </header>
 
 
-<section id="animal-navigation-fundamentals" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="animal-navigation-fundamentals">1. Animal Navigation Fundamentals</h2>
+<section id="animal-navigation-fundamentals" class="level2">
+<h2 class="anchored" data-anchor-id="animal-navigation-fundamentals">1. Animal Navigation Fundamentals</h2>
 <p>This is not a comprehensive book related to animal navigation fundamental, however there are certain concepts you might want to recall and understand that establish the foundations of what you have built <strong>MagGeo</strong>.</p>
-<section id="true-navigation" class="level3" data-number="2.0.1">
-<h3 data-number="2.0.1" class="anchored" data-anchor-id="true-navigation"><span class="header-section-number">2.0.1</span> True Navigation</h3>
+<section id="true-navigation" class="level3">
+<h3 class="anchored" data-anchor-id="true-navigation">True Navigation</h3>
 <p>Long-distance migratory navigation represents one of nature’s most remarkable phenomena, consisting of two primary components that work together to enable animals to travel vast distances with inexplicable precision. The first component, is <strong>compass orientation</strong>, involves determining the correct direction of movement relative to environmental cues (where to go). The second component, <strong>geographic positioning</strong>, requires animals to know their current location at any specific time during their journey (where am I)¹.</p>
 <p>These mechanisms together support what Ecologists term “<strong>true navigation</strong>” - <u>defined as the ability to find the way to a distant, unknown location using only cues that are available locally at the animal’s current position</u>².</p>
 </section>
-<section id="navigation-mechanisms" class="level3" data-number="2.0.2">
-<h3 data-number="2.0.2" class="anchored" data-anchor-id="navigation-mechanisms"><span class="header-section-number">2.0.2</span> Navigation Mechanisms</h3>
+<section id="navigation-mechanisms" class="level3">
+<h3 class="anchored" data-anchor-id="navigation-mechanisms">Navigation Mechanisms</h3>
 <p>Migratory animals (e.g Birds) have evolved sophisticated sensory systems that can detect and interpret multiple environmental cues for navigation purposes <span class="citation" data-cites="demsar2025">(<a href="#ref-demsar2025" role="doc-biblioref">Demšar, Zein, and Long 2025</a>)</span>. These cues fall into two primary categories based on their navigational function:</p>
 <p><strong>For Compass Orientation:</strong> Animals use several types of compass systems to maintain consistent directional movement:</p>
 <ul>
@@ -520,8 +524,8 @@ div.csl-indent {
 </ul>
 </section>
 </section>
-<section id="geomagnetic-navigation" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="geomagnetic-navigation"><span class="header-section-number">2.1</span> 2. Geomagnetic Navigation</h2>
+<section id="geomagnetic-navigation" class="level2">
+<h2 class="anchored" data-anchor-id="geomagnetic-navigation">2. Geomagnetic Navigation</h2>
 <p>Geomagnetic navigation represents a strategy whereby animals use information derived from Earth’s magnetic field for either compass orientation, geographic positioning, or both functions simultaneously³. This navigational mechanism has been documented across an taxonomic range, suggesting it evolved independently multiple times or represents an ancient, conserved ability.</p>
 <p>Evidence for geomagnetic navigation exists across diverse taxa:</p>
 <ul>
@@ -535,8 +539,8 @@ div.csl-indent {
 <p><strong>Lab Experiments:</strong> Controlled studies where animals are placed in artificial magnetic field to examine how magnetic parameters influence the onset and direction of migratory behavior. Laboratory experiments provide exceptional precision and experimental control, allowing researchers to manipulate specific magnetic parameters while holding other variables constant²⁻⁷⁻¹⁵⁻¹⁷. However, the observed behaviors in such controlled environments differ significantly from what occurs in wild¹. Additionally, these studies typically focus on small numbers of individuals from single species, which limits the results across multiple species¹⁹.</p>
 <p><strong>Field Studies with Tracking:</strong> Modern migration research employs tracking technologies, particularly GPS tags combined with displacement experiments. These approaches provide greater ecological relevance by studying animals in their natural environments¹⁸⁻²⁰⁻²¹. However, most tracking studies have been limited by their reliance on static representations of the geomagnetic field (space and temporal), failing to account for the dynamic temporal variations that may influence animal navigation²².</p>
 </section>
-<section id="earths-magnetic-field" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="earths-magnetic-field"><span class="header-section-number">2.2</span> 3. Earth’s Magnetic Field</h2>
+<section id="earths-magnetic-field" class="level2">
+<h2 class="anchored" data-anchor-id="earths-magnetic-field">3. Earth’s Magnetic Field</h2>
 <p>Earth’s magnetic field is a complex, dynamic system that results from the superposition of magnetic fields originating from multiple sources. Understanding this complex environmental variable is crucial for comprehending how animals use magnetic data for navigation. The total magnetic field at any location and time results from the combination of three primary components, each with different characteristics, spatial patterns, and temporal behaviors³⁴.</p>
 <p><strong>Core Field:</strong> The dominant contributor to Earth’s magnetic field is the core field, generated by the geodynamo mechanism operating within Earth’s outer liquid core. This field arises from the motion of electrically conductive molten iron as it circulates within the outer core, driven by thermal convection and the planet’s rotation. The core field exhibits a broadly dipolar structure on large scales, resembling that of a giant bar magnet tilted approximately 11 degrees from Earth’s rotational axis. However, this apparent simplicity masks considerable complexity in the detailed structure, with significant non-dipolar components that create regional variations in field strength and direction across the globe.</p>
 <p>The core field dominates the total magnetic field at Earth’s surface, typically contributing over 98% of the field strength at any location. This field undergoes gradual changes over time scales of years to decades, known as secular variation, as the circulation patterns within the outer core evolve. These long-term changes can amount to tens of nanoTesla per year at any given location, representing a slow but persistent evolution of the magnetic environment that animals experience.</p>
@@ -545,8 +549,8 @@ div.csl-indent {
 <p><strong>External Fields:</strong> External magnetic fields result from electrical current systems flowing in Earth’s ionosphere and magnetosphere, driven by interactions between the solar wind and Earth’s magnetic field. These fields exhibit the most dynamic behavior of the three components, varying on time scales from seconds to days. The external field contributions include both regular, predictable daily variations and irregular disturbances associated with space weather events.</p>
 <p>The regular daily variations, known as Sq (solar quiet) currents, result from the regular heating of the ionosphere by solar radiation, which creates predictable current systems that vary with local time and season. These regular variations typically amount to 20-30 nanoTesla at mid-latitudes but can be significantly larger at high latitudes near the magnetic poles.</p>
 <p><img src="images/paste-2.png" class="img-fluid"><em>Figure 1 showing magnetic field components and coordinate system, NOOA,</em> <a href="https://www.ncei.noaa.gov/news/HDGM" class="uri">https://www.ncei.noaa.gov/news/HDGM</a></p>
-<section id="magnetic-field-measurements-and-coordinate-systems" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="magnetic-field-measurements-and-coordinate-systems"><span class="header-section-number">2.2.1</span> Magnetic Field Measurements and Coordinate Systems</h3>
+<section id="magnetic-field-measurements-and-coordinate-systems" class="level3">
+<h3 class="anchored" data-anchor-id="magnetic-field-measurements-and-coordinate-systems">Magnetic Field Measurements and Coordinate Systems</h3>
 <p>Scientists measure Earth’s magnetic field using a standardized coordinate system that allows for consistent description and comparison of magnetic field vectors worldwide. The magnetic field vector <strong>B</strong> is decomposed into components using the North-East-Centre (NEC) coordinate system, also known as the local geodetic coordinate system.</p>
 <p>In this system, measurements are made relative to the local geographic reference frame at each point on Earth’s surface. The North component points toward geographic north (true north), the East component points toward geographic east, and the Centre component points radially downward toward Earth’s center. This coordinate system provides a consistent framework for describing magnetic field variations across the globe and through time.</p>
 <p>From these three orthogonal components, several important magnetic field parameters are derived:</p>
@@ -559,10 +563,10 @@ div.csl-indent {
 <p>These parameters provide different types of information that animals might potentially use for navigation. Intensity varies systematically with latitude and can provide positional information, while inclination also varies predictably with latitude and could serve as a magnetic latitude indicator. Declination provides information about magnetic versus geographic north, potentially useful for compass orientation.</p>
 </section>
 </section>
-<section id="spatial-and-temporal-variation" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="spatial-and-temporal-variation"><span class="header-section-number">2.3</span> 4. Spatial and Temporal Variation</h2>
-<section id="global-spatial-patterns" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="global-spatial-patterns"><span class="header-section-number">2.3.1</span> Global Spatial Patterns</h3>
+<section id="spatial-and-temporal-variation" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-and-temporal-variation">4. Spatial and Temporal Variation</h2>
+<section id="global-spatial-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="global-spatial-patterns">Global Spatial Patterns</h3>
 <p><strong>Intensity:</strong> The total magnetic field intensity shows global patterns that reflects the underlying dipolar structure of the core field. At the magnetic equators, where the field lines run horizontally, the total intensity reaches its minimum values of approximately <em>23,000 nanoTesla</em>. Moving toward higher magnetic latitudes, the field intensity gradually increases as the field lines become more vertical, reaching maximum values of approximately <em>62,000 nanoTesla</em> near the magnetic poles.</p>
 <p>This variation in intensity with magnetic latitude creates what researchers term “isodynamic lines” - contours of equal magnetic intensity that generally run east-west but show considerable deviation from simple latitudinal bands due to non-dipolar components of the field. These intensity gradients are steep enough that animals traveling north-south distances of hundreds of kilometers would encounter measurable changes in field intensity.</p>
 <p><strong>Inclination:</strong> Magnetic inclination, the angle at which field lines plunge into Earth, provides perhaps the most systematic navigational cue available from the geomagnetic field. At the magnetic equator, field lines run horizontally, giving inclination values near zero degrees. Moving toward the magnetic poles, inclination increases progressively, reaching 90 degrees (vertical) at the magnetic poles themselves.</p>
@@ -571,8 +575,8 @@ div.csl-indent {
 <p>In some regions, declination changes very gradually over large distances, while in other areas it can change by several degrees over distances of hundreds of kilometers. These declination patterns create distinctive regional magnetic signatures that could potentially serve as magnetic landmarks for animal navigation systems.</p>
 <p><img src="./images/MagneticComponents-Jupyter.png" class="img-fluid" style="width:500px;height:400px;float: left; margin-right: 2em;margin-bottom: 1em;"></p>
 </section>
-<section id="temporal-variations" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="temporal-variations"><span class="header-section-number">2.3.2</span> Temporal Variations</h3>
+<section id="temporal-variations" class="level3">
+<h3 class="anchored" data-anchor-id="temporal-variations">Temporal Variations</h3>
 <p>The temporal behavior of Earth’s magnetic field spans an enormous range of time scales, from rapid variations lasting seconds to gradual changes occurring over geological time. Understanding these temporal variations is crucial for reading how animals use magnetic data for navigation.</p>
 <p><strong>Quiet-Time Variations:</strong> Even during geomagnetically quiet periods, Earth’s magnetic field shows regular daily variations driven by solar heating of the ionosphere. During daylight hours, solar ultraviolet radiation ionizes atmospheric gases, creating electrical conductivity that allows current systems to flow in the ionosphere. These currents generate magnetic fields that add to the main field measured at Earth’s surface.</p>
 <p>The amplitude of these quiet-time variations depends strongly on latitude and local time. At mid-latitudes, typical daily variations amount to approximately 20 nanoTesla, with maximum variations occurring during local noon when ionospheric currents are strongest. At polar latitudes, where ionospheric current systems are more complex, daily variations can reach 100 nanoTesla or more.</p>
@@ -583,20 +587,20 @@ div.csl-indent {
 <p>For long-lived migratory animals or populations with strong site fidelity, secular variation could potentially require periodic recalibration of magnetic navigation systems. However, the slow rate of secular variation means that it is unlikely to affect navigation during individual migratory journeys, which typically last weeks to months.</p>
 </section>
 </section>
-<section id="geomagnetic-storms-and-solar-wind" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="geomagnetic-storms-and-solar-wind"><span class="header-section-number">2.4</span> 5. Geomagnetic Storms and Solar Wind</h2>
-<section id="storm-related-disruption" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="storm-related-disruption"><span class="header-section-number">2.4.1</span> Storm-Related Disruption</h3>
+<section id="geomagnetic-storms-and-solar-wind" class="level2">
+<h2 class="anchored" data-anchor-id="geomagnetic-storms-and-solar-wind">5. Geomagnetic Storms and Solar Wind</h2>
+<section id="storm-related-disruption" class="level3">
+<h3 class="anchored" data-anchor-id="storm-related-disruption">Storm-Related Disruption</h3>
 <p>The sensitivity thresholds established by neurophysiological and behavioral research have profound implications when compared to the magnitude of magnetic field variations that occur during geomagnetic storms. Solar wind disturbances can create magnetic field changes exceeding 1000 nanoTesla within minutes during major geomagnetic storms²⁶, representing variations that are 5-65 times larger than established animal sensitivity thresholds.</p>
 <p><strong>Potential Disruption Mechanisms:</strong> Animals using magnetic intensity as a positional cue could experience significant navigation errors during geomagnetic storms. If birds or other animals rely on specific intensity values as location markers, sudden storm-related intensity changes could create the illusion that they have been displaced to entirely different geographic locations. This effect would be similar to the responses observed in virtual magnetic displacement experiments¹⁵⁻¹⁶⁻¹⁷⁻²⁷, where animals exposed to artificial magnetic fields characteristic of distant locations attempt to compensate by changing their flight direction.</p>
 <p>Animals using magnetic inclination or declination for compass orientation might experience disruption of their directional sensing capabilities during storms. Rapid changes in field direction could cause temporary loss of magnetic compass function, potentially forcing animals to rely on alternative compass systems such as solar or stellar compasses⁴.</p>
 <p><strong>Species-Specific Responses:</strong> Different animal species likely respond to geomagnetic disturbances in various ways, depending on their particular methods of using magnetic information for navigation³. Some species might temporarily cease migration during severe magnetic disturbances, while others might switch to alternative navigation systems. The behavioral responses probably depend on the availability of backup navigation cues and the flexibility of each species’ navigation system.</p>
 </section>
 </section>
-<section id="geomagnetic-data-sources" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="geomagnetic-data-sources"><span class="header-section-number">2.5</span> 6. Geomagnetic Data Sources</h2>
-<section id="terrestrial-observatory-networks" class="level3" data-number="2.5.1">
-<h3 data-number="2.5.1" class="anchored" data-anchor-id="terrestrial-observatory-networks"><span class="header-section-number">2.5.1</span> Terrestrial Observatory Networks</h3>
+<section id="geomagnetic-data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="geomagnetic-data-sources">6. Geomagnetic Data Sources</h2>
+<section id="terrestrial-observatory-networks" class="level3">
+<h3 class="anchored" data-anchor-id="terrestrial-observatory-networks">Terrestrial Observatory Networks</h3>
 <p>The systematic measurement of Earth’s magnetic field began in the 1830s and has evolved into a sophisticated global network of ground-based observatories that provide continuous, high-precision magnetic field measurements.</p>
 <p><strong>INTERMAGNET Network:</strong> The International Real-time Magnetic Observatory Network (INTERMAGNET) represents the primary source of ground-based geomagnetic data, currently comprising 152 observatories distributed across the globe³⁷. These observatories employ standardized instrumentation and data collection procedures to ensure consistency and comparability of measurements worldwide.</p>
 <p>Each INTERMAGNET observatory typically operates multiple magnetometers, including absolute instruments that measure the true magnetic field vector and variometers that detect changes in the field with high temporal resolution. The observatories record magnetic field measurements continuously, typically at one-second or one-minute intervals, creating detailed time series that capture both gradual changes and rapid fluctuations.</p>
@@ -606,8 +610,8 @@ div.csl-indent {
 <p>The effective spatial coverage of each observatory is limited to approximately 1000 kilometers, beyond which local magnetic variations can differ significantly from those measured at the observatory. This limitation means that only regions with dense observatory networks provide complete spatial coverage, excluding most animal migration pathways that cross oceanic or remote continental regions.</p>
 <p>Temporal data availability also presents challenges for real-time applications. Observatories submit their data to the central INTERMAGNET network at different times, often with delays of months to years for the highest quality, fully processed data. Some observatories occasionally cease operation due to funding or technical issues, creating gaps in temporal coverage.</p>
 </section>
-<section id="satellite-based-measurements" class="level3" data-number="2.5.2">
-<h3 data-number="2.5.2" class="anchored" data-anchor-id="satellite-based-measurements"><span class="header-section-number">2.5.2</span> Satellite-Based Measurements</h3>
+<section id="satellite-based-measurements" class="level3">
+<h3 class="anchored" data-anchor-id="satellite-based-measurements">Satellite-Based Measurements</h3>
 <p>Satellite missions have revolutionized geomagnetic field research by providing consistent global coverage with standardized instrumentation. Over the past 60 years, a series of dedicated magnetic field missions has complemented terrestrial measurements and enabled global-scale studies of magnetic field structure and dynamics.</p>
 <p><strong>Historical Satellite Missions:</strong> The evolution of satellite-based geomagnetism began with early missions such as POGO (1965-1971), which provided the first global magnetic field measurements from space. Subsequent missions including Magsat (1979-80), Ørsted (1999-present), CHAMP (2000-2010), and SAC-C (2000-present) progressively improved measurement accuracy and global coverage³⁸.</p>
 <p>Each mission contributed unique capabilities and extended the temporal baseline of satellite magnetic measurements. Magsat provided the first high-precision global magnetic field model, while Ørsted began the era of continuous, long-term satellite magnetic monitoring. CHAMP delivered exceptionally precise measurements that advanced understanding of both the main field and its temporal variations.</p>
@@ -621,8 +625,8 @@ div.csl-indent {
 <p><strong>Satellite Data Access and Formats:</strong> Swarm data are made freely available through the European Space Agency’s Earth Observation Policy, with data access provided through the VirES (Virtual workspace for Earth observation Scientists) web platform⁴⁸. The Level 1b data products provide corrected and calibrated magnetic field measurements in standard scientific formats.</p>
 <p>However, satellite magnetic data are provided in specialized formats such as the Common Data Format (CDF) developed by NASA⁴³, which are not readily accessible using standard ecological data analysis software. This technical barrier has historically limited the use of satellite magnetic data outside the specialized geophysics community, despite the open data policies of space agencies.</p>
 </section>
-<section id="geomagnetic-indices-and-activity-monitoring" class="level3" data-number="2.5.3">
-<h3 data-number="2.5.3" class="anchored" data-anchor-id="geomagnetic-indices-and-activity-monitoring"><span class="header-section-number">2.5.3</span> Geomagnetic Indices and Activity Monitoring</h3>
+<section id="geomagnetic-indices-and-activity-monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="geomagnetic-indices-and-activity-monitoring">Geomagnetic Indices and Activity Monitoring</h3>
 <p>Understanding and quantifying the level of geomagnetic activity is crucial for both space weather applications and studies of magnetic field effects on biological systems. Geomagnetic indices provide standardized measures of magnetic field disturbance that enable comparison of activity levels across different times and locations.</p>
 <p><strong>K-Index System:</strong> The K-index represents the fundamental unit for measuring local geomagnetic disturbance. Calculated every three hours at individual magnetic observatories, the K-index quantifies disturbances in the horizontal component of the magnetic field on a quasi-logarithmic scale from 0 to 9²⁶. A K-index of 0 indicates perfectly calm magnetic conditions, while values of 5 or higher indicate geomagnetic storm conditions.</p>
 <p>The K-index calculation involves comparing the observed magnetic field variations during each three-hour period to the expected quiet-day variation for that location and season. This approach accounts for the regular daily variations in the magnetic field and highlights unusual disturbances that exceed normal quiet-time levels.</p>
@@ -631,8 +635,8 @@ div.csl-indent {
 <hr>
 </section>
 </section>
-<section id="references" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="references"><span class="header-section-number">2.6</span> References</h2>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
 <ol type="1">
 <li><p>Deutschlander ME, Beason RC. Avian navigation and geographic positioning. J Field Ornithol. 2014;85(2):111–33.</p></li>
 <li><p>Holland RA. True navigation in birds: from quantum physics to global migration. J Zool. 2014;293:1–15.</p></li>

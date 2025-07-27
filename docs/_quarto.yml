@@ -25,6 +25,7 @@ book:
       - text: "Home"
         href: index.qmd
       - intro.qmd
+      - background.qmd
 
   chapters:
     - index.qmd
@@ -57,7 +58,7 @@ format:
       dark:
         - theme-dark.scss
   pdf:
-    documentclass: scrbook
+    documentclass: scrreprt
 
 editor: visual
 date: last-modified

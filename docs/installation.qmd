@@ -1,7 +1,3 @@
----
-title: "Installation"
----
-
 # Installing MagGeo {.unnumbered}
 
 MagGeo is a specialized tool that helps researchers analyze magnetic field data in relation to animal movement patterns. This guide will walk you through installing MagGeo on your computer, even if you're more familiar with R than Python.

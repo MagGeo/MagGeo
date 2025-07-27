@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2025-07-27">
 
-<title>1&nbsp; Installation – MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
+<title>Installing MagGeo – MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -310,6 +310,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./intro.html"> 
 <span class="menu-text">About MagGeo</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./background.html"> 
+<span class="menu-text">Key Concepts</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -323,7 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./installation.html">How to use it</a></li><li class="breadcrumb-item"><a href="./installation.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Installation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./installation.html">How to use it</a></li><li class="breadcrumb-item"><a href="./installation.html">Installing MagGeo</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -359,7 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./installation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Installation</span></span></a>
+ <span class="menu-text">Installing MagGeo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -394,7 +398,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./background.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Key Concepts</span></span></a>
+ <span class="menu-text">Key Concepts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -423,13 +427,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./SequentialMode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">MagGeo - Sequential Mode</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MagGeo - Sequential Mode</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ParallelMode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">MagGeo - Parallel Mode</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">MagGeo - Parallel Mode</span></span></a>
   </div>
 </li>
       </ul>
@@ -450,39 +454,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#installing-maggeo" id="toc-installing-maggeo" class="nav-link active" data-scroll-target="#installing-maggeo">Installing MagGeo</a>
+  <li><a href="#what-youll-need" id="toc-what-youll-need" class="nav-link active" data-scroll-target="#what-youll-need">What You’ll Need</a></li>
+  <li><a href="#step-1-install-miniconda-your-python-environment-manager" id="toc-step-1-install-miniconda-your-python-environment-manager" class="nav-link" data-scroll-target="#step-1-install-miniconda-your-python-environment-manager">Step 1: Install Miniconda (Your Python Environment Manager)</a>
   <ul class="collapse">
-  <li><a href="#what-youll-need" id="toc-what-youll-need" class="nav-link" data-scroll-target="#what-youll-need"><span class="header-section-number">1.1</span> What You’ll Need</a></li>
-  <li><a href="#step-1-install-miniconda-your-python-environment-manager" id="toc-step-1-install-miniconda-your-python-environment-manager" class="nav-link" data-scroll-target="#step-1-install-miniconda-your-python-environment-manager"><span class="header-section-number">1.2</span> Step 1: Install Miniconda (Your Python Environment Manager)</a>
+  <li><a href="#for-windows-users" id="toc-for-windows-users" class="nav-link" data-scroll-target="#for-windows-users">For Windows Users:</a></li>
+  <li><a href="#for-macos-users" id="toc-for-macos-users" class="nav-link" data-scroll-target="#for-macos-users">For macOS Users:</a></li>
+  </ul></li>
+  <li><a href="#step-2-clone-maggeo" id="toc-step-2-clone-maggeo" class="nav-link" data-scroll-target="#step-2-clone-maggeo">Step 2: Clone MagGeo</a>
   <ul class="collapse">
-  <li><a href="#for-windows-users" id="toc-for-windows-users" class="nav-link" data-scroll-target="#for-windows-users"><span class="header-section-number">1.2.1</span> For Windows Users:</a></li>
-  <li><a href="#for-macos-users" id="toc-for-macos-users" class="nav-link" data-scroll-target="#for-macos-users"><span class="header-section-number">1.2.2</span> For macOS Users:</a></li>
+  <li><a href="#for-both-windows-and-macos-users" id="toc-for-both-windows-and-macos-users" class="nav-link" data-scroll-target="#for-both-windows-and-macos-users">For Both Windows and macOS Users:</a></li>
   </ul></li>
-  <li><a href="#step-2-clone-maggeo" id="toc-step-2-clone-maggeo" class="nav-link" data-scroll-target="#step-2-clone-maggeo"><span class="header-section-number">1.3</span> Step 2: Clone MagGeo</a>
+  <li><a href="#step-4-navigate-to-the-maggeo-folder" id="toc-step-4-navigate-to-the-maggeo-folder" class="nav-link" data-scroll-target="#step-4-navigate-to-the-maggeo-folder">Step 4: Navigate to the MagGeo Folder</a></li>
+  <li><a href="#step-5-create-the-maggeo-environment" id="toc-step-5-create-the-maggeo-environment" class="nav-link" data-scroll-target="#step-5-create-the-maggeo-environment">Step 5: Create the MagGeo Environment</a></li>
+  <li><a href="#step-6-activate-the-maggeo-environment" id="toc-step-6-activate-the-maggeo-environment" class="nav-link" data-scroll-target="#step-6-activate-the-maggeo-environment">Step 6: Activate the MagGeo Environment</a></li>
+  <li><a href="#step-7-set-up-vires-access-magnetic-field-data" id="toc-step-7-set-up-vires-access-magnetic-field-data" class="nav-link" data-scroll-target="#step-7-set-up-vires-access-magnetic-field-data">Step 7: Set Up VirES Access (Magnetic Field Data)</a>
   <ul class="collapse">
-  <li><a href="#for-both-windows-and-macos-users" id="toc-for-both-windows-and-macos-users" class="nav-link" data-scroll-target="#for-both-windows-and-macos-users"><span class="header-section-number">1.3.3</span> For Both Windows and macOS Users:</a></li>
+  <li><a href="#create-your-vires-account" id="toc-create-your-vires-account" class="nav-link" data-scroll-target="#create-your-vires-account">Create Your VirES Account:</a></li>
   </ul></li>
-  <li><a href="#step-4-navigate-to-the-maggeo-folder" id="toc-step-4-navigate-to-the-maggeo-folder" class="nav-link" data-scroll-target="#step-4-navigate-to-the-maggeo-folder"><span class="header-section-number">1.4</span> Step 4: Navigate to the MagGeo Folder</a></li>
-  <li><a href="#step-5-create-the-maggeo-environment" id="toc-step-5-create-the-maggeo-environment" class="nav-link" data-scroll-target="#step-5-create-the-maggeo-environment"><span class="header-section-number">1.5</span> Step 5: Create the MagGeo Environment</a></li>
-  <li><a href="#step-6-activate-the-maggeo-environment" id="toc-step-6-activate-the-maggeo-environment" class="nav-link" data-scroll-target="#step-6-activate-the-maggeo-environment"><span class="header-section-number">1.6</span> Step 6: Activate the MagGeo Environment</a></li>
-  <li><a href="#step-7-set-up-vires-access-magnetic-field-data" id="toc-step-7-set-up-vires-access-magnetic-field-data" class="nav-link" data-scroll-target="#step-7-set-up-vires-access-magnetic-field-data"><span class="header-section-number">1.7</span> Step 7: Set Up VirES Access (Magnetic Field Data)</a>
+  <li><a href="#testing-your-installation" id="toc-testing-your-installation" class="nav-link" data-scroll-target="#testing-your-installation">Testing Your Installation</a></li>
+  <li><a href="#troubleshooting-common-issues" id="toc-troubleshooting-common-issues" class="nav-link" data-scroll-target="#troubleshooting-common-issues">Troubleshooting Common Issues</a>
   <ul class="collapse">
-  <li><a href="#create-your-vires-account" id="toc-create-your-vires-account" class="nav-link" data-scroll-target="#create-your-vires-account"><span class="header-section-number">1.7.1</span> Create Your VirES Account:</a></li>
+  <li><a href="#windows-specific-issues" id="toc-windows-specific-issues" class="nav-link" data-scroll-target="#windows-specific-issues">Windows-Specific Issues</a></li>
+  <li><a href="#macos-specific-issues" id="toc-macos-specific-issues" class="nav-link" data-scroll-target="#macos-specific-issues">macOS-Specific Issues</a></li>
+  <li><a href="#general-issues" id="toc-general-issues" class="nav-link" data-scroll-target="#general-issues">General Issues</a></li>
   </ul></li>
-  <li><a href="#testing-your-installation" id="toc-testing-your-installation" class="nav-link" data-scroll-target="#testing-your-installation"><span class="header-section-number">1.8</span> Testing Your Installation</a></li>
-  <li><a href="#troubleshooting-common-issues" id="toc-troubleshooting-common-issues" class="nav-link" data-scroll-target="#troubleshooting-common-issues"><span class="header-section-number">1.9</span> Troubleshooting Common Issues</a>
+  <li><a href="#reporting-an-issue" id="toc-reporting-an-issue" class="nav-link" data-scroll-target="#reporting-an-issue">Reporting an Issue</a>
   <ul class="collapse">
-  <li><a href="#windows-specific-issues" id="toc-windows-specific-issues" class="nav-link" data-scroll-target="#windows-specific-issues"><span class="header-section-number">1.9.1</span> Windows-Specific Issues</a></li>
-  <li><a href="#macos-specific-issues" id="toc-macos-specific-issues" class="nav-link" data-scroll-target="#macos-specific-issues"><span class="header-section-number">1.9.2</span> macOS-Specific Issues</a></li>
-  <li><a href="#general-issues" id="toc-general-issues" class="nav-link" data-scroll-target="#general-issues"><span class="header-section-number">1.9.3</span> General Issues</a></li>
+  <li><a href="#before-reporting-an-issue" id="toc-before-reporting-an-issue" class="nav-link" data-scroll-target="#before-reporting-an-issue">Before Reporting an Issue:</a></li>
+  <li><a href="#how-to-report-an-issue" id="toc-how-to-report-an-issue" class="nav-link" data-scroll-target="#how-to-report-an-issue">How to Report an Issue:</a></li>
   </ul></li>
-  <li><a href="#reporting-an-issue" id="toc-reporting-an-issue" class="nav-link" data-scroll-target="#reporting-an-issue"><span class="header-section-number">1.10</span> Reporting an Issue</a>
-  <ul class="collapse">
-  <li><a href="#before-reporting-an-issue" id="toc-before-reporting-an-issue" class="nav-link" data-scroll-target="#before-reporting-an-issue"><span class="header-section-number">1.10.1</span> Before Reporting an Issue:</a></li>
-  <li><a href="#how-to-report-an-issue" id="toc-how-to-report-an-issue" class="nav-link" data-scroll-target="#how-to-report-an-issue"><span class="header-section-number">1.10.2</span> How to Report an Issue:</a></li>
-  </ul></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps"><span class="header-section-number">1.11</span> Next Steps</a></li>
-  </ul></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
   </ul>
 </nav>
     </div>
@@ -490,9 +491,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./installation.html">How to use it</a></li><li class="breadcrumb-item"><a href="./installation.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Installation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./installation.html">How to use it</a></li><li class="breadcrumb-item"><a href="./installation.html">Installing MagGeo</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Installation</span></h1>
+<h1 class="title">Installing MagGeo</h1>
 </div>
 
 
@@ -515,18 +516,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="installing-maggeo" class="level1 unnumbered">
-<h1 class="unnumbered">Installing MagGeo</h1>
 <p>MagGeo is a specialized tool that helps researchers analyze magnetic field data in relation to animal movement patterns. This guide will walk you through installing MagGeo on your computer, even if you’re more familiar with R than Python.</p>
-<section id="what-youll-need" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="what-youll-need"><span class="header-section-number">1.1</span> What You’ll Need</h2>
+<section id="what-youll-need" class="level2">
+<h2 class="anchored" data-anchor-id="what-youll-need">What You’ll Need</h2>
 <p>Before we begin, understand that <strong>MagGeo</strong> is currently built using Python (similar to how some R packages depend on specific R versions). We’ll set up a contained environment so it won’t interfere with any existing R installations or other software on your computer.</p>
 </section>
-<section id="step-1-install-miniconda-your-python-environment-manager" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="step-1-install-miniconda-your-python-environment-manager"><span class="header-section-number">1.2</span> Step 1: Install Miniconda (Your Python Environment Manager)</h2>
+<section id="step-1-install-miniconda-your-python-environment-manager" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-install-miniconda-your-python-environment-manager">Step 1: Install Miniconda (Your Python Environment Manager)</h2>
 <p><strong>What is Miniconda?</strong> Think of Miniconda as a package manager for Python, similar to how CRAN manages R packages. It creates isolated environments so different projects don’t conflict with each other.</p>
-<section id="for-windows-users" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="for-windows-users"><span class="header-section-number">1.2.1</span> For Windows Users:</h3>
+<section id="for-windows-users" class="level3">
+<h3 class="anchored" data-anchor-id="for-windows-users">For Windows Users:</h3>
 <ol type="1">
 <li>Visit <a href="https://docs.conda.io/en/latest/miniconda.html" class="uri">https://docs.conda.io/en/latest/miniconda.html</a></li>
 <li>Download the “Miniconda3 Windows 64-bit” installer</li>
@@ -541,8 +540,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Click “Install” and wait for completion</li>
 </ol>
 </section>
-<section id="for-macos-users" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="for-macos-users"><span class="header-section-number">1.2.2</span> For macOS Users:</h3>
+<section id="for-macos-users" class="level3">
+<h3 class="anchored" data-anchor-id="for-macos-users">For macOS Users:</h3>
 <ol type="1">
 <li>Visit <a href="https://docs.conda.io/en/latest/miniconda.html" class="uri">https://docs.conda.io/en/latest/miniconda.html</a></li>
 <li>Download the “Miniconda3 macOS 64-bit pkg” installer</li>
@@ -554,8 +553,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/paste-1.png" class="img-fluid" width="484"></p>
 </section>
 </section>
-<section id="step-2-clone-maggeo" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="step-2-clone-maggeo"><span class="header-section-number">1.3</span> Step 2: Clone MagGeo</h2>
+<section id="step-2-clone-maggeo" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-clone-maggeo">Step 2: Clone MagGeo</h2>
 <p>You will need to clone the MagGeo repository in your local computer (we are currently working to make make MagGeo available in <code>pip</code> to an easier installation), for now simply clone it and you will have access to all MagGeo.</p>
 <p>If you don’t have <strong>Git</strong>, or you are not use to work with version control, you will need to install git to clone any repository from GitHub</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -571,8 +570,8 @@ Installing Git
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>What is Git?</strong> Git is like a sophisticated “track changes” system for code, similar to version control in collaborative documents. We need it to download the MagGeo software.</p>
-<section id="for-windows-users-1" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="for-windows-users-1"><span class="header-section-number">1.3.1</span> For Windows Users:</h3>
+<section id="for-windows-users-1" class="level3">
+<h3 class="anchored" data-anchor-id="for-windows-users-1">For Windows Users:</h3>
 <ol type="1">
 <li>Visit <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a></li>
 <li>Download “Git for Windows”</li>
@@ -584,8 +583,8 @@ Installing Git
 </ul></li>
 </ol>
 </section>
-<section id="for-macos-users-1" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="for-macos-users-1"><span class="header-section-number">1.3.2</span> For macOS Users:</h3>
+<section id="for-macos-users-1" class="level3">
+<h3 class="anchored" data-anchor-id="for-macos-users-1">For macOS Users:</h3>
 <p><strong>Option A (Recommended):</strong></p>
 <p>1. Open Terminal (found in Applications &gt; Utilities)</p>
 <p>2. Type <code>git --version</code> and press Enter</p>
@@ -599,8 +598,8 @@ Installing Git
 </div>
 </div>
 </div>
-<section id="for-both-windows-and-macos-users" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="for-both-windows-and-macos-users"><span class="header-section-number">1.3.3</span> For Both Windows and macOS Users:</h3>
+<section id="for-both-windows-and-macos-users" class="level3">
+<h3 class="anchored" data-anchor-id="for-both-windows-and-macos-users">For Both Windows and macOS Users:</h3>
 <ol type="1">
 <li><p><strong>Open your command line interface:</strong></p>
 <ul>
@@ -619,12 +618,12 @@ Installing Git
 </ol>
 </section>
 </section>
-<section id="step-4-navigate-to-the-maggeo-folder" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="step-4-navigate-to-the-maggeo-folder"><span class="header-section-number">1.4</span> Step 4: Navigate to the MagGeo Folder</h2>
+<section id="step-4-navigate-to-the-maggeo-folder" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-navigate-to-the-maggeo-folder">Step 4: Navigate to the MagGeo Folder</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> MagGeo-Annotation-Program</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="step-5-create-the-maggeo-environment" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="step-5-create-the-maggeo-environment"><span class="header-section-number">1.5</span> Step 5: Create the MagGeo Environment</h2>
+<section id="step-5-create-the-maggeo-environment" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-create-the-maggeo-environment">Step 5: Create the MagGeo Environment</h2>
 <p>This creates a specialized Python environment with all the specific packages MagGeo needs, similar to installing a comprehensive R package with all its dependencies.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -641,18 +640,18 @@ Warning
 </div>
 </div>
 </section>
-<section id="step-6-activate-the-maggeo-environment" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="step-6-activate-the-maggeo-environment"><span class="header-section-number">1.6</span> Step 6: Activate the MagGeo Environment</h2>
+<section id="step-6-activate-the-maggeo-environment" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-activate-the-maggeo-environment">Step 6: Activate the MagGeo Environment</h2>
 <p>Every time you want to use MagGeo, you’ll need to “activate” its environment first:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate MagGeoEnv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>What this does:</strong> Switches your command line to use the MagGeo-specific Python environment, ensuring all the right tools are available.</p>
 </section>
-<section id="step-7-set-up-vires-access-magnetic-field-data" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="step-7-set-up-vires-access-magnetic-field-data"><span class="header-section-number">1.7</span> Step 7: Set Up VirES Access (Magnetic Field Data)</h2>
+<section id="step-7-set-up-vires-access-magnetic-field-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-7-set-up-vires-access-magnetic-field-data">Step 7: Set Up VirES Access (Magnetic Field Data)</h2>
 <p><strong>What is VirES?</strong> VirES provides access to satellite magnetic field data from ESA’s Swarm mission. Think of it as a specialized database for magnetic field measurements that MagGeo uses to understand the magnetic environment your animals experienced.</p>
 <p><strong>MagGeo</strong> use <a href="https://swarm-vre.readthedocs.io/en/latest/Swarm_notebooks/02a__Intro-Swarm-viresclient.html"><strong>VirES</strong></a> (Virtual environments for Earth Scientists) a platform for data &amp; model access, analysis, and visualization for ESA’s magnetic mission <strong>Swarm</strong>. This is a powerful client with the <a href="https://swarm-vre.readthedocs.io/en/latest/Swarm_notebooks/02c__viresclient-API.html">viresclient API</a> that provide several classes and methods defined in the vires client package. The <code>viresclient</code> Python package allows you to connect to the VirES server to download <a href="https://earth.esa.int/web/guest/missions/esa-operational-eo-missions/swarm">Swarm</a> data and data calculated using magnetic models.</p>
-<section id="create-your-vires-account" class="level3" data-number="1.7.1">
-<h3 data-number="1.7.1" class="anchored" data-anchor-id="create-your-vires-account"><span class="header-section-number">1.7.1</span> Create Your VirES Account:</h3>
+<section id="create-your-vires-account" class="level3">
+<h3 class="anchored" data-anchor-id="create-your-vires-account">Create Your VirES Account:</h3>
 <ol type="1">
 <li><p><strong>Sign up:</strong> Visit <a href="https://vires.services/oauth/accounts/signup/" class="uri">https://vires.services/oauth/accounts/signup/</a></p>
 <ul>
@@ -673,18 +672,18 @@ Warning
 </ol>
 </section>
 </section>
-<section id="testing-your-installation" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="testing-your-installation"><span class="header-section-number">1.8</span> Testing Your Installation</h2>
+<section id="testing-your-installation" class="level2">
+<h2 class="anchored" data-anchor-id="testing-your-installation">Testing Your Installation</h2>
 <p>To verify everything is working:</p>
 <ol type="1">
 <li>Make sure you’re in the MagGeo directory and the environment is activated</li>
 <li>Try running a simple test (specific commands will depend on MagGeo’s documentation)</li>
 </ol>
 </section>
-<section id="troubleshooting-common-issues" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="troubleshooting-common-issues"><span class="header-section-number">1.9</span> Troubleshooting Common Issues</h2>
-<section id="windows-specific-issues" class="level3" data-number="1.9.1">
-<h3 data-number="1.9.1" class="anchored" data-anchor-id="windows-specific-issues"><span class="header-section-number">1.9.1</span> Windows-Specific Issues</h3>
+<section id="troubleshooting-common-issues" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+<section id="windows-specific-issues" class="level3">
+<h3 class="anchored" data-anchor-id="windows-specific-issues">Windows-Specific Issues</h3>
 <p><strong>Problem:</strong> “conda is not recognized as an internal or external command”</p>
 <ul>
 <li><p><strong>Solution:</strong> Miniconda wasn’t added to PATH during installation</p></li>
@@ -700,8 +699,8 @@ Warning
 <li><strong>Solution:</strong> Install MagGeo in a shorter path like <code>C:\MagGeo</code></li>
 </ul>
 </section>
-<section id="macos-specific-issues" class="level3" data-number="1.9.2">
-<h3 data-number="1.9.2" class="anchored" data-anchor-id="macos-specific-issues"><span class="header-section-number">1.9.2</span> macOS-Specific Issues</h3>
+<section id="macos-specific-issues" class="level3">
+<h3 class="anchored" data-anchor-id="macos-specific-issues">macOS-Specific Issues</h3>
 <p><strong>Problem:</strong> “command not found: conda”</p>
 <ul>
 <li><p><strong>Solution:</strong> Terminal doesn’t recognize conda</p></li>
@@ -717,8 +716,8 @@ Warning
 <li><strong>Solution:</strong> Install Xcode from the App Store first, then try again</li>
 </ul>
 </section>
-<section id="general-issues" class="level3" data-number="1.9.3">
-<h3 data-number="1.9.3" class="anchored" data-anchor-id="general-issues"><span class="header-section-number">1.9.3</span> General Issues</h3>
+<section id="general-issues" class="level3">
+<h3 class="anchored" data-anchor-id="general-issues">General Issues</h3>
 <p><strong>Problem:</strong> Environment creation fails with package conflicts</p>
 <ul>
 <li><p><strong>Solution:</strong> Clear conda cache and try again</p></li>
@@ -739,19 +738,19 @@ Warning
 </ul>
 </section>
 </section>
-<section id="reporting-an-issue" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="reporting-an-issue"><span class="header-section-number">1.10</span> Reporting an Issue</h2>
+<section id="reporting-an-issue" class="level2">
+<h2 class="anchored" data-anchor-id="reporting-an-issue">Reporting an Issue</h2>
 <p>If you encounter issues not covered here:</p>
-<section id="before-reporting-an-issue" class="level3" data-number="1.10.1">
-<h3 data-number="1.10.1" class="anchored" data-anchor-id="before-reporting-an-issue"><span class="header-section-number">1.10.1</span> Before Reporting an Issue:</h3>
+<section id="before-reporting-an-issue" class="level3">
+<h3 class="anchored" data-anchor-id="before-reporting-an-issue">Before Reporting an Issue:</h3>
 <ol type="1">
 <li>Note your operating system (Windows 10/11, macOS version)</li>
 <li>Copy any error messages exactly as they appear</li>
 <li>Note which step in the installation process failed</li>
 </ol>
 </section>
-<section id="how-to-report-an-issue" class="level3" data-number="1.10.2">
-<h3 data-number="1.10.2" class="anchored" data-anchor-id="how-to-report-an-issue"><span class="header-section-number">1.10.2</span> How to Report an Issue:</h3>
+<section id="how-to-report-an-issue" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-report-an-issue">How to Report an Issue:</h3>
 <ol type="1">
 <li>Visit <a href="https://github.com/MagGeo/MagGeo-Annotation-Program/issues" class="uri">https://github.com/MagGeo/MagGeo-Annotation-Program/issues</a></li>
 <li>Click “New Issue”</li>
@@ -767,8 +766,8 @@ Warning
 </ol>
 </section>
 </section>
-<section id="next-steps" class="level2" data-number="1.11">
-<h2 data-number="1.11" class="anchored" data-anchor-id="next-steps"><span class="header-section-number">1.11</span> Next Steps</h2>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
 <p>Once installation is complete:</p>
 <ul>
 <li><p>Read the MagGeo user guide for analysis workflows</p></li>
@@ -789,7 +788,6 @@ Tip
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
