@@ -1,29 +1,244 @@
 ---
-title: "Background"
-toc: true
+title: "Key Concepts"
+bibliography: references.bib
 ---
 
-> ☝ Before moving on with MagGeo you might want to take a look at the following concepts:
+## 1. Animal Navigation Fundamentals {.unnumbered}
 
-# Earth's Magnetic Field
+This is not a comprehensive book related to animal navigation fundamental, however there are certain concepts you might want to recall and understand that establish the foundations of what you have built **MagGeo**.
 
-<img src="./images/MagneticComponents-Jupyter.png" style="width:500px;height:400px;float: left; margin-right: 2em;margin-bottom: 1em;"> The Earth's magnetic field (or geomagnetic field ) is generated in the fluid outer core by a self-exciting dynamo process. Electrical currents flowing in the slowly moving molten iron generate the magnetic field. In addition to sources in the Earth's core the magnetic field observable at the Earth's surface has sources in the crust and in the ionosphere and magnetosphere.
+### True Navigation
 
-The Earth's magnetic field is described by seven components. These are **Declination (D)**, **Inclination (I)**, **Horizontal intensity (H)**, **Vertical intensity (Z)**, **total intensity (F)** and the **north (X)** and **east (Y)** components of the horizontal intensity. In most of the geomagnetic data sources the reference frame used to share the magnetic components is **NEC**, which is basically the same XYZ cartesian system.  By convention, declination is considered positive when measured east of north, Inclination and vertical intensity positive down, X (N) positive north, and Y(E) positive east. The magnetic field observed on Earth is constantly changing.
+Long-distance migratory navigation represents one of nature's most remarkable phenomena, consisting of two primary components that work together to enable animals to travel vast distances with inexplicable precision. The first component, is **compass orientation**, involves determining the correct direction of movement relative to environmental cues (where to go). The second component, **geographic positioning**, requires animals to know their current location at any specific time during their journey (where am I)¹.
 
-&nbsp;
+These mechanisms together support what Ecologists term "**true navigation**" - [defined as the ability to find the way to a distant, unknown location using only cues that are available locally at the animal's current position]{.underline}².
 
-&nbsp;
-<div class="alert alert-warning" role="alert">
-  <strong>The Earth's magnetic field varies both in space and time</strong>
-    That is why the relevance of <strong>MagGeo</strong> helping researchers to understand the variations of the geomagnetic field across an animal movement trajectory. In particular having the annotated geomagnetic components at the the date and time the GPS point was collected. The following image can help you to understand how the geomagnetic components are represented and how they are computed.
-</div>
+### Navigation Mechanisms
 
-Considering the point of measurement (*p*) as the origin of a Cartesian system of reference, the x-axis is in the geographic meridian directed to the north, y-axis in the geographic parallel directed to the east and z-axis parallel to the vertical at the point and positive downwards. Then we have:
+Migratory animals (e.g Birds) have evolved sophisticated sensory systems that can detect and interpret multiple environmental cues for navigation purposes [@demsar2025]. These cues fall into two primary categories based on their navigational function:
 
-![equation](https://latex.codecogs.com/gif.latex?F=&space;\sqrt{X^{2}&plus;Y^{2}&plus;Z^{2}}&space;\hspace{1cm}&space;or\hspace{1cm}&space;F=&space;\sqrt{N^{2}&plus;E^{2}&plus;C^{2}})
+**For Compass Orientation:** Animals use several types of compass systems to maintain consistent directional movement:
 
+-   **Solar compass**: Utilizes the Sun's position, accounting for its apparent movement across the sky and seasonal variations
 
-![equation](https://latex.codecogs.com/gif.latex?H&space;=&space;\sqrt{N^{2}&plus;E^{2}}&space;-&space;D&space;=&space;\arctan\frac{E}{N}&space;-&space;I&space;=&space;\arctan\frac{C}{H}&space;-)
+-   **Stellar compass**: Relies on star patterns and celestial rotation, particularly useful during nighttime migration
 
-The unit of magnetic field intensity, strictly flux density, most commonly used in geomagnetism is the Tesla. At the Earth's surface the total intensity varies from 22,000 nanotesla (nT) to 67,000 nT.  The units of D and I are degrees.
+-   **Polarized light patterns**: Detects polarization patterns in skylight that remain consistent relative to the Sun's position
+
+-   **Earth's magnetic field**: Uses the planet's magnetic field as a reliable directional reference³⁻⁴
+
+**For Geographic Positioning:** To determine their specific location, animals can access several types of positional cues:
+
+-   **Earth's magnetic field**: Utilizes spatial gradients and patterns in Earth's magnetic field intensity and inclination³
+
+-   **Olfactory cues**: Chemical signatures that vary geographically, creating olfactory landscapes⁵⁻⁶
+
+-   **Visual landmarks**: Topographical features, coastlines, and other geographical markers⁷
+
+-   **Infrasound**: Low-frequency sound waves that can travel long distances and vary by location¹
+
+## 2. Geomagnetic Navigation
+
+Geomagnetic navigation represents a strategy whereby animals use information derived from Earth's magnetic field for either compass orientation, geographic positioning, or both functions simultaneously³. This navigational mechanism has been documented across an taxonomic range, suggesting it evolved independently multiple times or represents an ancient, conserved ability.
+
+Evidence for geomagnetic navigation exists across diverse taxa:
+
+-   **Birds**: From songbirds to seabirds, with extensive experimental evidence¹⁻⁷
+
+-   **Fish**: Including both oceanic and freshwater species⁹
+
+-   **Sea turtles**: Particularly well-documented in marine navigation⁸⁻¹⁰
+
+-   **Terrestrial mammals**: From small rodents to large ungulates¹¹⁻¹²
+
+-   **Marine mammals**: Including whales and dolphins¹³⁻¹⁴
+
+However the study of geomagnetic navigation employs two primary methodological approaches, each with distinct advantages and limitations:
+
+**Lab Experiments:** Controlled studies where animals are placed in artificial magnetic field to examine how magnetic parameters influence the onset and direction of migratory behavior. Laboratory experiments provide exceptional precision and experimental control, allowing researchers to manipulate specific magnetic parameters while holding other variables constant²⁻⁷⁻¹⁵⁻¹⁷. However, the observed behaviors in such controlled environments differ significantly from what occurs in wild¹. Additionally, these studies typically focus on small numbers of individuals from single species, which limits the results across multiple species¹⁹.
+
+**Field Studies with Tracking:** Modern migration research employs tracking technologies, particularly GPS tags combined with displacement experiments. These approaches provide greater ecological relevance by studying animals in their natural environments¹⁸⁻²⁰⁻²¹. However, most tracking studies have been limited by their reliance on static representations of the geomagnetic field (space and temporal), failing to account for the dynamic temporal variations that may influence animal navigation²².
+
+## 3. Earth's Magnetic Field
+
+Earth's magnetic field is a complex, dynamic system that results from the superposition of magnetic fields originating from multiple sources. Understanding this complex environmental variable is crucial for comprehending how animals use magnetic data for navigation. The total magnetic field at any location and time results from the combination of three primary components, each with different characteristics, spatial patterns, and temporal behaviors³⁴.
+
+**Core Field:** The dominant contributor to Earth's magnetic field is the core field, generated by the geodynamo mechanism operating within Earth's outer liquid core. This field arises from the motion of electrically conductive molten iron as it circulates within the outer core, driven by thermal convection and the planet's rotation. The core field exhibits a broadly dipolar structure on large scales, resembling that of a giant bar magnet tilted approximately 11 degrees from Earth's rotational axis. However, this apparent simplicity masks considerable complexity in the detailed structure, with significant non-dipolar components that create regional variations in field strength and direction across the globe.
+
+The core field dominates the total magnetic field at Earth's surface, typically contributing over 98% of the field strength at any location. This field undergoes gradual changes over time scales of years to decades, known as secular variation, as the circulation patterns within the outer core evolve. These long-term changes can amount to tens of nanoTesla per year at any given location, representing a slow but persistent evolution of the magnetic environment that animals experience.
+
+**Lithospheric Field:** The lithospheric or crustal field originates from the magnetic properties of rocks within Earth's crust. Certain minerals, particularly magnetite and other iron-bearing compounds, became magnetized when they formed and retain this magnetization over geological time scales. The lithospheric field creates local and regional magnetic anomalies - areas where the magnetic field strength or direction differs noticeably from what would be expected from the core field alone.
+
+These magnetic anomalies can range from subtle variations of a few nanoTesla to dramatic variations of thousands of nanoTesla over distances of kilometers to hundreds of kilometers. The lithospheric field is considered essentially static over time periods relevant to animal lifespans, changing only over geological time scales of millennia or longer. For migratory animals, these crustal magnetic signatures provide potentially stable, location-specific magnetic features that could serve as magnetic landmarks or components of magnetic maps.
+
+**External Fields:** External magnetic fields result from electrical current systems flowing in Earth's ionosphere and magnetosphere, driven by interactions between the solar wind and Earth's magnetic field. These fields exhibit the most dynamic behavior of the three components, varying on time scales from seconds to days. The external field contributions include both regular, predictable daily variations and irregular disturbances associated with space weather events.
+
+The regular daily variations, known as Sq (solar quiet) currents, result from the regular heating of the ionosphere by solar radiation, which creates predictable current systems that vary with local time and season. These regular variations typically amount to 20-30 nanoTesla at mid-latitudes but can be significantly larger at high latitudes near the magnetic poles.
+
+![](images/paste-2.png)*Figure 1 showing magnetic field components and coordinate system, NOOA,* <https://www.ncei.noaa.gov/news/HDGM>
+
+### Magnetic Field Measurements and Coordinate Systems
+
+Scientists measure Earth's magnetic field using a standardized coordinate system that allows for consistent description and comparison of magnetic field vectors worldwide. The magnetic field vector **B** is decomposed into components using the North-East-Centre (NEC) coordinate system, also known as the local geodetic coordinate system.
+
+In this system, measurements are made relative to the local geographic reference frame at each point on Earth's surface. The North component points toward geographic north (true north), the East component points toward geographic east, and the Centre component points radially downward toward Earth's center. This coordinate system provides a consistent framework for describing magnetic field variations across the globe and through time.
+
+From these three orthogonal components, several important magnetic field parameters are derived:
+
+-   **Intensity (F)**: The magnitude or total strength of the magnetic field vector B, representing the length of the vector in three-dimensional space
+
+-   **Inclination (I)**: The angle between the magnetic field vector B and its horizontal component H, measuring how steeply the field lines plunge into or emerge from Earth
+
+-   **Declination (D)**: The angle between the horizontal component H and geographic north, indicating how much magnetic north deviates from geographic north
+
+-   **Horizontal component (H)**: The horizontal projection of the magnetic field vector, representing the component parallel to Earth's surface
+
+These parameters provide different types of information that animals might potentially use for navigation. Intensity varies systematically with latitude and can provide positional information, while inclination also varies predictably with latitude and could serve as a magnetic latitude indicator. Declination provides information about magnetic versus geographic north, potentially useful for compass orientation.
+
+## 4. Spatial and Temporal Variation
+
+### Global Spatial Patterns
+
+**Intensity:** The total magnetic field intensity shows global patterns that reflects the underlying dipolar structure of the core field. At the magnetic equators, where the field lines run horizontally, the total intensity reaches its minimum values of approximately *23,000 nanoTesla*. Moving toward higher magnetic latitudes, the field intensity gradually increases as the field lines become more vertical, reaching maximum values of approximately *62,000 nanoTesla* near the magnetic poles.
+
+This variation in intensity with magnetic latitude creates what researchers term "isodynamic lines" - contours of equal magnetic intensity that generally run east-west but show considerable deviation from simple latitudinal bands due to non-dipolar components of the field. These intensity gradients are steep enough that animals traveling north-south distances of hundreds of kilometers would encounter measurable changes in field intensity.
+
+**Inclination:** Magnetic inclination, the angle at which field lines plunge into Earth, provides perhaps the most systematic navigational cue available from the geomagnetic field. At the magnetic equator, field lines run horizontally, giving inclination values near zero degrees. Moving toward the magnetic poles, inclination increases progressively, reaching 90 degrees (vertical) at the magnetic poles themselves.
+
+This relationship between inclination and magnetic latitude has led researchers to propose that inclination serves as a primary magnetic coordinate for animal navigation. The inclination gradient is steep enough that latitudinal movements of tens of kilometers produce detectable changes in inclination angle, potentially providing fine-scale positional information.
+
+**Declination:** Magnetic declination on the other side, the deviation of magnetic north from geographic north, shows the most complex spatial patterns of the major magnetic field components. Unlike intensity and inclination, declination does not follow simple latitudinal patterns but instead shows regional variations that reflect the non-dipolar components of the core field and crustal magnetic anomalies.
+
+In some regions, declination changes very gradually over large distances, while in other areas it can change by several degrees over distances of hundreds of kilometers. These declination patterns create distinctive regional magnetic signatures that could potentially serve as magnetic landmarks for animal navigation systems.
+
+![](./images/MagneticComponents-Jupyter.png){style="width:500px;height:400px;float: left; margin-right: 2em;margin-bottom: 1em;"}
+
+### Temporal Variations
+
+The temporal behavior of Earth's magnetic field spans an enormous range of time scales, from rapid variations lasting seconds to gradual changes occurring over geological time. Understanding these temporal variations is crucial for reading how animals use magnetic data for navigation.
+
+**Quiet-Time Variations:** Even during geomagnetically quiet periods, Earth's magnetic field shows regular daily variations driven by solar heating of the ionosphere. During daylight hours, solar ultraviolet radiation ionizes atmospheric gases, creating electrical conductivity that allows current systems to flow in the ionosphere. These currents generate magnetic fields that add to the main field measured at Earth's surface.
+
+The amplitude of these quiet-time variations depends strongly on latitude and local time. At mid-latitudes, typical daily variations amount to approximately 20 nanoTesla, with maximum variations occurring during local noon when ionospheric currents are strongest. At polar latitudes, where ionospheric current systems are more complex, daily variations can reach 100 nanoTesla or more.
+
+These regular variations follow *predictable* patterns that repeat daily and show seasonal modulations. For animals using magnetic cues for navigation, these predictable variations might either be filtered out by their sensory systems or potentially used as additional timing information.
+
+**Geomagnetic Storm Disturbances:** During periods of enhanced solar activity, Earth's magnetic field can experience big disturbances that far exceed normal quiet-time variations. Geomagnetic storms occur when disturbances in the solar wind create enhanced coupling between the solar wind's magnetic field and Earth's magnetosphere. These events drive intense electrical currents in the magnetosphere and ionosphere, creating magnetic field variations that can exceed *1000 nanoTesla i*n polar regions and *250 nanoTesla at mid-latitudes*²³.
+
+The temporal characteristics of geomagnetic storms are particularly relevant for animal navigation. Storm-related magnetic field changes can occur within seconds to days, creating rapid alterations in the magnetic environment that animals experience. The magnitude of these changes often exceeds the established sensitivity thresholds of animal magnetoreceptors by factors of ten or more, suggesting that geomagnetic storms could significantly disrupt magnetic navigation systems.
+
+**Secular Variation:** On longer time scales, Earth's magnetic field undergoes continuous slow changes known as secular variation, driven by evolving circulation patterns within the liquid outer core. These changes typically amount to tens of nanoTesla per year at any given location, representing a gradual evolution of the magnetic field over time scales of years to decades.
+
+For long-lived migratory animals or populations with strong site fidelity, secular variation could potentially require periodic recalibration of magnetic navigation systems. However, the slow rate of secular variation means that it is unlikely to affect navigation during individual migratory journeys, which typically last weeks to months.
+
+## 5. Geomagnetic Storms and Solar Wind
+
+### Storm-Related Disruption
+
+The sensitivity thresholds established by neurophysiological and behavioral research have profound implications when compared to the magnitude of magnetic field variations that occur during geomagnetic storms. Solar wind disturbances can create magnetic field changes exceeding 1000 nanoTesla within minutes during major geomagnetic storms²⁶, representing variations that are 5-65 times larger than established animal sensitivity thresholds.
+
+**Potential Disruption Mechanisms:** Animals using magnetic intensity as a positional cue could experience significant navigation errors during geomagnetic storms. If birds or other animals rely on specific intensity values as location markers, sudden storm-related intensity changes could create the illusion that they have been displaced to entirely different geographic locations. This effect would be similar to the responses observed in virtual magnetic displacement experiments¹⁵⁻¹⁶⁻¹⁷⁻²⁷, where animals exposed to artificial magnetic fields characteristic of distant locations attempt to compensate by changing their flight direction.
+
+Animals using magnetic inclination or declination for compass orientation might experience disruption of their directional sensing capabilities during storms. Rapid changes in field direction could cause temporary loss of magnetic compass function, potentially forcing animals to rely on alternative compass systems such as solar or stellar compasses⁴.
+
+**Species-Specific Responses:** Different animal species likely respond to geomagnetic disturbances in various ways, depending on their particular methods of using magnetic information for navigation³. Some species might temporarily cease migration during severe magnetic disturbances, while others might switch to alternative navigation systems. The behavioral responses probably depend on the availability of backup navigation cues and the flexibility of each species' navigation system.
+
+## 6. Geomagnetic Data Sources
+
+### Terrestrial Observatory Networks
+
+The systematic measurement of Earth's magnetic field began in the 1830s and has evolved into a sophisticated global network of ground-based observatories that provide continuous, high-precision magnetic field measurements.
+
+**INTERMAGNET Network:** The International Real-time Magnetic Observatory Network (INTERMAGNET) represents the primary source of ground-based geomagnetic data, currently comprising 152 observatories distributed across the globe³⁷. These observatories employ standardized instrumentation and data collection procedures to ensure consistency and comparability of measurements worldwide.
+
+Each INTERMAGNET observatory typically operates multiple magnetometers, including absolute instruments that measure the true magnetic field vector and variometers that detect changes in the field with high temporal resolution. The observatories record magnetic field measurements continuously, typically at one-second or one-minute intervals, creating detailed time series that capture both gradual changes and rapid fluctuations.
+
+**Advantages of Terrestrial Measurements:** Ground-based observatories offer several significant advantages for magnetic field research. Their calibration accuracy is exceptionally high, with measurement uncertainties typically less than 1 nanoTesla for carefully maintained instruments. The continuous operation of these stations creates long-term data records, some extending back more than a century, that are invaluable for studying secular variation and long-term magnetic field changes.
+
+The temporal resolution of ground-based measurements is also superior to satellite data, with one-second sampling rates that can capture rapid magnetic field fluctuations associated with geomagnetic storms and other space weather events. This high temporal resolution makes ground-based data particularly valuable for studying the detailed time evolution of magnetic disturbances.
+
+**Limitations of Ground-Based Networks:** Despite their high accuracy and temporal resolution, terrestrial magnetic observatories have significant limitations for global magnetic field studies. The spatial coverage is highly irregular, with dense networks in some regions (particularly northern and western Europe) but sparse or absent coverage in others. Oceanic regions are particularly poorly covered, with very few magnetic observatories on islands and none on the open ocean.
+
+The effective spatial coverage of each observatory is limited to approximately 1000 kilometers, beyond which local magnetic variations can differ significantly from those measured at the observatory. This limitation means that only regions with dense observatory networks provide complete spatial coverage, excluding most animal migration pathways that cross oceanic or remote continental regions.
+
+Temporal data availability also presents challenges for real-time applications. Observatories submit their data to the central INTERMAGNET network at different times, often with delays of months to years for the highest quality, fully processed data. Some observatories occasionally cease operation due to funding or technical issues, creating gaps in temporal coverage.
+
+### Satellite-Based Measurements
+
+Satellite missions have revolutionized geomagnetic field research by providing consistent global coverage with standardized instrumentation. Over the past 60 years, a series of dedicated magnetic field missions has complemented terrestrial measurements and enabled global-scale studies of magnetic field structure and dynamics.
+
+**Historical Satellite Missions:** The evolution of satellite-based geomagnetism began with early missions such as POGO (1965-1971), which provided the first global magnetic field measurements from space. Subsequent missions including Magsat (1979-80), Ørsted (1999-present), CHAMP (2000-2010), and SAC-C (2000-present) progressively improved measurement accuracy and global coverage³⁸.
+
+Each mission contributed unique capabilities and extended the temporal baseline of satellite magnetic measurements. Magsat provided the first high-precision global magnetic field model, while Ørsted began the era of continuous, long-term satellite magnetic monitoring. CHAMP delivered exceptionally precise measurements that advanced understanding of both the main field and its temporal variations.
+
+**The Swarm Mission:** The European Space Agency's Swarm mission, launched in 2013, represents the current state-of-the-art in satellite-based magnetic field measurement³⁹. The mission employs three identical satellites arranged in a carefully designed constellation that provides enhanced spatial and temporal sampling of the global magnetic field.
+
+The constellation consists of satellites Alpha and Charlie, which orbit in parallel at an altitude of 480 kilometers with a separation of approximately 150 kilometers at the equator. Satellite Bravo orbits at a higher altitude of 510 kilometers in a different orbital plane that, at present, is nearly perpendicular to the Alpha-Charlie pair. This configuration provides measurements at two different altitudes and enables separation of different magnetic field sources.
+
+**Swarm Instrumentation:** Each Swarm satellite carries identical scientific instrumentation designed for precise magnetic field measurement. The primary instruments include an Absolute Scalar Magnetometer (ASM) that measures the total magnetic field intensity, a Vector Field Magnetometer (VFM) that measures the three-component magnetic field vector, and a GPS receiver for precise orbit determination.
+
+The VFM provides magnetic field measurements at 1 Hz resolution in the North-East-Centre coordinate system, calibrated using measurements from the ASM and stellar cameras that determine satellite orientation. This combination of instruments enables precise determination of both the magnitude and direction of the magnetic field vector at satellite altitude.
+
+**Advantages of Satellite Measurements:** Satellite measurements resolve many of the limitations of ground-based networks by providing consistent global coverage with standardized instrumentation. The polar-orbiting design of most magnetic field satellites ensures complete global coverage within a few days, including oceanic and remote continental regions that lack ground-based observatories.
+
+Satellite data are typically available within days to weeks of collection, much faster than the fully processed data from many ground-based observatories. The standardized instrumentation and data processing procedures also ensure consistency in measurements across different geographic regions and time periods.
+
+The orbital perspective of satellites enables measurement of the magnetic field above most ionospheric current systems, providing information about magnetic field sources that cannot be obtained from ground-based measurements alone. This capability is particularly valuable for studying external field variations and their global patterns.
+
+**Satellite Data Access and Formats:** Swarm data are made freely available through the European Space Agency's Earth Observation Policy, with data access provided through the VirES (Virtual workspace for Earth observation Scientists) web platform⁴⁸. The Level 1b data products provide corrected and calibrated magnetic field measurements in standard scientific formats.
+
+However, satellite magnetic data are provided in specialized formats such as the Common Data Format (CDF) developed by NASA⁴³, which are not readily accessible using standard ecological data analysis software. This technical barrier has historically limited the use of satellite magnetic data outside the specialized geophysics community, despite the open data policies of space agencies.
+
+### Geomagnetic Indices and Activity Monitoring
+
+Understanding and quantifying the level of geomagnetic activity is crucial for both space weather applications and studies of magnetic field effects on biological systems. Geomagnetic indices provide standardized measures of magnetic field disturbance that enable comparison of activity levels across different times and locations.
+
+**K-Index System:** The K-index represents the fundamental unit for measuring local geomagnetic disturbance. Calculated every three hours at individual magnetic observatories, the K-index quantifies disturbances in the horizontal component of the magnetic field on a quasi-logarithmic scale from 0 to 9²⁶. A K-index of 0 indicates perfectly calm magnetic conditions, while values of 5 or higher indicate geomagnetic storm conditions.
+
+The K-index calculation involves comparing the observed magnetic field variations during each three-hour period to the expected quiet-day variation for that location and season. This approach accounts for the regular daily variations in the magnetic field and highlights unusual disturbances that exceed normal quiet-time levels.
+
+**Kp Index:** The planetary Kp index provides a global measure of geomagnetic activity by averaging K-indices from a standardized network of magnetic observatories distributed worldwide³⁵. Calculated every three hours, the Kp index ranges from 0 to 9 and serves as a proxy for the energy input from the solar wind into Earth's magnetosphere.
+
+The Kp index is widely used in space weather applications and research studies because it provides a single number that characterizes global magnetic activity levels. Kp values of 5 or higher indicate geomagnetic storm conditions, with values above 7 representing severe storms that can have significant technological and potentially biological impacts.
+
+------------------------------------------------------------------------
+
+## References
+
+1.  Deutschlander ME, Beason RC. Avian navigation and geographic positioning. J Field Ornithol. 2014;85(2):111–33.
+
+2.  Holland RA. True navigation in birds: from quantum physics to global migration. J Zool. 2014;293:1–15.
+
+3.  Mouritsen H. Long-distance navigation and magnetoreception in migratory animals. Nature. 2018;558:50–9.
+
+4.  Chernetsov N. Compass systems. J Comp Physiol A. 2017;203:447–53.
+
+5.  Gagliardo A. Forty years of olfactory navigation in birds. J Exp Biol. 2013;216:2165–71.
+
+6.  Bonadonna F, Gagliardo A. Not only pigeons: avian olfactory navigation studied by satellite telemetry. Ethol Ecol Evol. 2021.
+
+7.  Wiltschko R, Wiltschko W. Avian navigation: a combination of innate and learned mechanisms. Adv Study Behav. 2015;47:229–310.
+
+8.  Lohmann KJ, Lohmann CMF, Putman NF. Magnetic maps in animals: nature's GPS. J Exp Biol. 2007;210:3697–705.
+
+9.  Naisbett-Jones LC, Putman NF, Stephenson JF, Ladak S, Young KA. A magnetic map leads juvenile European eels to the Gulf Stream. Curr Biol. 2017;27:1236–40.
+
+10. Brothers JR, Lohmann KJ. Evidence that magnetic navigation and geomagnetic imprinting shape spatial genetic variation in sea turtles. Curr Biol. 2018;28:1325–9.
+
+11. Burda H, Begall S, Hart V, Malkemper EP, Painter MS, Phillips JB. Magnetoreception in mammals. In: Fritzsch B, editor. The senses: a comprehensive reference (second edition): Elsevier; 2020. p. 421–44.
+
+12. Genzel D, Yovel Y, Yartsev MM. Neuroethology of bat navigation. Curr Biol. 2018;28(17):R997–R1004.
+
+13. Granger J, Walkowicz L, Fitak R, Johnsen S. Gray whales strand more often on days with increased levels of atmospheric radio-frequency noise. Curr Biol. 2020;30(4):R155–6.
+
+14. Vanselow H, Jacobsen S, Hall C, Garthe S. Solar storms may trigger sperm whale strandings: explanation approaches for multiple strandings in the North Sea in 2016. Int J Astrobiol. 2017;17(4):336–44.
+
+15. Kishkinev D, Chernetsov N, Pakhomov A, Heyers D, Mouritsen H. Eurasian reed warblers compensate for virtual magnetic displacement. Curr Biol. 2015;25(19):822–4.
+
+16. Kishkinev D, Packmor F, Zeichmeister T, Winkler H-C, Chernetsov N, Mourisen H, et al. Navigation by extrapolation of geomagnetic cues in a migratory songbird. Curr Biol. 2021;31(7):1563–9.
+
+17. Pakhomov A, Anashina A, Heyers D, Kobylkov D, Mourtisen D, Chernetsov N. Magnetic map navigation in a migratory songbird requires trigeminal input. Nat Sci Rep. 2018;8:11975.
+
+18. Wikelski M, Arriero E, Gagliardo A, Holland RA, Huttunen MJ, Juvaste R, et al. True navigation in migrating gulls requires intact olfactory nerves. Nat Sci Rep. 2015;5:17061.
+
+19. Bowlin MS, Bisson I-A, Shamoun-Baranes J, Reichard JD, Sapir N, Marra PP, et al. Grand challenges in migration biology. Integr Comp Biol. 2010;50(3

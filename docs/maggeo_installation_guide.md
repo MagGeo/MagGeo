@@ -1,6 +1,3 @@
----
-title: "Installation"
----
 
 # Installing MagGeo {.unnumbered}
 
@@ -8,7 +5,7 @@ MagGeo is a specialized tool that helps researchers analyze magnetic field data 
 
 ## What You'll Need
 
-Before we begin, understand that **MagGeo** is currently built using Python (similar to how some R packages depend on specific R versions). We'll set up a contained environment so it won't interfere with any existing R installations or other software on your computer.
+Before we begin, understand that MagGeo is built using Python (similar to how some R packages depend on specific R versions). We'll set up a contained environment so it won't interfere with any existing R installations or other software on your computer.
 
 ## Step 1: Install Miniconda (Your Python Environment Manager)
 
@@ -36,8 +33,6 @@ Before we begin, understand that **MagGeo** is currently built using Python (sim
 
 **Verification:** After installation, open a new terminal (macOS) or Command Prompt (Windows) and type `conda --version`. You should see a version number.
 
-![](images/paste-1.png){width="484"}
-
 ## Step 2: Clone MagGeo
 
 You will need to clone the MagGeo repository in your local computer (we are currently working to make make MagGeo available in `pip` to an easier installation), for now simply clone it and you will have access to all MagGeo.
@@ -60,26 +55,12 @@ If you don't have **Git**, or you are not use to work with version control, you 
 
 ### For macOS Users:
 
-**Option A (Recommended):**
+**Option A (Recommended):** 1. Open Terminal (found in Applications \> Utilities) 2. Type `git --version` and press Enter 3. If Git isn't installed, macOS will prompt you to install Xcode Command Line Tools 4. Click "Install" and follow the prompts
 
-1\. Open Terminal (found in Applications \> Utilities)
-
-2\. Type `git --version` and press Enter
-
-3\. If **Git** isn't installed, macOS will prompt you to install Xcode Command Line Tools
-
-4\. Click "Install" and follow the prompts
-
-**Option B:**
-
-1\. Visit <https://git-scm.com/downloads>
-
-2\. Download "Git for macOS"
-
-3\. Run the installer with default settings
+**Option B:** 1. Visit <https://git-scm.com/downloads> 2. Download "Git for macOS" 3. Run the installer with default settings
 :::
 
-### For Both Windows and macOS Users:
+### For Both Windows and macOS:
 
 1.  **Open your command line interface:**
 
@@ -102,7 +83,7 @@ If you don't have **Git**, or you are not use to work with version control, you 
     git clone https://github.com/MagGeo/MagGeo-Annotation-Program.git
     ```
 
-    This creates a folder called "**MagGeo-Annotation-Program**" with all the necessary files.
+    This creates a folder called "MagGeo-Annotation-Program" with all the necessary files.
 
 ## Step 4: Navigate to the MagGeo Folder
 
@@ -110,9 +91,11 @@ If you don't have **Git**, or you are not use to work with version control, you 
 cd MagGeo-Annotation-Program
 ```
 
+**What this does:** Changes your current directory to the MagGeo folder, similar to navigating to a specific folder in Finder (macOS) or File Explorer (Windows).
+
 ## Step 5: Create the MagGeo Environment
 
-This creates a specialized Python environment with all the specific packages MagGeo needs, similar to installing a comprehensive R package with all its dependencies.
+**What is this step doing?** This creates a specialized Python environment with all the specific packages MagGeo needs, similar to installing a comprehensive R package with all its dependencies.
 
 ``` bash
 conda env create --file environment.yml
@@ -151,8 +134,12 @@ conda activate MagGeoEnv
 3.  **Get your access token:**
 
     -   Follow the detailed instructions at <https://viresclient.readthedocs.io/en/latest/access_token.html>
+
     -   Your token is like a password that allows MagGeo to download data for you
-    -   **Important:** Keep this token secure and don't share it
+
+    -   ::: callout-warning
+        **Important:** Keep this token secure and don't share it
+        :::
 
 4.  **Configure MagGeo with your token:**
 

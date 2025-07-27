@@ -1,32 +1,65 @@
 project:
-  type: website
+  type: book
 
-website:
-  favicon: /images/path1806.png
-  title: " MagGeo: Data fusion tool to combine magnetic data with GPS trajectories"
+book:
+  title: "MagGeo - Annotate geo-magnetic satellite data with GPS trajectories"
+  subtitle: "Data-fusion tool to combine geo-magnetic data with GPS trajectories"
+  author: "Fernando Benitez-Paez"
+  date: last-modified
+  favicon: "/images/path1806.png"
+  downloads: [pdf]
+  page-footer:
+    background: light
+    left: "2025, Fernando Benitez-Paez - SGSD -  The University of St Andrews"
+    right:
+      - icon: github
+        href: https://github.com/MagGeo/MagGeo
   sidebar:
-    style: "docked"
+    style: "floating"
+    date-format: iso
+    title: "{{< meta date >}}"
+  navbar:
+    background: light
     search: true
-    contents:
-      - index.qmd
-      - section: "How to use it"
-        contents:
-          - installation.qmd
-          - using_maggeo.qmd
-          - data_requeriments.qmd
-          - troubleshooting.qmd
-      - section: "The science behind" 
-        contents: 
-          - intro.qmd
-          - relevant_concepts.qmd
-          - calculation_mag_components.qmd
-          - how_does_it_works.qmd
-      - section: "Notebooks"
-        contents:
-          - SequentialMode.ipynb
-          - ParallelMode.ipynb
+    right:
+      - text: "Home"
+        href: index.qmd
+      - intro.qmd
+
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - part: "How to use it"
+      chapters:
+        - installation.qmd
+        - using_maggeo.qmd
+        - data_requirements.qmd
+    - part: "The science behind" 
+      chapters: 
+        - intro.qmd
+        - background.qmd
+        - calculation_mag_components.qmd
+        - how_does_it_works.qmd
+    - part: "Notebooks"
+      chapters:
+        - SequentialMode.ipynb
+        - ParallelMode.ipynb
+    # - DataSources.qmd
+    - troubleshooting.qmd
+
 format:
   html:
-    theme: cosmo
-    css: styles.css
-    
+    respect-user-color-scheme: true
+    mermaid:
+      theme: default
+    theme:
+      light: cosmo
+      dark:
+        - theme-dark.scss
+  pdf:
+    documentclass: scrbook
+
+editor: visual
+date: last-modified
+execute:
+  freeze: auto    
