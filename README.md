@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.4543735.svg)](https://zenodo.org/badge/latestdoi/289120794)
 [![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.org/github/MagGeo/MagGeo-Annotation-Program/tree/master/)
-[![nbgitpuller-VRE](https://img.shields.io/badge/nbgitpuller-VRE-blue)](https://vre.vires.services/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2FMagGeo%2FMagGeo-Annotation-Program&urlpath=tree%2FMagGeo-Annotation-Program%2FMagGeo+-+Home.ipynb&branch=master)
+[![nbgitpuller-VRE](https://img.shields.io/badge/nbgitpuller-VRE-blue)](https://vre.vires.services/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2FMagGeo%2FMagGeo&urlpath=lab%2Ftree%2FMagGeo%2FNotebooks%2FMagGeo+-+Home.ipynb&branch=master)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/MagGeo/MagGeo-Annotation-Program/HEAD?labpath=Notebooks)
 
 **Authors** | Fernando Benitez-Paez, Urška Demšar, Jed Long, Ciaran Beggan
