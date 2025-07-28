@@ -13,7 +13,7 @@ from utilities.auxiliaryfunctions import distance_to_GPS, Kradius, DistJ, DfTime
 
 
 # 0. Get the GPS track in a CSV format.
-# Input: csv file store in the data folder, validate if there is a altitute attribute.
+# Input: csv file store in the data folder, validate if there is a altitude attribute.
 # Output: GPS Data as pandas DF.
 
 def getGPSData(data_dir, gpsfilename,Lat,Long,DateTime,altitude):
@@ -27,7 +27,7 @@ def getGPSData(data_dir, gpsfilename,Lat,Long,DateTime,altitude):
         nfp['gpsDateTime'] = nfp['gpsDateTime'].map(lambda x: x.replace(second=0))
         nfp['gpsLat'] = nfp['gpsLat'].astype(float)
         nfp['gpsLong'] = nfp['gpsLong'].astype(float)
-        # Adding new column epoch, will be usefuel to compare the date&time o each gps point agains the gathered swmarm data points
+        # Adding new column epoch, will be useful to compare the date&time o each gps point against the gathered Smarm data points
         nfp['epoch'] = nfp['gpsDateTime'].astype('int64')//1e9
         nfp['epoch'] = nfp['epoch'].astype(int)
         # Computing Date and Time columns
@@ -42,7 +42,7 @@ def getGPSData(data_dir, gpsfilename,Lat,Long,DateTime,altitude):
         nfp['gpsDateTime'] = nfp['gpsDateTime'].map(lambda x: x.replace(second=0))
         nfp['gpsLat'] = nfp['gpsLat'].astype(float)
         nfp['gpsLong'] = nfp['gpsLong'].astype(float)
-        # Adding new column epoch, will be usefuel to compare the date&time o each gps point agains the gathered swmarm data points
+        # Adding new column epoch, will be useful to compare the date&time o each gps point against the gathered Swarm data points
         nfp['epoch'] = nfp['gpsDateTime'].astype('int64')//1e9
         nfp['epoch'] = nfp['epoch'].astype(int)
         # Computing Date and Time columns
@@ -50,7 +50,7 @@ def getGPSData(data_dir, gpsfilename,Lat,Long,DateTime,altitude):
         nfp['times'] = nfp['gpsDateTime'].dt.time        
     return nfp
 
-# 1. For each day in the trayectory, Get the Swarm Data and Residuals: Get_Swarm_and_residuals
+# 1. For each day in the trajectory, Get the Swarm Data and Residuals: Get_Swarm_and_residuals
 # Input:  Date and Time variables
 # Output: Swarm DF for each Sat, including the residuals, and Quality Flags.
 
@@ -89,7 +89,7 @@ def Get_Swarm_residuals(startDateTime, endDateTime):
     ).as_dataframe(expand=True)
     ### End Request for Sat A
     
-    ### 2. Request for Sat Bravo, same request parameters defined by Satelite Alpha
+    ### 2. Request for Sat Bravo, same request parameters defined by Satellite Alpha
     requestB.set_collection("SW_OPER_MAGB_LR_1B")
     requestB.set_products(
         measurements=[
@@ -177,7 +177,7 @@ def Get_Swarm_residuals(startDateTime, endDateTime):
 def ST_IDW_Process (GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime, TotalSwarmRes_A,TotalSwarmRes_B, TotalSwarmRes_C):
     
     DT=14400 #4 hours in seconds.
-    # 1. Runnig the DfTime_func function to filter by the defined DeltaTime.
+    # 1. Running the DfTime_func function to filter by the defined DeltaTime.
     time_kernel_A = DfTime_func(TotalSwarmRes_A,GPSTime,DT)
     time_kernel_B = DfTime_func(TotalSwarmRes_B,GPSTime,DT)
     time_kernel_C = DfTime_func(TotalSwarmRes_C,GPSTime,DT)
@@ -189,7 +189,7 @@ def ST_IDW_Process (GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime, TotalSwarmRe
     time_kernel_C['dT'] = (GPSTime - (time_kernel_C.index))
     
     #3.Computing the ds
-    ### Parsing the requieres parameters for distance_to_GPS function
+    ### Parsing the required parameters for distance_to_GPS function
     s_lat = GPSLat; e_lat = time_kernel_A['Latitude']; s_lng = GPSLong; e_lng = time_kernel_A['Longitude'] 
     time_kernel_A['distance']= distance_to_GPS(s_lat, s_lng, e_lat, e_lng) 
     s_lat = GPSLat; e_lat = time_kernel_B['Latitude']; s_lng = GPSLong; e_lng = time_kernel_B['Longitude']  
@@ -223,7 +223,7 @@ def ST_IDW_Process (GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime, TotalSwarmRe
     #7. Calculating the number of points per satellite that have passed the Space and Time Windows.
     TolSatPts = (len(space_time_kA_res_flags.index)+len(space_time_kB_res_flags.index)+len(space_time_kC_res_flags.index))
     
-    #8. Combining the three satellited messures into a bigger dataframe that store all the Swarm points that were filtered. 
+    #8. Combining the three satellited measures into a bigger dataframe that store all the Swarm points that were filtered. 
     frames = [space_time_kA_res_flags, space_time_kB_res_flags, space_time_kC_res_flags] #List to index the specific SatId to the new full DF.
     SwarmResiduals_ST_filtered = pd.concat(frames, keys=['A', 'B','C'], sort=False)
     
@@ -232,27 +232,27 @@ def ST_IDW_Process (GPSLat,GPSLong,GPSAltitude,GPSDateTime,GPSTime, TotalSwarmRe
     AvDistance = SwarmResiduals_ST_filtered['distance'].mean()
     kp_Avg = SwarmResiduals_ST_filtered['Kp'].mean()
     
-    #10. Computing the d (hypotenuse compused from the edges ds, dt values
+    #10. Computing the d (hypotenuse composed from the edges ds, dt values
     ds = SwarmResiduals_ST_filtered['distance']
     r = SwarmResiduals_ST_filtered['r']
     dt = SwarmResiduals_ST_filtered['dT']
     SwarmResiduals_ST_filtered['Dj']= DistJ(ds, r, dt, DT)
    
-    #11. Calculating the weigth values based on the previuos parameters.
+    #11. Calculating the weight values based on the previous parameters.
     SwarmResiduals_ST_filtered['W']= 1/((SwarmResiduals_ST_filtered['Dj'])**2) #We need to make more clear this part.
     
-    #12. Computing the Sum of weigths
+    #12. Computing the Sum of weights
     SumW = SwarmResiduals_ST_filtered['W'].sum()
     
-    #13. Distribution of weigths
+    #13. Distribution of weights
     SwarmResiduals_ST_filtered['Wj'] = SwarmResiduals_ST_filtered['W']/SumW 
     
-    #14. Computing the Magnetic componente based on the weigths prevoius weigths. 
+    #14. Computing the Magnetic component based on the weights previous weights. 
     N_res_int = (SwarmResiduals_ST_filtered['Wj']*SwarmResiduals_ST_filtered['N_res']).sum()
     E_res_int = (SwarmResiduals_ST_filtered['Wj']*SwarmResiduals_ST_filtered['E_res']).sum()
     C_res_int = (SwarmResiduals_ST_filtered['Wj']*SwarmResiduals_ST_filtered['C_res']).sum()
 
-    #15. Write the results into an array that will be a dictionay for the final dataframe.
+    #15. Write the results into an array that will be a dictionary for the final dataframe.
     resultrowGPS = {'Latitude': GPSLat, 'Longitude': GPSLong, 'Altitude': GPSAltitude, 'DateTime': GPSDateTime, 'N_res': N_res_int, 'E_res': E_res_int, 'C_res':C_res_int, 'TotalPoints':TolSatPts, 'Minimum_Distance':MinDistance, 'Average_Distance':AvDistance, 'Kp':kp_Avg}  
     return resultrowGPS
 
@@ -261,20 +261,20 @@ def CHAOS_ground_values(utilities_dir,GPS_ResInt):
     #base_dir=os.path.dirname(os.getcwd())
     #utilities_dir = os.path.join(base_dir, "utilities")
     
-    #1. Load the requiered parameters, including a local CHAOS model in mat format.
+    #1. Load the required parameters, including a local CHAOS model in mat format.
     model = cp.load_CHAOS_matfile(os.path.join(utilities_dir,"CHAOS-7.mat"))
     theta = 90-GPS_ResInt['Latitude'].values
     phi = GPS_ResInt['Longitude'].values
     alt=GPS_ResInt['Altitude'].values
-    rad_geoc_ground, theta_geoc_ground, sd_ground, cd_ground = gg_to_geo(alt, theta) # gg_to_geo, will transfor the coordinates from geocentric values to geodesic values. Altitude must be in km
+    rad_geoc_ground, theta_geoc_ground, sd_ground, cd_ground = gg_to_geo(alt, theta) # gg_to_geo, will transform the coordinates from geocentric values to geodesic values. Altitude must be in km
     time= cp.data_utils.mjd2000(pd.DatetimeIndex(GPS_ResInt['DateTime']).year, pd.DatetimeIndex(GPS_ResInt['DateTime']).month, pd.DatetimeIndex(GPS_ResInt['DateTime']).day)
     
-    #2. Compute the core, crust and magentoshpere contributions at the altitude level.
+    #2. Compute the core, crust and magnetosphere contributions at the altitude level.
     B_r_core, B_t_core, B_phi_core = model.synth_values_tdep(time, rad_geoc_ground, theta_geoc_ground, phi) #Core Contribution
     B_r_crust, B_t_crust, B_phi_crust = model.synth_values_static(rad_geoc_ground, theta_geoc_ground, phi) #Crust Contribution
     B_r_magneto, B_t_magneto, B_phi_magneto = model.synth_values_gsm(time, rad_geoc_ground, theta_geoc_ground, phi) #Magnetosphere contribution.
 
-    #3. Change the direcction of the axis from XYZ to r,theta and phi.
+    #3. Change the direction of the axis from XYZ to r,theta and phi.
     B_r_swarm, B_t_swarm, B_phi_swarm = -GPS_ResInt['C_res'], -GPS_ResInt['N_res'], GPS_ResInt['E_res']
 
     #4. Compute the magnetic component (r,theta,phi) at ground level.
@@ -282,7 +282,7 @@ def CHAOS_ground_values(utilities_dir,GPS_ResInt):
     B_t_ground = B_t_core + B_t_crust + B_t_magneto + B_t_swarm #(-X)
     B_phi_ground = B_phi_core + B_phi_crust +B_phi_magneto + B_phi_swarm #(Y)
 
-    #4b. Compute the CHOAS internal magnetic component (r,theta,phi) at ground level.
+    #4b. Compute the CHAOS internal magnetic component (r,theta,phi) at ground level.
     B_r_ground_internal = B_r_core + B_r_crust #(-Z)
     B_t_ground_internal = B_t_core + B_t_crust #(-X)
     B_phi_ground_internal = B_phi_core + B_phi_crust #(Y)
@@ -292,12 +292,12 @@ def CHAOS_ground_values(utilities_dir,GPS_ResInt):
     X_chaos = -B_t_ground   #X
     Y_chaos = B_phi_ground  #Y
 
-    #5b. Convert full field with CHOAS internal only B_r_, B_t_, and B_phi to XYZ (NEC)
+    #5b. Convert full field with CHAOS internal only B_r_, B_t_, and B_phi to XYZ (NEC)
     Z_chaos_internal = -B_r_ground_internal #Z
     X_chaos_internal = -B_t_ground_internal #X
     Y_chaos_internal = B_phi_ground_internal #Y
 
-    #6. Rotate the X(N) and Z(C) magnetic field values of the chaos models into the geodectic frame using the sd and cd (sine and cosine d from gg_to_geo) 
+    #6. Rotate the X(N) and Z(C) magnetic field values of the chaos models into the geodetic frame using the sd and cd (sine and cosine d from gg_to_geo) 
     X_obs = X_chaos*cd_ground + Z_chaos*sd_ground #New N
     Z_obs = Z_chaos*cd_ground - X_chaos*sd_ground #New C
     Y_obs = Y_chaos # New E

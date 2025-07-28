@@ -6,3 +6,4 @@ temp_data/*
 results/*
 !temp_data/.gitkeep
 !results/.gitkeep
+*.venv/

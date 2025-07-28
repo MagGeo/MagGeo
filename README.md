@@ -13,6 +13,8 @@
 
 **Citation** | Benitez-Paez, F., Brum-Bastos, V.d., Beggan, C.D. et al. Fusion of wildlife tracking and satellite geomagnetic data for the study of animal migration. Mov Ecol 9, 31 (2021). https://doi.org/10.1186/s40462-021-00268-4
 
+# MagGeo Update:
+MagGeo is currently being updated to improve the performance of the annotation process. We are working on enhancing the parallel processing capabilities and optimizing the code for better efficiency. Stay tuned for updates!
 
 # How to install and Run MagGeo on your machine
 
@@ -36,7 +38,7 @@ git clone https://github.com/MagGeo/MagGeo-Annotation-Program.git
 
 ## 3. Change the directory
 
-You will need to change the directory to where you cloned/downloaded the MagGeo repository. If you donwloaded it--Do not forget to unzip the folder before using it.
+You will need to change the directory to where you cloned/downloaded the MagGeo repository. If you downloaded it--Do not forget to unzip the folder before using it.
 If you're using the terminal on Linux or macOS, it is the same syntax to change directory.
 
 ```bash
@@ -68,7 +70,7 @@ conda activate MagGeoEnv
 
 ## 7. Run MagGeo using the sample data.
 
-MagGeo can be excuted using the same terminal you have been using in the previous steps. If you want to get familiar with MagGeo and get an annotated GPS trajectory using the data we have included as an example (data folder), run the following command (replace your virES token where is requiered):
+MagGeo can be executed using the same terminal you have been using in the previous steps. If you want to get familiar with MagGeo and get an annotated GPS trajectory using the data we have included as an example (data folder), run the following command (replace your virES token where is required):
 
 ```
 python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE
@@ -76,7 +78,7 @@ python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE
 
 Now MagGeo will start to download the Swarm Data.
 
-![img](/docs/images/poetry_data.png)
+![](/docs/images/poetry_data.png)
 
 Once the data has been downloaded, MagGeo will process it to make the annotation process ( for more information about how this is done, visit [our methodological paper in Movement Ecology](https://movementecologyjournal.biomedcentral.com/track/pdf/10.1186/s40462-021-00268-4.pdf))
 
@@ -116,7 +118,7 @@ jupyter notebook
 
 A Jupyter Notebook dashboard will comes out in your browser locally (e.g. http://localhost:8888) then you can explore MagGeo and its content. Go to Notebooks folder and open any of the following notebook for a step by step process. You can add cells to make your own test or analysis, but be aware that any change you do at the code migth affects the correct performance of the program.
 
-![img](/docs/images/JupyterDashboard.png)
+![](/docs/images/JupyterDashboard.png)
 
 > * [Main Notebook](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/Notebooks/MagGeo%20-%20Home.ipynb) : An initial and descriptive notebook where you can get detail information about MagGeo, the sample data used, background concepts and software requirements.
 > * [Sequential Mode](https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/Notebooks/MagGeo%20-%20Sequential%20Mode.ipynb): Annotation Notebook applying a sequential mode. Using  a traditional loop to going through the GPS track rows and process every row computing the magnetic components. Particularly useful for small datasets.
@@ -125,58 +127,12 @@ A Jupyter Notebook dashboard will comes out in your browser locally (e.g. http:/
 
 The following image will help you to understand how the sequential and parallel mode differ, and how in parallel mode you should be able to use the full capacity of your machine. However it is quite important to identify when we need to use a parallel mode. For small datasets running **MagGeo** in Parallel mode could be even slower than the sequential mode.
 
-<img src="/doc/images/Sequential_ParallelMode-Jupyter.png">
+<img src="/docs/images/Sequential_ParallelMode-Jupyter.png">
 
-# What's MagGeo
-
-MagGeo is a tool that helps ecologists or animal movement researchers to link  earth's magnetic field data from satellite source to GPS trajectories. Inspired by the Environmental Data Automated Track Annotation System (Env-DATA) Service a tool from Movebank and help researcher to get a better understanding about the geomagnetic variations across the GPS trajectories.
-
-MagGeo is entirely built-in python and using a set of Jupyter Notebooks that offer several ways to link GPS tracks with the geomagnetic components using the data from one of the up-to-date satellite sources - Swarm Constellation. MagGeo will create an enriched GPS track with the following components:
-
-- **Latitude** from the GPS Track.
-- **Longitude** from the GPS Track.
-- **Timestamp** from the GPS Track.
-- **Magnetic Field Intensity** mapped as Fgps in nanoTeslas (nT).
-- **N (Northwards) component** mapped as N in nanoTeslas (nT).
-- **E (Eastwards) component** mapped as E. in nanoteslas (nT).
-- **C (Downwards or Center)** component mapped as C in nanoTeslas (nT).
-- **Horizontal component** mapped as H in nanoTeslas (nT).
-- **Magnetic Declination or dip angle** mapped as D in degrees
-- **Magnetic Inclination** mapped as I in degrees
-- **Kp Index** mapped as kp
-- **Total Points** as the amount of Swarm measures included in the ST-IDW process from the trajectories requested in the three satellites.
-- **Minimum Distance** mapped as MinDist, representing the minimum distance amount the set of identified point inside the Space Time cylinder and each GPS point location.
-- **Average Distance** mapped as AvDist, representing the average distance amount the set of distances between the identified Swarm Point in the Space Time cylinder and the GPS Points location.
-
-Researchers, particularly ecologists now can study the annotated table to analyze the geomagnetic Spatio-temporal variation across any GPS trajectory.
-
-<img src="/docs/images/GitHubImage.png">
-
-# Troubleshooting
-
-- **Command prompt does not find conda**:
-    After step No 3, windows users do not find conda command. 
-
-    **Cause**: The miniconda/anaconda path is not included in your %PATH environment
-
-    **Solution**:
-    Add miniconda path to Windows environment.
-    Instructions: https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/
-
-    Usually located in ``C:\ProgramData\Miniconda3\condabin``
-    You should search for file ``conda.bat`` and copy the path where this file is.
-- **Python not found**:
-    Before step step 7, for windows users in some cases python command is not found.
-
-    **Cause**:
-    In some cases for windows users, when python is installed using MagGeoEnv, the path is not included. 
-    **Solution**: Add the conda python path to your environment
-    
-    ``C:\ProgramData\Miniconda3``
 
 # Problems? Suggestions? - Contact us
 
-**MagGeo** is work in progress and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions please email: [fbenitez@turing.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca)
+**MagGeo** is work in progress and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions please email: [Fernando.Benitez@st-andrews.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca)
 
 For **errors**, or **improvements** please submit an issue in this repo, describing the problem you have.
 
