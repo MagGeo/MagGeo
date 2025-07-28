@@ -1,20 +1,18 @@
 # MagGeo: Data fusion tool to combine Earth's magnetic data from Swarm satellites with GPS trajectories
 
 [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.4543735.svg)](https://zenodo.org/badge/latestdoi/289120794)
-[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.org/github/MagGeo/MagGeo-Annotation-Program/tree/master/)
-[![nbgitpuller-VRE](https://img.shields.io/badge/nbgitpuller-VRE-blue)](https://vre.vires.services/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2FMagGeo%2FMagGeo&urlpath=lab%2Ftree%2FMagGeo%2FNotebooks%2FMagGeo+-+Home.ipynb&branch=master)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/MagGeo/MagGeo-Annotation-Program/HEAD?labpath=Notebooks)
 
 **Authors** | Fernando Benitez-Paez, Urška Demšar, Jed Long, Ciaran Beggan
 
-**Contact**  | [fbenitez@turing.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca), [ciar@bgs.ac.uk](mailto:ciar@bgs.ac.uk)
+**Contact**  | [Fernando.Benitez@st-andrews.ac.uk](mailto:Fernando.Benitez@st-andrews.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca), [ciar@bgs.ac.uk](mailto:ciar@bgs.ac.uk)
 
 **Keywords** | Bird migration, data fusion, Earth’s magnetic field, Swarm, GPS tracking
 
 **Citation** | Benitez-Paez, F., Brum-Bastos, V.d., Beggan, C.D. et al. Fusion of wildlife tracking and satellite geomagnetic data for the study of animal migration. Mov Ecol 9, 31 (2021). https://doi.org/10.1186/s40462-021-00268-4
 
 # MagGeo Update:
-MagGeo is currently being updated to improve the performance of the annotation process. We are working on enhancing the parallel processing capabilities and optimizing the code for better efficiency. Stay tuned for updates!
+
+MagGeo is currently being updated to improve the performance of the annotation process. We are working on enhancing the parallel processing capabilities and optimizing the code for better efficiency. If you want to get involved check the most recent activity in the issue tracker:([#12](https://github.com/MagGeo/MagGeo/issues/12))
 
 # How to install and Run MagGeo on your machine
 
