@@ -510,12 +510,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-requirements" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="data-requirements"><span class="header-section-number">1.2</span> Data requirements</h2>
 <div class="alert alert-warning" role="alert">
-<p><strong>🔎 Your trajectory must be in a csv format:</strong></p>
+<p><strong>🔎 Your trajectory must be in a csv format::</strong></p><strong>
 <p>There are three columns that must be included in your GPS trajectory. Make sure your GPS trajectory includes <strong>Latitude</strong> , <strong>Longitude</strong> and <strong>timestamp</strong>. We suggest that the Timestamp column follow the day/month/year Hour:Minute (<strong>dd/mm/yyyy HH:MM:SS</strong>) format, Latitude and Longitude should be in decimal degrees (WGS84). Optionally an altitude column can be used providing altitude (the altitude must be in <strong>km</strong>). Other Columns will be ignored. Here it is an example of how your GPS track should look:</p>
 <p><img src="./images/TableExample.png"></p>
-<p>For this example we are reading the <strong>BirdGPSTrajectory.csv</strong> file. If you want to run the method using your own csv file, make sure you store your the file in the <code>./data</code> folder. For more information about the dataset we used in this example go to the Main Notebook.</p>
-</div>
-</section>
+<p>For this example we are reading the <strong>BirdGPSTrajectory.csv: file. If you want to run the method using your own csv file, make sure you store your the file in the <code>./data</code> folder. For more information about the dataset we used in this example go to the Main Notebook.</strong></p><strong>
+</strong></strong></div><strong><strong>
+</strong></strong></section><strong><strong>
 <section id="import-the-required-python-libraries" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="import-the-required-python-libraries"><span class="header-section-number">1.3</span> Import the required python libraries</h2>
 <div id="cell-4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T10:54:58.836683Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T10:54:51.818976Z&quot;}}">
@@ -583,15 +583,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    hourrow <span class="op">=</span> row[<span class="st">'times'</span>]</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    hourrow <span class="op">=</span> hourrow.strftime(<span class="st">'%H:%M:%S'</span>)</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> hourrow <span class="op">&lt;</span> <span class="st">'04:00:00'</span>:</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        date_bfr <span class="op">=</span> daterow <span class="op">-</span> (timedelta(days<span class="op">=</span><span class="dv">1</span>))</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        datestimeslist.append(daterow)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        datestimeslist.append(date_bfr)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    date_bfr <span class="op">=</span> daterow <span class="op">-</span> (timedelta(days<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    datestimeslist.append(daterow)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    datestimeslist.append(date_bfr)</span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> hourrow <span class="op">&gt;</span> <span class="st">'20:00:00'</span>:</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        Date_aft <span class="op">=</span> daterow <span class="op">+</span> (timedelta(days<span class="op">=</span><span class="dv">1</span>))</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        datestimeslist.append(daterow)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        datestimeslist.append(Date_aft)  </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    Date_aft <span class="op">=</span> daterow <span class="op">+</span> (timedelta(days<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    datestimeslist.append(daterow)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    datestimeslist.append(Date_aft)  </span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        datestimeslist.append(daterow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    datestimeslist.append(daterow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Getting a list of unique dates to download the Swarm Data</p>
 <div id="cell-14" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T10:56:45.218892Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T10:56:45.194722Z&quot;}}" data-scrolled="true">
@@ -608,8 +608,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1.7" class="anchored" data-anchor-id="download-swarm-residuals-data"><span class="header-section-number">1.7</span> Download Swarm residuals data</h2>
 <p>Once the date and time columns have been defined and the unique dates are identified the script can start the download process. Usually the data from Swarm is requested using only one satellite, however <strong>MagGeo</strong> will use the magnetic measures from the three satellite of the Swarm Mission (Alpha, Bravo, Charlie). Be aware satellite Charlie, got its AMS broken earlier in the mission, although the initial dates still have valid data MagGeo can use.</p>
 <div class="alert alert-info" role="alert">
-📘 <strong>Be aware:</strong> Due to the amount of dates in the demo GPS track (42 days), the time to process the sample data will take approximately 10 minutes. Unfortunatly the download process migth be a slow process, particually for the magnetic models data MagGeo requieres.
-</div>
+📘 <strong>Be aware:: Due to the amount of dates in the demo GPS track (42 days), the time to process the sample data will take approximately 10 minutes. Unfortunatly the download process migth be a slow process, particually for the magnetic models data MagGeo requieres.
+</strong></div><strong>
 <p>Set a connection to the <code>VirES client</code> and using the function <code>Get_Swarm_residuals</code> we will get the swarm residuals for the dates included in the previous list.</p>
 <div id="cell-16" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:08:23.447789Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T10:56:50.074487Z&quot;}}" data-scrolled="false">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
@@ -650,7 +650,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>TotalSwarmRes_A.head(<span class="dv">10</span>) <span class="co">#If you need to take a look of the Swarm Data, you can print TotalSwarmRes_B, or TotalSwarmRes_C</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
+</strong></section><strong>
 <section id="spatio-temporal-filter-and-interpolation-process-st-idw" class="level2" data-number="1.8">
 <h2 data-number="1.8" class="anchored" data-anchor-id="spatio-temporal-filter-and-interpolation-process-st-idw"><span class="header-section-number">1.8</span> Spatio-Temporal filter and interpolation process (ST-IDW)</h2>
 <p>Once we have requested the swarm data, now we need to <code>filter</code> in space and time the available points to compute the magnetic values (NEC frame) for each GPS point based on its particular date and time. The function <code>ST_IDW_Process</code> takes the GPS track and the downloaded data from swarm to filter in space and time based on the criteria defined in our method. With the swarm data filtered we interpolate (IDW) the NEC components for each GPS data point.</p>
@@ -658,22 +658,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Sequential mode, applying a traditional loop using iterrows.</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    dn <span class="op">=</span> [] <span class="co">## List used to add all the GPS points with the annotated MAG Data. See the last bullet point of this process        </span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    dn <span class="op">=</span> [] <span class="co">## List used to add all the GPS points with the annotated MAG Data. See the last bullet point of this process    </span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, row <span class="kw">in</span> tqdm(GPSData.iterrows(), total<span class="op">=</span>GPSData.shape[<span class="dv">0</span>], desc<span class="op">=</span><span class="st">"Annotating the GPS Trayectory"</span>):</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        GPSLat <span class="op">=</span> row[<span class="st">'gpsLat'</span>]</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        GPSLong <span class="op">=</span> row[<span class="st">'gpsLong'</span>]</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        GPSDateTime <span class="op">=</span> row[<span class="st">'gpsDateTime'</span>]</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        GPSTime <span class="op">=</span> row[<span class="st">'epoch'</span>]</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        GPSAltitude <span class="op">=</span> row[<span class="st">'gpsAltitude'</span>]</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print("Process for:", index,"DateTime:",GPSDateTime)</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>            result<span class="op">=</span>ST_IDW_Process(GPSLat,GPSLong,GPSAltitude, GPSDateTime,GPSTime, TotalSwarmRes_A, TotalSwarmRes_B, TotalSwarmRes_C)</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>            dn.append(result)</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span>:</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>            <span class="co">#print("Ups!.That was a bad Swarm Point, let's keep working with the next point")</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>            result_badPoint<span class="op">=</span> {<span class="st">'Latitude'</span>: GPSLat, <span class="st">'Longitude'</span>: GPSLong, <span class="st">'Altitude'</span>:GPSAltitude, <span class="st">'DateTime'</span>: GPSDateTime, <span class="st">'N_res'</span>: np.nan, <span class="st">'E_res'</span>: np.nan, <span class="st">'C_res'</span>:np.nan, <span class="st">'TotalPoints'</span>:<span class="dv">0</span>, <span class="st">'Minimum_Distance'</span>:np.nan, <span class="st">'Average_Distance'</span>:np.nan}  </span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>            dn.append(result_badPoint)</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    GPSLat <span class="op">=</span> row[<span class="st">'gpsLat'</span>]</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    GPSLong <span class="op">=</span> row[<span class="st">'gpsLong'</span>]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    GPSDateTime <span class="op">=</span> row[<span class="st">'gpsDateTime'</span>]</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    GPSTime <span class="op">=</span> row[<span class="st">'epoch'</span>]</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    GPSAltitude <span class="op">=</span> row[<span class="st">'gpsAltitude'</span>]</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print("Process for:", index,"DateTime:",GPSDateTime)</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    result<span class="op">=</span>ST_IDW_Process(GPSLat,GPSLong,GPSAltitude, GPSDateTime,GPSTime, TotalSwarmRes_A, TotalSwarmRes_B, TotalSwarmRes_C)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    dn.append(result)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print("Ups!.That was a bad Swarm Point, let's keep working with the next point")</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    result_badPoint<span class="op">=</span> {<span class="st">'Latitude'</span>: GPSLat, <span class="st">'Longitude'</span>: GPSLong, <span class="st">'Altitude'</span>:GPSAltitude, <span class="st">'DateTime'</span>: GPSDateTime, <span class="st">'N_res'</span>: np.nan, <span class="st">'E_res'</span>: np.nan, <span class="st">'C_res'</span>:np.nan, <span class="st">'TotalPoints'</span>:<span class="dv">0</span>, <span class="st">'Minimum_Distance'</span>:np.nan, <span class="st">'Average_Distance'</span>:np.nan}  </span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    dn.append(result_badPoint)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Temporally save the ST-IDW result locally. Still MagGeo needs to run the calculation of geomagnetic components, brining the magnetic values at the altitude provided for your GPS track.</p>
 <div id="cell-22" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:08.980160Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:08.823359Z&quot;}}">
@@ -702,168 +702,178 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-final-result" class="level2" data-number="1.10">
 <h2 data-number="1.10" class="anchored" data-anchor-id="the-final-result"><span class="header-section-number">1.10</span> The final result</h2>
 <p>With the NEC components for each GPS Track point, it is possible to compute the aditional magnetic components. For more information about the magnetic components and their relevance go to the main paper or notebook.</p>
-<div class="alert alert-info" role="alert">
-<pre><code>&lt;strong&gt;📘 The annotated dataframe will include the following attributes:&lt;/strong&gt; If you need more information about how the geomagnetic components are described go to the main MagGeo Notebook (Add Link).
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Latitude&lt;/strong&gt; from the GPS Track.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Longitude&lt;/strong&gt; from the GPS Track.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Timestamp&lt;/strong&gt; from the GPS Track.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Magnetic Field Intensity&lt;/strong&gt;  mapped as Fgps in nanoTeslas (nT).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;N (Northwards) component&lt;/strong&gt; mapped as N in nanoTeslas (nT).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;E (Eastwards) component&lt;/strong&gt; mapped as E. in nanoteslas (nT).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;C (Downwards or Center)&lt;/strong&gt; component mapped as C in nanoTeslas (nT).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Horizontal component&lt;/strong&gt; mapped as H in nanoTeslas (nT).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Magnetic Inclination &lt;/strong&gt; mapped as I in degrees.&lt;/li&gt; 
-  &lt;li&gt;&lt;strong&gt;Magnetic Declination or dip angle&lt;/strong&gt; mapped as D in degrees&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Kp Index&lt;/strong&gt; mapped as kp&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Total Points&lt;/strong&gt; as the amount of Swarm points included in the ST-IDW process from the three satellites.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Minimum Distance&lt;/strong&gt; mapped as MinDist, representing the minimum distance from a Swarm points and each GPS point location.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Average Distance&lt;/strong&gt; mapped as AvDist, representing the average distance between the Swarm points and the GPS point location.&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="cell-26" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:20.431685Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:20.330670Z&quot;}}">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Having Intepolated and weighted the magnetic values, we can compute the other magnectic components. </span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>GPS_ResInt[<span class="st">'H'</span>] <span class="op">=</span> np.sqrt((GPS_ResInt[<span class="st">'N'</span>]<span class="op">**</span><span class="dv">2</span>)<span class="op">+</span>(GPS_ResInt[<span class="st">'E'</span>]<span class="op">**</span><span class="dv">2</span>))</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#check the arcgtan in python., From arctan2 is saver.</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>DgpsRad <span class="op">=</span> np.arctan2(GPS_ResInt[<span class="st">'E'</span>],GPS_ResInt[<span class="st">'N'</span>])</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>GPS_ResInt[<span class="st">'D'</span>] <span class="op">=</span> np.degrees(DgpsRad)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>IgpsRad <span class="op">=</span> np.arctan2(GPS_ResInt[<span class="st">'C'</span>],GPS_ResInt[<span class="st">'H'</span>])</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>GPS_ResInt[<span class="st">'I'</span>] <span class="op">=</span> np.degrees(IgpsRad)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>GPS_ResInt[<span class="st">'F'</span>] <span class="op">=</span> np.sqrt((GPS_ResInt[<span class="st">'N'</span>]<span class="op">**</span><span class="dv">2</span>)<span class="op">+</span>(GPS_ResInt[<span class="st">'E'</span>]<span class="op">**</span><span class="dv">2</span>)<span class="op">+</span>(GPS_ResInt[<span class="st">'C'</span>]<span class="op">**</span><span class="dv">2</span>))</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>GPS_ResInt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>📘 The annotated dataframe will include the following attributes: If you need more information about how the geomagnetic components are described go to the main MagGeo Notebook:</p>
+<ul>
+<li>Latitude: from the GPS Track</li>
+<li>Longitude: from the GPS Track</li>
+<li>Timestamp: from the GPS Track.</li>
+<li>Magnetic Field Intensity: mapped as Fgps in nanoTeslas (nT).</li>
+<li>N (Northwards) component: mapped as N in nanoTeslas (nT).</li>
+<li>E (Eastwards) component: mapped as E. in nanoteslas (nT).</li>
+<li>C (Downwards or Center): component mapped as C in nanoTeslas (nT).</li>
+<li>Horizontal component: mapped as H in nanoTeslas (nT).</li>
+<li>Magnetic Inclination : mapped as I in degrees.</li>
+<li>Magnetic Declination or dip angle: mapped as D in degrees.</li>
+<li>Kp Index: mapped as kp.</li>
+<li>Total Points: as the amount of Swarm points included in the ST-IDW process from the three satellites.</li>
+<li>Minimum Distance: mapped as MinDist, representing the minimum distance from a Swarm points and each GPS point location.</li>
+<li>Average Distance: mapped as AvDist, representing the average distance between the Swarm points and the GPS point location.</li>
+</ul>
+</div>
+</div>
+<div id="cell-27" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:20.431685Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:20.330670Z&quot;}}">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Having Intepolated and weighted the magnetic values, we can compute the other magnectic components. </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>GPS_ResInt[<span class="st">'H'</span>] <span class="op">=</span> np.sqrt((GPS_ResInt[<span class="st">'N'</span>]<span class="op">**</span><span class="dv">2</span>)<span class="op">+</span>(GPS_ResInt[<span class="st">'E'</span>]<span class="op">**</span><span class="dv">2</span>))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#check the arcgtan in python., From arctan2 is saver.</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>DgpsRad <span class="op">=</span> np.arctan2(GPS_ResInt[<span class="st">'E'</span>],GPS_ResInt[<span class="st">'N'</span>])</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>GPS_ResInt[<span class="st">'D'</span>] <span class="op">=</span> np.degrees(DgpsRad)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>IgpsRad <span class="op">=</span> np.arctan2(GPS_ResInt[<span class="st">'C'</span>],GPS_ResInt[<span class="st">'H'</span>])</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>GPS_ResInt[<span class="st">'I'</span>] <span class="op">=</span> np.degrees(IgpsRad)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>GPS_ResInt[<span class="st">'F'</span>] <span class="op">=</span> np.sqrt((GPS_ResInt[<span class="st">'N'</span>]<span class="op">**</span><span class="dv">2</span>)<span class="op">+</span>(GPS_ResInt[<span class="st">'E'</span>]<span class="op">**</span><span class="dv">2</span>)<span class="op">+</span>(GPS_ResInt[<span class="st">'C'</span>]<span class="op">**</span><span class="dv">2</span>))</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>GPS_ResInt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The previous dataframe (GPS_ResInt), MagGeo has computed the geomagnetic components for each locations and time of your CSV trajectory. Now we will finish up combining the original atributes from your CSV with the annotated results from MagGeo.</p>
-<div id="cell-28" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:23.755193Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:23.655192Z&quot;}}">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>originalGPSTrack<span class="op">=</span>pd.read_csv(os.path.join(data_dir,gpsfilename))</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>MagGeoResult <span class="op">=</span> pd.concat([originalGPSTrack, GPS_ResInt], axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Drop duplicated columns. Latitude, Longitued, and DateTime will not be part of the final result.</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>MagGeoResult.drop(columns<span class="op">=</span>[<span class="st">'Latitude'</span>, <span class="st">'Longitude'</span>, <span class="st">'DateTime'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>MagGeoResult</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-29" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:23.755193Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:23.655192Z&quot;}}">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>originalGPSTrack<span class="op">=</span>pd.read_csv(os.path.join(data_dir,gpsfilename))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>MagGeoResult <span class="op">=</span> pd.concat([originalGPSTrack, GPS_ResInt], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Drop duplicated columns. Latitude, Longitued, and DateTime will not be part of the final result.</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>MagGeoResult.drop(columns<span class="op">=</span>[<span class="st">'Latitude'</span>, <span class="st">'Longitude'</span>, <span class="st">'DateTime'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>MagGeoResult</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="export-the-final-results-to-a-csv-file" class="level2" data-number="1.11">
 <h2 data-number="1.11" class="anchored" data-anchor-id="export-the-final-results-to-a-csv-file"><span class="header-section-number">1.11</span> Export the final results to a CSV file</h2>
-<div id="cell-30" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:29.447788Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:29.407782Z&quot;}}">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Exporting the CSV file</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>outputfile <span class="op">=</span><span class="st">"GeoMagResult_"</span><span class="op">+</span>gpsfilename</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>export_csv <span class="op">=</span> MagGeoResult.to_csv (os.path.join(results_dir,outputfile), index <span class="op">=</span> <span class="va">None</span>, header<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-31" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:29.447788Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:29.407782Z&quot;}}">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Exporting the CSV file</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>outputfile <span class="op">=</span><span class="st">"GeoMagResult_"</span><span class="op">+</span>gpsfilename</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>export_csv <span class="op">=</span> MagGeoResult.to_csv (os.path.join(results_dir,outputfile), index <span class="op">=</span> <span class="va">None</span>, header<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="validate-the-results-optional" class="level2" data-number="1.12">
 <h2 data-number="1.12" class="anchored" data-anchor-id="validate-the-results-optional"><span class="header-section-number">1.12</span> Validate the results ( Optional)</h2>
 <p>To validate the results we plot the <code>Fgps</code>column.</p>
-<div id="cell-32" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:37.230806Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:36.970752Z&quot;}}">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Creating a copy of the results and setting the Datetime Column as dataframe index.</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ValidateDF <span class="op">=</span> GPS_ResInt.copy()</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>ValidateDF.set_index(<span class="st">"DateTime"</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Plotting the F column.</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>hist <span class="op">=</span> ValidateDF.hist(column<span class="op">=</span><span class="st">'F'</span>)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'F distribution'</span>)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'F in nT'</span>)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'# of measurements'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-33" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:37.230806Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:36.970752Z&quot;}}">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Creating a copy of the results and setting the Datetime Column as dataframe index.</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ValidateDF <span class="op">=</span> GPS_ResInt.copy()</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>ValidateDF.set_index(<span class="st">"DateTime"</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Plotting the F column.</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>hist <span class="op">=</span> ValidateDF.hist(column<span class="op">=</span><span class="st">'F'</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'F distribution'</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'F in nT'</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'# of measurements'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="map-the-gps-track-using-the-annotated-magnetic-values-optional" class="level2" data-number="1.13">
 <h2 data-number="1.13" class="anchored" data-anchor-id="map-the-gps-track-using-the-annotated-magnetic-values-optional"><span class="header-section-number">1.13</span> Map the GPS Track using the annotated Magnetic Values (Optional)</h2>
 <p>Now we are going to plot the annotated GPS track stored into the MagDataFinal dataframe to see the different magnetic components in a map to have a better prespective of the impact of the earth magnetic field.</p>
-<div id="cell-34" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:41.688780Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:40.712029Z&quot;}}">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ValidateDF.plot(kind<span class="op">=</span><span class="st">"scatter"</span>, x<span class="op">=</span><span class="st">"Latitude"</span>, y<span class="op">=</span><span class="st">"Longitude"</span>,</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">"Magnetic Intensity in nT"</span>,</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    c<span class="op">=</span><span class="st">"F"</span>, cmap<span class="op">=</span>plt.get_cmap(<span class="st">"gist_rainbow"</span>),</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    colorbar<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.4</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>),</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    sharex<span class="op">=</span><span class="va">False</span> <span class="co">#This is only needed to get the x-axis label working due to a current bug in pandas plot.</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Longitude"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Latitude"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>plt.legend(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-35" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:37:41.688780Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:40.712029Z&quot;}}">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ValidateDF.plot(kind<span class="op">=</span><span class="st">"scatter"</span>, x<span class="op">=</span><span class="st">"Latitude"</span>, y<span class="op">=</span><span class="st">"Longitude"</span>,</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">"Magnetic Intensity in nT"</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    c<span class="op">=</span><span class="st">"F"</span>, cmap<span class="op">=</span>plt.get_cmap(<span class="st">"gist_rainbow"</span>),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    colorbar<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.4</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    sharex<span class="op">=</span><span class="va">False</span> <span class="co">#This is only needed to get the x-axis label working due to a current bug in pandas plot.</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Longitude"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Latitude"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>plt.legend(fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-35" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:38:02.273096Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:44.233629Z&quot;}}">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geoplot</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hvplot.pandas</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> geopandas.GeoDataFrame(ValidateDF, geometry<span class="op">=</span>geopandas.points_from_xy(ValidateDF.Longitude, ValidateDF.Latitude))</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-36" class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>gdf.hvplot(title<span class="op">=</span><span class="ss">f'Annotated trajectory using MagGeo - F GeoMag Intensity'</span>,</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>           geo<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>           c<span class="op">=</span><span class="st">'F'</span>,</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>           tiles<span class="op">=</span><span class="st">'CartoLight'</span>,</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>           frame_width<span class="op">=</span><span class="dv">700</span>,</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>           frame_height<span class="op">=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-36" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:38:02.273096Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:37:44.233629Z&quot;}}">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geoplot</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> hvplot.pandas</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> geopandas.GeoDataFrame(ValidateDF, geometry<span class="op">=</span>geopandas.points_from_xy(ValidateDF.Longitude, ValidateDF.Latitude))</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-37" class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>gdf.hvplot(title<span class="op">=</span><span class="ss">f'Annotated trajectory using MagGeo - I Inclination'</span>,</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>           geo<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>           tiles<span class="op">=</span><span class="st">'CartoLight'</span>,</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>           c<span class="op">=</span><span class="st">'I'</span>,</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>           cmap<span class="op">=</span><span class="st">'Viridis'</span>,</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>           frame_width<span class="op">=</span><span class="dv">700</span>,</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>           frame_height<span class="op">=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>gdf.hvplot(title<span class="op">=</span><span class="ss">f'Annotated trajectory using MagGeo - F GeoMag Intensity'</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>   geo<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>   c<span class="op">=</span><span class="st">'F'</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>   tiles<span class="op">=</span><span class="st">'CartoLight'</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>   frame_width<span class="op">=</span><span class="dv">700</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>   frame_height<span class="op">=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-38" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:46:12.091698Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:46:09.197095Z&quot;}}">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>world <span class="op">=</span> geopandas.read_file(geopandas.datasets.get_path(<span class="st">'naturalearth_lowres'</span>))</span>
+<div id="cell-38" class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>gdf.hvplot(title<span class="op">=</span><span class="ss">f'Annotated trajectory using MagGeo - I Inclination'</span>,</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>   geo<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>   tiles<span class="op">=</span><span class="st">'CartoLight'</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>   c<span class="op">=</span><span class="st">'I'</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>   cmap<span class="op">=</span><span class="st">'Viridis'</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>   frame_width<span class="op">=</span><span class="dv">700</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>   frame_height<span class="op">=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-39" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:46:12.091698Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:46:09.197095Z&quot;}}">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>world <span class="op">=</span> geopandas.read_file(geopandas.datasets.get_path(<span class="st">'naturalearth_lowres'</span>))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> world.plot(color<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'gray'</span>, figsize <span class="op">=</span> (<span class="dv">18</span>,<span class="dv">8</span>))</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>minx, miny, maxx, maxy <span class="op">=</span> gdf.total_bounds</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(minx, maxx)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(miny, maxy)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>gdf.plot(ax<span class="op">=</span>ax, column<span class="op">=</span><span class="st">'F'</span>, legend<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>     legend_kwds<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">"Magnetic Intensity in nT"</span>,</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">'orientation'</span>: <span class="st">"horizontal"</span>})</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Longitude"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Latitude"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-40" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:46:15.528836Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:46:13.117270Z&quot;}}">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>, figsize <span class="op">=</span> (<span class="dv">18</span>,<span class="dv">8</span>))</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> world.plot(color<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'gray'</span>, figsize <span class="op">=</span> (<span class="dv">18</span>,<span class="dv">8</span>))</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>minx, miny, maxx, maxy <span class="op">=</span> gdf.total_bounds</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(minx, maxx)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(miny, maxy)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> world.plot(ax<span class="op">=</span>ax1, color<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>xlim <span class="op">=</span> ([gdf.total_bounds[<span class="dv">0</span>],  gdf.total_bounds[<span class="dv">2</span>]])</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>ylim <span class="op">=</span> ([gdf.total_bounds[<span class="dv">1</span>],  gdf.total_bounds[<span class="dv">3</span>]])</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(xlim)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>ax1.set_ylim(ylim)</span>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>gdf.plot(ax<span class="op">=</span>ax, column<span class="op">=</span><span class="st">'F'</span>, legend<span class="op">=</span><span class="va">True</span>, </span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>         legend_kwds<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">"Magnetic Intensity in nT"</span>,</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'orientation'</span>: <span class="st">"horizontal"</span>})</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Longitude"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Latitude"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-39" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-02-15T11:46:15.528836Z&quot;,&quot;start_time&quot;:&quot;2021-02-15T11:46:13.117270Z&quot;}}">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>, figsize <span class="op">=</span> (<span class="dv">18</span>,<span class="dv">8</span>))</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> world.plot(ax<span class="op">=</span>ax1, color<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>xlim <span class="op">=</span> ([gdf.total_bounds[<span class="dv">0</span>],  gdf.total_bounds[<span class="dv">2</span>]])</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>ylim <span class="op">=</span> ([gdf.total_bounds[<span class="dv">1</span>],  gdf.total_bounds[<span class="dv">3</span>]])</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(xlim)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>ax1.set_ylim(ylim)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>gdf.plot(ax<span class="op">=</span>ax1, column<span class="op">=</span><span class="st">'F'</span>, legend<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>         legend_kwds<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">"Magnetic Intensity in nT"</span>,</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'orientation'</span>: <span class="st">"horizontal"</span>})</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Longitude"</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Latitude"</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Magnetic Intensity - F'</span>)</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">'Latitude'</span>)</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">'Longitude'</span>)</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> world.plot( ax<span class="op">=</span>ax2, color<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>xlim <span class="op">=</span> ([gdf.total_bounds[<span class="dv">0</span>],  gdf.total_bounds[<span class="dv">2</span>]])</span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>ylim <span class="op">=</span> ([gdf.total_bounds[<span class="dv">1</span>],  gdf.total_bounds[<span class="dv">3</span>]])</span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(xlim)</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(ylim)</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a><span class="co"># We can now plot our ``GeoDataFrame``.</span></span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>gdf.plot(ax<span class="op">=</span>ax2, column<span class="op">=</span><span class="st">'I'</span>, legend<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">'Spectral'</span>, </span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>         legend_kwds<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">" Inclination in Degrees"</span>,</span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'orientation'</span>: <span class="st">"horizontal"</span>})</span>
-<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Inclination - I'</span>)</span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Latitude'</span>)</span>
-<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">'Longitude'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>gdf.plot(ax<span class="op">=</span>ax1, column<span class="op">=</span><span class="st">'F'</span>, legend<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>     legend_kwds<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">"Magnetic Intensity in nT"</span>,</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">'orientation'</span>: <span class="st">"horizontal"</span>})</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Longitude"</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Latitude"</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Magnetic Intensity - F'</span>)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">'Latitude'</span>)</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">'Longitude'</span>)</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> world.plot( ax<span class="op">=</span>ax2, color<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>xlim <span class="op">=</span> ([gdf.total_bounds[<span class="dv">0</span>],  gdf.total_bounds[<span class="dv">2</span>]])</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>ylim <span class="op">=</span> ([gdf.total_bounds[<span class="dv">1</span>],  gdf.total_bounds[<span class="dv">3</span>]])</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(xlim)</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(ylim)</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a><span class="co"># We can now plot our ``GeoDataFrame``.</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>gdf.plot(ax<span class="op">=</span>ax2, column<span class="op">=</span><span class="st">'I'</span>, legend<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">'Spectral'</span>, </span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>     legend_kwds<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">" Inclination in Degrees"</span>,</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>      <span class="st">'orientation'</span>: <span class="st">"horizontal"</span>})</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Inclination - I'</span>)</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Latitude'</span>)</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">'Longitude'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
 </section>
 
-</main> <!-- /main -->
+</strong></strong></strong></main><strong><strong> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1288,7 +1298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>
   </div>
 </nav>
-</div> <!-- /content -->
+</strong></strong></div><strong><strong> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
@@ -1313,4 +1323,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-</body></html>
+</strong></strong></body></html>
