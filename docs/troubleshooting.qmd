@@ -1,9 +1,5 @@
 # Troubleshooting Guide {.unnumbered}
 
-::: callout-note
-With Python and in particular with many new ways to use your computer, create folder and scripts things can get messy and very confusing, this is very normal and it is part of the process. The first thing is do not get frustrated or trying all sort of things without understanding what is the root of the issue. So you need to think systematically and then find out the solution. Here I have listed a few potential and common issues you might find. So first take all of this before escalating your issue to the lecturer or the IT support team.
-:::
-
 ### Before Seeking Help
 
 **You should complete this checklist:**
@@ -152,7 +148,7 @@ conda env create -f environment.yml
 
 # Additional Resources
 
-Use the following instructions as a guide for extra resources and better familiarity with working with Python. In case you want to manage your python environment, export your outcomes to PDF, and get extra learning resources.
+Use the following instructions as a guide for extra resources and better familiarity with working with Python. In case you want to manage your python environment, and get extra learning resources.
 
 ### Environment Management - Useful Commands {#environment-management}
 

@@ -1,6 +1,7 @@
 """
 Core MagGeo_Sequential Model
 Created on Thur Feb 17, 22
+Updated on Sun Jul 27, 25
 @author: Fernando Benitez-Paez
 """
 
@@ -112,7 +113,7 @@ def main(parameters_file, token):
     data_dir = os.path.join(base_dir, "data")
 
     #TODO:
-    #Find a more elegant way to concante the the list from Swarm and then read it to get the type of columns is requiered, Timestamp as datetime and epoch as index.
+    #Find a more elegant way to concat the the list from Swarm and then read it to get the type of columns is required, Timestamp as datetime and epoch as index.
     
     PdSwarmRes_A = pd.concat(listdfa, join='outer', axis=0)
     PdSwarmRes_A.to_csv (os.path.join(temp_results_dir,'TotalSwarmRes_A.csv'), header=True)
@@ -160,7 +161,7 @@ def main(parameters_file, token):
 
     GPS_ResInt.drop(columns=['N_res', 'E_res','C_res'], inplace=True)
 
-    # Having Intepolated and weighted the magnetic values, we can compute the other magnectic components. 
+    # Having Interpolated and weighted the magnetic values, we can compute the other magnetic components. 
     GPS_ResInt['H'] = np.sqrt((GPS_ResInt['N']**2)+(GPS_ResInt['E']**2))
     #check the arcgtan in python., From arctan2 is saver.
     DgpsRad = np.arctan2(GPS_ResInt['E'],GPS_ResInt['N'])
@@ -172,7 +173,7 @@ def main(parameters_file, token):
     
     originalGPSTrack=pd.read_csv(os.path.join(data_dir,gpsfilename))
     MagGeoResult = pd.concat([originalGPSTrack, GPS_ResInt], axis=1)
-    #Drop duplicated columns. Latitude, Longitued, and DateTime will not be part of the final result.
+    #Drop duplicated columns. Latitude, Longitude, and DateTime will not be part of the final result.
     MagGeoResult.drop(columns=['Latitude', 'Longitude', 'DateTime'], inplace=True)
     
     #Exporting the CSV file
