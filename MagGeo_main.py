@@ -130,7 +130,7 @@ def main(parameters_file, token):
     TotalSwarmRes_C['timestamp'] = pd.to_datetime(TotalSwarmRes_C['timestamp'])
 
     dn = [] ## List used to add all the GPS points with the annotated MAG Data. See the last bullet point of this process        
-    for index, row in tqdm(GPSData.iterrows(), total=GPSData.shape[0], desc="Annotating the GPS Trayectory"):
+    for index, row in tqdm(GPSData.iterrows(), total=GPSData.shape[0], desc="Annotating the GPS Trajectory"):
         GPSLat = row['gpsLat']  
         GPSLong = row['gpsLong']
         GPSDateTime = row['gpsDateTime']
@@ -180,7 +180,7 @@ def main(parameters_file, token):
     
     outputfile ="GeoMagResult_"+gpsfilename
     export_csv = MagGeoResult.to_csv (os.path.join(results_dir,outputfile), index = None, header=True)    
-    print("Congrats! MagGeo has processed your GPS trayectory. Find the annotated table: " + outputfile + " in the folder results.")
+    print("Congrats! MagGeo has processed your GPS trajectory. Find the annotated table: " + outputfile + " in the folder results.")
 
 if __name__ == '__main__':
     main()
