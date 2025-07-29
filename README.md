@@ -68,7 +68,7 @@ conda activate MagGeoEnv
 
 ## 7. Run MagGeo using the sample data.
 
-MagGeo can be excuted using the same terminal you have been using in the previous steps. If you want to get familiar with MagGeo and get an annotated GPS trajectory using the data we have included as an example (data folder), run the following command (replace your virES token where is requiered):
+MagGeo can be executed using the same terminal you have been using in the previous steps. If you want to get familiar with MagGeo and get an annotated GPS trajectory using the data we have included as an example (data folder), run the following command (replace your virES token where is required):
 
 ```
 python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE
