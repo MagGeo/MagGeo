@@ -1,13 +1,10 @@
 # MagGeo: Data fusion tool to combine Earth's magnetic data from Swarm satellites with GPS trajectories
 
 [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.4543735.svg)](https://zenodo.org/badge/latestdoi/289120794)
-[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.org/github/MagGeo/MagGeo-Annotation-Program/tree/master/)
-[![nbgitpuller-VRE](https://img.shields.io/badge/nbgitpuller-VRE-blue)](https://vre.vires.services/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2FMagGeo%2FMagGeo&urlpath=lab%2Ftree%2FMagGeo%2FNotebooks%2FMagGeo+-+Home.ipynb&branch=master)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/MagGeo/MagGeo-Annotation-Program/HEAD?labpath=Notebooks)
 
 **Authors** | Fernando Benitez-Paez, Urška Demšar, Jed Long, Ciaran Beggan
 
-**Contact**  | [fbenitez@turing.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca), [ciar@bgs.ac.uk](mailto:ciar@bgs.ac.uk)
+**Contact**  | [Fernando.Benitez@st-andrews.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca), [ciar@bgs.ac.uk](mailto:ciar@bgs.ac.uk)
 
 **Keywords** | Bird migration, data fusion, Earth’s magnetic field, Swarm, GPS tracking
 
@@ -125,58 +122,12 @@ A Jupyter Notebook dashboard will comes out in your browser locally (e.g. http:/
 
 The following image will help you to understand how the sequential and parallel mode differ, and how in parallel mode you should be able to use the full capacity of your machine. However it is quite important to identify when we need to use a parallel mode. For small datasets running **MagGeo** in Parallel mode could be even slower than the sequential mode.
 
-<img src="/doc/images/Sequential_ParallelMode-Jupyter.png">
+<img src="/docs/images/Sequential_ParallelMode-Jupyter.png">
 
-# What's MagGeo
 
-MagGeo is a tool that helps ecologists or animal movement researchers to link  earth's magnetic field data from satellite source to GPS trajectories. Inspired by the Environmental Data Automated Track Annotation System (Env-DATA) Service a tool from Movebank and help researcher to get a better understanding about the geomagnetic variations across the GPS trajectories.
+# Contact us
 
-MagGeo is entirely built-in python and using a set of Jupyter Notebooks that offer several ways to link GPS tracks with the geomagnetic components using the data from one of the up-to-date satellite sources - Swarm Constellation. MagGeo will create an enriched GPS track with the following components:
-
-- **Latitude** from the GPS Track.
-- **Longitude** from the GPS Track.
-- **Timestamp** from the GPS Track.
-- **Magnetic Field Intensity** mapped as Fgps in nanoTeslas (nT).
-- **N (Northwards) component** mapped as N in nanoTeslas (nT).
-- **E (Eastwards) component** mapped as E. in nanoteslas (nT).
-- **C (Downwards or Center)** component mapped as C in nanoTeslas (nT).
-- **Horizontal component** mapped as H in nanoTeslas (nT).
-- **Magnetic Declination or dip angle** mapped as D in degrees
-- **Magnetic Inclination** mapped as I in degrees
-- **Kp Index** mapped as kp
-- **Total Points** as the amount of Swarm measures included in the ST-IDW process from the trajectories requested in the three satellites.
-- **Minimum Distance** mapped as MinDist, representing the minimum distance amount the set of identified point inside the Space Time cylinder and each GPS point location.
-- **Average Distance** mapped as AvDist, representing the average distance amount the set of distances between the identified Swarm Point in the Space Time cylinder and the GPS Points location.
-
-Researchers, particularly ecologists now can study the annotated table to analyze the geomagnetic Spatio-temporal variation across any GPS trajectory.
-
-<img src="/docs/images/GitHubImage.png">
-
-# Troubleshooting
-
-- **Command prompt does not find conda**:
-    After step No 3, windows users do not find conda command. 
-
-    **Cause**: The miniconda/anaconda path is not included in your %PATH environment
-
-    **Solution**:
-    Add miniconda path to Windows environment.
-    Instructions: https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/
-
-    Usually located in ``C:\ProgramData\Miniconda3\condabin``
-    You should search for file ``conda.bat`` and copy the path where this file is.
-- **Python not found**:
-    Before step step 7, for windows users in some cases python command is not found.
-
-    **Cause**:
-    In some cases for windows users, when python is installed using MagGeoEnv, the path is not included. 
-    **Solution**: Add the conda python path to your environment
-    
-    ``C:\ProgramData\Miniconda3``
-
-# Problems? Suggestions? - Contact us
-
-**MagGeo** is work in progress and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions please email: [fbenitez@turing.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca)
+**MagGeo** is work in progress and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions please email: [Fernando.Benitez@st-andrews.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca)
 
 For **errors**, or **improvements** please submit an issue in this repo, describing the problem you have.
 
