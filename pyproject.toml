@@ -1,0 +1,87 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maggeo"
+version = "0.2.0"
+description = "Annotate GPS trajectories with geomagnetic data from ESA Swarm satellites."
+authors = [
+    { name = "Fernando Benitez-Paez", email = "Fernando.Benitez@st-andrews.ac.uk" },
+    { name = "Urška Demšar", email = "ud2@st-andrews.ac.uk" },
+    { name = "Jed Long", email = "jed.long@uwo.ca" },
+    { name = "Ciaran Beggan", email = "ciar@bgs.ac.uk" }
+]
+maintainers = [
+    { name = "Fernando Benitez-Paez", email = "Fernando.Benitez@st-andrews.ac.uk" }
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+    ]
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["data fusion", "GPS", "Swarm", "annotation", "Earth's magnetic field"]
+dependencies = [
+    "numpy>=1.21.0",
+    "scipy>=1.7.0",
+    "pandas>=1.3.0",
+    "matplotlib>=3.4.0",
+    "jinja2>=3.0.0",
+    "tqdm>=4.60.0",
+    "click>=8.0.0",
+    "pyyaml>=5.4.0",
+    "viresclient>=0.11.0",
+    "chaosmagpy>=0.11.0",
+    "requests>=2.25.0",
+    "pooch>=1.3.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0.0",
+    "pytest-cov>=2.12.0",
+    "black>=21.0.0",
+    "flake8>=3.9.0",
+    "mypy>=0.910"
+]
+notebooks = [
+    "jupyter>=1.0.0",
+    "jupyterlab>=3.0.0",
+    "ipywidgets>=7.6.0"
+]
+geo = [
+    "cartopy>=0.19.0",
+    "geopandas>=0.9.0",
+    "xarray>=0.18.0",
+    "netcdf4>=1.5.0"
+]
+docs = [
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.4.0",
+    "mkdocstrings[python]>=0.24.0",
+    "mkdocs-jupyter>=0.24.0",
+    "mkdocs-git-revision-date-localized-plugin>=1.2.0",
+    "mkdocs-awesome-pages-plugin>=2.9.0"
+]
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["maggeo*"]
+exclude = ["tests*", "docs*", "temp_data*", "my_swarm_data*"]
+
+[project.urls]
+homepage = "https://github.com/MagGeo/MagGeo"
+repository = "https://github.com/MagGeo/MagGeo"
+documentation = "https://MagGeo.github.io/MagGeo"
+
+[project.scripts]
+maggeo = "maggeo.cli:main"
