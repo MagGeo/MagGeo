@@ -216,7 +216,7 @@ MagGeo is released under the [MIT License](LICENSE), allowing free use for acade
 
 # Contact us
 
-**MagGeo** is work in progress and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions please email: [Fernando.Benitez@st-andrews.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca)
+**MagGeo** is a work in progress, and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions, please email: [Fernando.Benitez@st-andrews.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca)
 
-For **errors**, or **improvements** please submit an issue in this repo, describing the problem you have.
+For **errors**, or **improvements**, please submit an issue in this repo, describing the problem you have.
 
