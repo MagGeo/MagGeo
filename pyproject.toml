@@ -21,12 +21,14 @@ classifiers = [
     "Intended Audience :: Science/Research",
     "Programming Language :: Python :: 3.11",
     "Operating System :: OS Independent",
-    "Topic :: Scientific/Engineering :: GIS",
-    "Topic :: Scientific/Engineering :: Atmospheric Science",
+    "Topic :: Scientific/Engineering :: Spatial Data Science",
+    "Topic :: Scientific/Engineering :: Data fusion",
+    "Topic :: Scientific/Engineering :: Geomagnetism",
+    "Topic :: Scientific/Engineering :: Animal Movement Analytics",
     ]
 readme = "README.md"
 requires-python = ">=3.8"
-keywords = ["data fusion", "GPS", "Swarm", "annotation", "Earth's magnetic field"]
+keywords = ["data fusion", "GPS", "Swarm", "annotation", "Earth's magnetic field", "Ecology"]
 dependencies = [
     "numpy>=1.21.0",
     "scipy>=1.7.0",
