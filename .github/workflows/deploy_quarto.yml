@@ -3,25 +3,45 @@ name: Deploy Quarto MagGeo site
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install quarto
+    - name: Setup Quarto
+      uses: quarto-dev/quarto-actions/setup@v2
+      with:
+        version: "1.7.32"
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install Python dependencies
       run: |
-        wget https://github.com/quarto-dev/quarto-cli/releases/download/v0.9.4/quarto-0.9.4-linux-amd64.deb
-        sudo dpkg -i quarto-0.9.4-linux-amd64.deb
+        python -m pip install --upgrade pip
+        pip install jupyter matplotlib pandas numpy
 
     - name: Render Quarto project
       run: |
         cd docs
         quarto render
-
-    - name: Publish
-      uses: peaceiris/actions-gh-pages@v3
+        
+    - name: Setup Pages
+      if: github.ref == 'refs/heads/main'
+      uses: actions/configure-pages@v5
+      
+    - name: Upload Pages artifact
+      if: github.ref == 'refs/heads/main'
+      uses: actions/upload-pages-artifact@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/_site
+        path: ./docs/_book
