@@ -13,7 +13,7 @@ Mov Ecol 9, 31 (2021). https://doi.org/10.1186/s40462-021-00268-4
 
 """
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 __author__ = "Fernando Benitez-Paez, Urška Demšar, Jed Long, Ciaran Beggan"
 __email__ = "Fernando.Benitez@st-andrews.ac.uk"
 

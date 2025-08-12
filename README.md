@@ -5,17 +5,17 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-**MagGeo** is a Python package for fusing GPS trajectories with geomagnetic data from ESA's Swarm satellite constellation. This tool enables researchers to annotate animal movement data with Earth's magnetic field measurements for enhanced migration studies and movement ecology research.
+**MagGeo** is a Python package to annotate GPS trajectories with geomagnetic data from ESA's Swarm satellite constellation. This tool enables researchers to annotate animal movement data with Earth's magnetic field measurements for animal movement analytics research.
 
-## 🚀 Key Features
+## Key Features
 
-- **GPS Trajectory Annotation**: Enrich GPS tracks with geomagnetic field components (N, E, C, H, D, I, F)
-- **High Performance**: 5.6x faster processing compared to v0.1.0 through optimized algorithms
-- **Parallel Processing**: Efficient handling of large datasets with automatic chunking
-- **Swarm Data Integration**: Direct access to ESA Swarm satellite geomagnetic data
-- **Geomagnetic Indices**: Integration with AE and SME geomagnetic activity indices
+- **GPS Trajectory Annotation**: Enrich GPS tracks with geomagnetic field components (N, E, C, H, D, I, F) and optionally witih indices (Kp, AE, SME)
+- **High Performance**: 5.6x faster processing compared to the previous version.
+- **Parallel Processing**: Efficient handling of large datasets so it can process large GPS trajectories in parallel.
+- **Swarm Data Integration**: Direct access to ESA Swarm satellite geomagnetic data through the ViRES platform.
+- **Geomagnetic Indices**: Integration with AE and SME geomagnetic activity indices for enhanced analysis.
 - **Command Line Interface**: User-friendly CLI for batch processing and automation
-- **Comprehensive Documentation**: Complete API reference and user guides
+- **Comprehensive Documentation**: Complete Research and API documentation with examples and tutorials.
 
 ## Documentation
 
@@ -69,7 +69,9 @@ annotated_data = annotate_gps_with_geomag(
     gps_data,
     lat_col='latitude',
     lon_col='longitude', 
-    datetime_col='datetime'
+    datetime_col='datetime',
+    altitude_col='altitude',  # Optional altitude column
+    token='your_vires_token',  # ViRES API token for Swarm data access
 )
 
 # Save results
@@ -118,35 +120,30 @@ swarm_data = manager.download_swarm_data(
 
 ## What's New in v0.2.0
 
-This major refactor introduces significant improvements:
+This major refactor of MagGeo and introduces significant improvements:
 
 ### Performance Enhancements
 - **5.6x faster** processing for large trajectories
 - **Optimized memory usage** with efficient data structures
-- **Smart chunking** for parallel processing
+- **Smart chunking** for parallel processing 
 
 ### New Features
-- **SwarmDataManager**: Unified interface for satellite data handling
+- **SwarmDataManager**: Unified interface for Swarm data handling
 - **Enhanced CLI**: Four comprehensive commands for all workflows
 - **Geomagnetic Indices**: AE and SME index integration
 - **Improved Error Handling**: Better validation and user feedback
 
 ### Developer Experience
 - **Modern Package Structure**: PyPI-ready with `pyproject.toml`
-- **Comprehensive Documentation**: MkDocs Material with API reference
+- **Comprehensive Documentation**: MkDocs Material with API reference and Research documentation.
 - **Enhanced Testing**: Expanded test suite with better coverage
-- **Type Hints**: Improved code clarity and IDE support
 
 ## Project Lineage
 
-**MagGeo** represents the evolution of a research prototype into a robust, production-ready scientific package:
+### Version 1.0 (2023)  
+- **Initial Release**: Initial functionality for trajectory annotation and repository setup, it uses Jupyter notebooks for examples and documentation.
 
-### Version 1.0 (2021-2024)  
-- **Initial Release**: Basic functionality for trajectory annotation
-- **Community Adoption**: Used by movement ecology researchers globally
-- **Feature Expansion**: Added CHAOS model integration and basic parallel processing
-
-### Version 2.0 (2024-2025) - **Current**
+### Version 2.0 (2025) - **Current**
 - **Major Refactor**: Complete codebase restructuring for performance and usability
 - **Production Ready**: Professional packaging, documentation, and testing
 - **Enhanced Capabilities**: 5.6x performance improvement and expanded feature set
@@ -174,8 +171,7 @@ https://github.com/MagGeo/MagGeo
 
 ## Authors & Contributors
 
-**Core Development Team:**
-- **Fernando Benitez-Paez** - *Lead Developer* - University of St Andrews
+- **Fernando Benitez-Paez** - *Lead Author and Developer* - University of St Andrews
 - **Urška Demšar** - *Principal Investigator* - University of St Andrews  
 - **Jed A. Long** - *Co-Investigator* - University of Western Ontario
 - **Ciarán D. Beggan** - *Geomagnetic Expert* - British Geological Survey

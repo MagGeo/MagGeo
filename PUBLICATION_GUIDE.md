@@ -294,13 +294,13 @@ index-servers =
     testpypi
 
 [pypi]
-username = __token__
-password = pypi-YOUR_API_TOKEN_HERE
+  username = __token__
+  password = YOUR_PYPI_API_TOKEN_HERE
 
 [testpypi]
-repository = https://test.pypi.org/legacy/
-username = __token__
-password = pypi-YOUR_TESTPYPI_TOKEN_HERE
+  username = __token__
+  password = YOUR_TESTPYPI_API_TOKEN_HERE
+
 EOF
 
 # Set secure permissions

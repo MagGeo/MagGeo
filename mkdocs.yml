@@ -1,24 +1,55 @@
-site_name: MagGeo
-site_description: Data Fusion tool to annotate GPS trajectories with Geomagnetic data from Swarm satellites
+site_name: MagGeo API Documentation
+site_description: API Reference and User Guide for MagGeo - GPS trajectory annotation with geomagnetic data
+site_url: https://docs.maggeo.github.io/
 repo_url: https://github.com/MagGeo/MagGeo
+repo_name: MagGeo/MagGeo
+edit_uri: blob/main/api_docs/
+docs_dir: api_docs
 
 theme:
   name: material
   palette:
-    primary: blue
-    accent: amber
+    # Palette toggle for light mode
+    - scheme: default
+      primary: blue
+      accent: amber
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: blue
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
     - search.highlight
+    - search.share
     - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
 
 plugins:
   - search
   - mkdocstrings:
       handlers:
         python:
+          paths: [.]
           options:
             show_source: false
+            show_root_heading: true
+            show_root_full_path: false
+            show_object_full_path: false
+            show_category_heading: true
+            members_order: source
+            docstring_style: google
 
 nav:
   - Home: index.md
@@ -35,32 +66,23 @@ nav:
     - Overview: api/index.md
     - Core Functions: api/core.md
     - SwarmDataManager: api/swarm_data_manager.md
-    #- Interpolation: api/interpolation.md
-    #- CHAOS Model: api/chaos.md
-    #- Date Utilities: api/date_utils.md
     - Parallel Processing: api/parallel_processing.md
     - Geomagnetic Indices: api/indices.md
   - Examples:
     - Basic Examples: examples/basic.md
     - Advanced Workflows: examples/advanced.md
-    #- Jupyter Notebooks: examples/notebooks.md
-    #- Research Use Cases: examples/research.md
-  #- Development:
-    #- Contributing: development/contributing.md
-    #- Testing: development/testing.md
-    #- Release Process: development/release.md
   - About:
     - Changelog: about/changelog.md
     - Citation: about/citation.md
-
+  
 markdown_extensions:
   - admonition
   - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.tabbed
 
-#extra_css:
-#  - stylesheets/extra.css
+extra_css:
+  - stylesheets/extra.css
 
 extra_javascript:
   - javascripts/mathjax.js

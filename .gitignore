@@ -100,3 +100,4 @@ swarm_data_cache/
 # Documentation builds
 docs/_build/
 site/
+test_env/

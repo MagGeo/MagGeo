@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "maggeo"
-version = "0.2.0"
+version = "0.2.1"
 description = "Annotate GPS trajectories with geomagnetic data from ESA Swarm satellites."
 authors = [
     { name = "Fernando Benitez-Paez", email = "Fernando.Benitez@st-andrews.ac.uk" },
@@ -81,7 +81,7 @@ exclude = ["tests*", "docs*", "temp_data*", "my_swarm_data*"]
 [project.urls]
 homepage = "https://github.com/MagGeo/MagGeo"
 repository = "https://github.com/MagGeo/MagGeo"
-documentation = "https://MagGeo.github.io/MagGeo"
+documentation = "https://maggeo.github.io/MagGeo/"
 
 [project.scripts]
 maggeo = "maggeo.cli:main"

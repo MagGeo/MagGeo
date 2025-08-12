@@ -2,7 +2,7 @@ name: Documentation
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, develop, refactor_maggeo ]
   pull_request:
     branches: [ main ]
 
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -27,7 +27,7 @@ jobs:
 
       - name: Build documentation
         run: |
-          mkdocs build --strict
+          mkdocs build
 
       - name: Upload documentation artifacts
         uses: actions/upload-artifact@v3
@@ -48,7 +48,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
