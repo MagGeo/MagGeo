@@ -58,10 +58,10 @@ nav:
     - Quick Start: getting-started/quickstart.md
   - User Guide:
     - Basic Usage: user-guide/basic-usage.md
-    - Swarm Data Manager: user-guide/swarm-data-manager.md
-    - Parallel Processing: user-guide/parallel-processing.md
-    - Command Line Interface: user-guide/cli.md
-    - Configuration: user-guide/configuration.md
+    #- Swarm Data Manager: user-guide/swarm-data-manager.md
+    #- Parallel Processing: user-guide/parallel-processing.md
+    #- Command Line Interface: user-guide/cli.md
+    #- Configuration: user-guide/configuration.md
   - API Reference:
     - Overview: api/index.md
     - Core Functions: api/core.md

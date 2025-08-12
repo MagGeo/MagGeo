@@ -1,8 +1,8 @@
-name: Deploy mkdocs API Site
+name: Deploy MkDocs API Site
 
 on:
   push:
-    branches: [ main, develop, refactor_maggeo ]
+    branches: [ main, refactor_maggeo ]
   pull_request:
     branches: [ main ]
 
@@ -32,13 +32,15 @@ jobs:
       - name: Upload documentation artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: documentation
+          name: api-documentation
           path: site/
 
   deploy-docs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     needs: build-docs
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -55,8 +57,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e ".[docs]"
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (API docs subdirectory)
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          mkdocs gh-deploy --force
+          mkdocs gh-deploy --force --remote-branch gh-pages --remote-name origin
