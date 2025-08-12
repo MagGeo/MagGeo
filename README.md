@@ -169,11 +169,12 @@ https://github.com/MagGeo/MagGeo
 
 📋 **[Complete citation guidelines with multiple formats →](https://MagGeo.github.io/MagGeo/about/citation/)**
 
-## Authors & Contributors
+## Authors & Initial Contributors
 
 - **Fernando Benitez-Paez** - *Lead Author and Developer* - University of St Andrews
 - **Urška Demšar** - *Principal Investigator* - University of St Andrews  
 - **Jed A. Long** - *Co-Investigator* - University of Western Ontario
+- **Vanessa Brum-Bastos** - *Co-Investigator* - University of Canterbury
 - **Ciarán D. Beggan** - *Geomagnetic Expert* - British Geological Survey
 
 **Contact:** [Fernando.Benitez@st-andrews.ac.uk](mailto:Fernando.Benitez@st-andrews.ac.uk)
@@ -196,8 +197,8 @@ MagGeo is released under the [MIT License](LICENSE), allowing free use for acade
 
 - **ESA Swarm Mission** - For providing high-quality geomagnetic satellite data
 - **VirES Platform** - For accessible Swarm data distribution
-- **Movement Ecology Community** - For feedback and scientific validation
-- **NERC, UKRI** - For funding support of the original research
+- **Max Planck Institute of Animal Behavior** - For feedback and Ecological validation
+- **Leverhulme Trust Grant** - For funding support of the original research
 
 ---
 
