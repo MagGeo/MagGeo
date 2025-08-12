@@ -83,7 +83,7 @@ When citing the software implementation, please also include:
 ```bibtex
 @software{maggeo2025,
   author={Benitez-Paez, Fernando and Dem{\v{s}}ar, Ur{\v{s}}ka and Long, Jed A and Beggan, Ciar{\'a}n D},
-  title={{MagGeo}: A Python package for fusion of GPS trajectories and satellite geomagnetic data},
+  title={MagGeo: A Python package for fusion of GPS trajectories and satellite geomagnetic data},
   version={0.2.0},
   year={2025},
   url={https://github.com/MagGeo/MagGeo},
