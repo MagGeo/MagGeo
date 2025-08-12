@@ -1,4 +1,4 @@
-name: Documentation
+name: API Documentation
 
 on:
   push:
