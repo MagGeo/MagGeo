@@ -1,6 +1,6 @@
 site_name: MagGeo API Documentation
 site_description: API Reference and User Guide for MagGeo - GPS trajectory annotation with geomagnetic data
-site_url: https://docs.maggeo.github.io/
+site_url: https://maggeo.github.io/MagGeo/api/
 repo_url: https://github.com/MagGeo/MagGeo
 repo_name: MagGeo/MagGeo
 edit_uri: blob/main/api_docs/
