@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import pytest
 from maggeo.core import annotate_gps_with_geomag
 from maggeo.date_utils import identify_unique_dates
 from maggeo.gps import get_gps_data
@@ -39,6 +40,7 @@ def test_identify_unique_dates():
     print(f"Successfully identified {len(unique_dates_df)} unique dates from GPS trajectory")
     print(f"Buffer dates added: {unique_dates_df['is_buffer_date'].sum()}")
 
+@pytest.mark.api
 def test_full_pipeline():
     data_dir = os.path.join(os.path.dirname(__file__), "data")
     params = {
