@@ -1,0 +1,70 @@
+name: Deploy Combined Documentation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy-combined:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[docs]"
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: "1.7.32"
+          tinytex: true
+
+      - name: Render Quarto site
+        run: |
+          cd docs
+          quarto render
+
+      - name: Build MkDocs API site
+        run: |
+          mkdocs build
+
+      - name: Combine documentation sites
+        run: |
+          mkdir -p _combined_site
+          # Copy Quarto site (main documentation)
+          cp -r docs/_book/* _combined_site/
+          # Copy MkDocs site (API documentation) to /api subdirectory
+          mkdir -p _combined_site/api
+          cp -r site/* _combined_site/api/
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _combined_site/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
