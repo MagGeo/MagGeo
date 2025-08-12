@@ -6,7 +6,7 @@ Complete instructions for publishing MagGeo v0.2.0 to GitHub and PyPI.
 
 ### Step 1.1: Initialize Git Repository (if not already done)
 
-```bash
+``` bash
 # Navigate to project directory
 cd /Users/fbenitez/Documents/refactor_maggeo
 
@@ -85,7 +85,7 @@ EOF
 
 ### Step 1.2: Add Remote Origin and Configure
 
-```bash
+``` bash
 # Add the GitHub repository as remote origin
 git remote add origin https://github.com/MagGeo/MagGeo.git
 
@@ -99,7 +99,7 @@ git remote -v
 
 ### Step 1.3: Stage and Commit All Files
 
-```bash
+``` bash
 # Add all files (respecting .gitignore)
 git add .
 
@@ -128,7 +128,7 @@ Features:
 
 ### Step 1.4: Create and Push to refactor_maggeo Branch
 
-```bash
+``` bash
 # Create and switch to refactor_maggeo branch
 git checkout -b refactor_maggeo
 
@@ -141,17 +141,13 @@ git status
 
 ### Step 1.5: Create Pull Request (Optional for Review)
 
-After pushing, you can create a Pull Request on GitHub:
-1. Go to https://github.com/MagGeo/MagGeo
-2. Click "Compare & pull request" for the refactor_maggeo branch
-3. Add description with improvements summary
-4. Request review from collaborators if needed
+After pushing, you can create a Pull Request on GitHub: 1. Go to https://github.com/MagGeo/MagGeo 2. Click "Compare & pull request" for the refactor_maggeo branch 3. Add description with improvements summary 4. Request review from collaborators if needed
 
 ## 2. Package Validation Checklist
 
 ### Step 2.1: Validate Package Structure
 
-```bash
+``` bash
 # Check package structure
 find . -name "*.py" -path "./maggeo/*" | head -10
 
@@ -164,7 +160,7 @@ find . -name "__init__.py"
 
 ### Step 2.2: Validate Dependencies
 
-```bash
+``` bash
 # Install package in development mode
 pip install -e .
 
@@ -177,7 +173,7 @@ pip install -e ".[docs]"
 
 ### Step 2.3: Run Tests
 
-```bash
+``` bash
 # Run all tests
 python -m pytest tests/ -v
 
@@ -190,7 +186,7 @@ python -m pytest tests/test_core.py -v
 
 ### Step 2.4: Validate Package Building
 
-```bash
+``` bash
 # Clean any previous builds
 rm -rf build/ dist/ *.egg-info/
 
@@ -206,7 +202,7 @@ pip install dist/maggeo-0.2.0-py3-none-any.whl
 
 ### Step 2.5: Test CLI Interface
 
-```bash
+``` bash
 # Test CLI commands
 maggeo --help
 maggeo annotate --help
@@ -218,7 +214,7 @@ maggeo swarm --help
 
 ### Step 2.6: Validate Documentation
 
-```bash
+``` bash
 # Install documentation dependencies
 pip install mkdocs mkdocs-material mkdocstrings[python]
 
@@ -232,7 +228,7 @@ mkdocs serve
 
 ### Step 2.7: Import and Functionality Tests
 
-```python
+``` python
 # Test package imports
 python -c "
 import maggeo
@@ -250,39 +246,26 @@ print('All main modules imported successfully!')
 
 ### Step 3.1: Pre-publication Checklist
 
-**✅ Required Files Check:**
-- [ ] `pyproject.toml` with correct metadata
-- [ ] `README.md` with installation and usage instructions
-- [ ] `LICENSE` file (MIT License)
-- [ ] `MANIFEST.in` for including data files
-- [ ] Version number updated to 0.2.0
-- [ ] All dependencies specified correctly
+**✅ Required Files Check:** - \[ \] `pyproject.toml` with correct metadata - \[ \] `README.md` with installation and usage instructions - \[ \] `LICENSE` file (MIT License) - \[ \] `MANIFEST.in` for including data files - \[ \] Version number updated to 0.2.0 - \[ \] All dependencies specified correctly
 
-**✅ Package Quality Check:**
-- [ ] All tests passing
-- [ ] Documentation builds without errors
-- [ ] Package installs correctly from wheel
-- [ ] CLI commands work
-- [ ] Import statements work
+**✅ Package Quality Check:** - \[ \] All tests passing - \[ \] Documentation builds without errors - \[ \] Package installs correctly from wheel - \[ \] CLI commands work - \[ \] Import statements work
 
 ### Step 3.2: Set Up PyPI Accounts
 
-1. **Create PyPI Account:**
-   - Register at https://pypi.org/account/register/
-   - Verify email address
-
-2. **Create TestPyPI Account:**
-   - Register at https://test.pypi.org/account/register/
-   - This is for testing before real publication
-
-3. **Generate API Tokens:**
-   - PyPI: Go to https://pypi.org/manage/account/token/
-   - TestPyPI: Go to https://test.pypi.org/manage/account/token/
-   - Create tokens with appropriate scope
+1.  **Create PyPI Account:**
+    -   Register at https://pypi.org/account/register/
+    -   Verify email address
+2.  **Create TestPyPI Account:**
+    -   Register at https://test.pypi.org/account/register/
+    -   This is for testing before real publication
+3.  **Generate API Tokens:**
+    -   PyPI: Go to https://pypi.org/manage/account/token/
+    -   TestPyPI: Go to https://test.pypi.org/manage/account/token/
+    -   Create tokens with appropriate scope
 
 ### Step 3.3: Configure Authentication
 
-```bash
+``` bash
 # Install twine for uploading
 pip install twine
 
@@ -309,7 +292,7 @@ chmod 600 ~/.pypirc
 
 ### Step 3.4: Test Publication on TestPyPI
 
-```bash
+``` bash
 # Clean build directory
 rm -rf build/ dist/ *.egg-info/
 
@@ -325,7 +308,7 @@ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://
 
 ### Step 3.5: Validate TestPyPI Installation
 
-```bash
+``` bash
 # Create a fresh virtual environment for testing
 python -m venv test_env
 source test_env/bin/activate  # On Windows: test_env\Scripts\activate
@@ -348,7 +331,7 @@ deactivate
 
 **⚠️ IMPORTANT: Only proceed if TestPyPI installation worked perfectly!**
 
-```bash
+``` bash
 # Clean and rebuild (to ensure fresh package)
 rm -rf build/ dist/ *.egg-info/
 python -m build
@@ -362,7 +345,7 @@ twine upload dist/*
 
 ### Step 3.7: Post-Publication Verification
 
-```bash
+``` bash
 # Create fresh environment for final test
 python -m venv final_test_env
 source final_test_env/bin/activate
@@ -390,7 +373,7 @@ deactivate
 
 The `pyproject.toml` has an incorrect package structure. Fix this:
 
-```toml
+``` toml
 [tool.setuptools]
 package-dir = {"" = "."}
 
@@ -404,7 +387,7 @@ exclude = ["tests*", "docs*", "temp_data*", "my_swarm_data*"]
 
 Update repository URLs in `pyproject.toml`:
 
-```toml
+``` toml
 [project.urls]
 homepage = "https://github.com/MagGeo/MagGeo"
 repository = "https://github.com/MagGeo/MagGeo"
@@ -414,7 +397,8 @@ documentation = "https://MagGeo.github.io/MagGeo"
 ### Issue 3: CLI Entry Point Validation
 
 Ensure CLI module exists:
-```bash
+
+``` bash
 # Check if CLI module exists
 ls -la maggeo/cli.py
 
@@ -423,7 +407,7 @@ ls -la maggeo/cli.py
 
 ## 5. Documentation Deployment (GitHub Pages)
 
-```bash
+``` bash
 # Deploy documentation to GitHub Pages
 mkdocs gh-deploy --branch gh-pages
 
@@ -437,16 +421,16 @@ mkdocs gh-deploy --branch gh-pages
 
 ### Create GitHub Release
 
-1. Go to https://github.com/MagGeo/MagGeo/releases
-2. Click "Create a new release"
-3. Tag version: `v0.2.0`
-4. Release title: `MagGeo v0.2.0 - Major Refactor`
-5. Description: Use content from `improvements_summary.md`
-6. Attach built wheel and source distribution
+1.  Go to https://github.com/MagGeo/MagGeo/releases
+2.  Click "Create a new release"
+3.  Tag version: `v0.2.0`
+4.  Release title: `MagGeo v0.2.0 - Major Refactor`
+5.  Description: Use content from `improvements_summary.md`
+6.  Attach built wheel and source distribution
 
 ### Version Tagging
 
-```bash
+``` bash
 # Tag the release
 git tag -a v0.2.0 -m "MagGeo v0.2.0 - Major refactor with performance improvements"
 
@@ -458,34 +442,32 @@ git push origin v0.2.0
 
 ### Update Documentation Links
 
-1. Update README.md with PyPI installation instructions
-2. Update documentation with new package structure
-3. Add installation verification examples
-4. Update citation information with PyPI reference
+1.  Update README.md with PyPI installation instructions
+2.  Update documentation with new package structure
+3.  Add installation verification examples
+4.  Update citation information with PyPI reference
 
 ### Community Engagement
 
-1. Announce release on relevant scientific forums
-2. Update academic profiles with new software version
-3. Consider submitting to Journal of Open Source Software (JOSS)
-4. Share with movement ecology community
+1.  Announce release on relevant scientific forums
+2.  Update academic profiles with new software version
+3.  Consider submitting to Journal of Open Source Software (JOSS)
+4.  Share with movement ecology community
 
 ## 8. Future Updates Workflow
 
 ### Overview: Safe Update Process
-For all future updates, follow this two-stage process:
-1. **Stage 1:** Test on TestPyPI with incremented version
-2. **Stage 2:** Deploy to Production PyPI only after TestPyPI validation
+
+For all future updates, follow this two-stage process: 1. **Stage 1:** Test on TestPyPI with incremented version 2. **Stage 2:** Deploy to Production PyPI only after TestPyPI validation
 
 ### Step 8.1: Pre-Update Preparation
 
-**Version Number Strategy:**
-- **Patch updates** (bug fixes): 0.2.1 → 0.2.2
-- **Minor updates** (new features): 0.2.1 → 0.3.0  
+**Version Number Strategy:** - **Patch updates** (bug fixes): 0.2.1 → 0.2.2 - **Minor updates** (new features): 0.2.1 → 0.3.0\
 - **Major updates** (breaking changes): 0.2.1 → 1.0.0
 
 **Required Checklist Before Any Update:**
-```bash
+
+``` bash
 # 1. Ensure all changes are committed
 cd /Users/fbenitez/Documents/refactor_maggeo
 git status  # Should show "working tree clean"
@@ -510,7 +492,7 @@ maggeo --version
 
 **Update both files with new version:**
 
-```bash
+``` bash
 # Example: Updating from 0.2.1 to 0.2.2
 # File 1: pyproject.toml
 sed -i '' 's/version = "0.2.1"/version = "0.2.2"/' pyproject.toml
@@ -523,13 +505,11 @@ grep 'version = ' pyproject.toml
 grep '__version__ = ' maggeo/__init__.py
 ```
 
-**Or manually update:**
-- `pyproject.toml`: Line ~7: `version = "0.2.2"`
-- `maggeo/__init__.py`: Line ~16: `__version__ = "0.2.2"`
+**Or manually update:** - `pyproject.toml`: Line \~7: `version = "0.2.2"` - `maggeo/__init__.py`: Line \~16: `__version__ = "0.2.2"`
 
 ### Step 8.3: Repository Update Process
 
-```bash
+``` bash
 # 1. Stage all changes
 git add .
 
@@ -549,7 +529,7 @@ git status
 
 ### Step 8.4: Build Updated Package
 
-```bash
+``` bash
 # 1. Clean previous builds
 rm -rf build/ dist/ *.egg-info/
 
@@ -567,7 +547,8 @@ python -m tarfile -l dist/maggeo-0.2.2.tar.gz | head -10
 ### Step 8.5: STAGE 1 - TestPyPI Deployment & Testing
 
 **Upload to TestPyPI:**
-```bash
+
+``` bash
 # Upload to TestPyPI for testing
 twine upload --repository testpypi dist/*
 
@@ -576,7 +557,8 @@ echo "✅ Package uploaded to: https://test.pypi.org/project/maggeo/0.2.2/"
 ```
 
 **Comprehensive TestPyPI Validation:**
-```bash
+
+``` bash
 # 1. Create isolated test environment
 python3 -m venv test_pypi_env
 source test_pypi_env/bin/activate
@@ -617,19 +599,13 @@ deactivate
 rm -rf test_pypi_env
 ```
 
-**TestPyPI Validation Checklist:**
-- [ ] Package installs without errors
-- [ ] All modules import correctly
-- [ ] CLI commands work properly
-- [ ] Version number is correct
-- [ ] New features/fixes work as expected
-- [ ] No regression in existing functionality
+**TestPyPI Validation Checklist:** - \[ \] Package installs without errors - \[ \] All modules import correctly - \[ \] CLI commands work properly - \[ \] Version number is correct - \[ \] New features/fixes work as expected - \[ \] No regression in existing functionality
 
 ### Step 8.6: STAGE 2 - Production PyPI Deployment
 
 **⚠️ CRITICAL: Only proceed if ALL TestPyPI tests pass!**
 
-```bash
+``` bash
 # 1. Final verification before production
 echo "🔍 Pre-production checklist:"
 echo "✅ TestPyPI installation successful?"
@@ -652,7 +628,8 @@ fi
 ### Step 8.7: Post-Deployment Verification
 
 **Verify Production Installation:**
-```bash
+
+``` bash
 # 1. Create fresh environment for production test
 python3 -m venv prod_test_env
 source prod_test_env/bin/activate
@@ -682,7 +659,7 @@ echo "✅ Production deployment verified!"
 
 ### Step 8.8: Update Documentation & Releases
 
-```bash
+``` bash
 # 1. Update documentation (if needed)
 mkdocs build
 mkdocs serve  # Test locally at http://127.0.0.1:8001
@@ -706,7 +683,8 @@ git push origin v0.2.2
 ### Step 8.9: Common Update Scenarios
 
 **Scenario 1: Bug Fix (Patch Update)**
-```bash
+
+``` bash
 # Example: 0.2.1 → 0.2.2
 # 1. Fix the bug in code
 # 2. Update version numbers
@@ -716,7 +694,8 @@ git push origin v0.2.2
 ```
 
 **Scenario 2: New Feature (Minor Update)**
-```bash
+
+``` bash
 # Example: 0.2.1 → 0.3.0
 # 1. Implement new feature
 # 2. Add tests for new functionality
@@ -727,7 +706,8 @@ git push origin v0.2.2
 ```
 
 **Scenario 3: Breaking Changes (Major Update)**
-```bash
+
+``` bash
 # Example: 0.2.1 → 1.0.0
 # 1. Implement breaking changes
 # 2. Update all affected documentation
@@ -741,7 +721,7 @@ git push origin v0.2.2
 
 **If issues are discovered after production deployment:**
 
-```bash
+``` bash
 # 1. Identify the last working version
 LAST_GOOD_VERSION="0.2.1"
 
@@ -763,7 +743,8 @@ echo "Advise users: pip install maggeo==$LAST_GOOD_VERSION"
 ### Step 8.11: Automated Testing Script
 
 **Create update testing script (`test_update.sh`):**
-```bash
+
+``` bash
 #!/bin/bash
 # Save this as test_update.sh and make executable: chmod +x test_update.sh
 
@@ -809,28 +790,32 @@ echo "✅ Update test completed successfully for v$VERSION"
 ## 9. Maintenance Plan
 
 ### Regular Updates
-- Monitor PyPI download statistics
-- Respond to GitHub issues promptly
-- Update dependencies regularly
-- Maintain backward compatibility
+
+-   Monitor PyPI download statistics
+-   Respond to GitHub issues promptly
+-   Update dependencies regularly
+-   Maintain backward compatibility
 
 ### Version Management
-- Use semantic versioning (MAJOR.MINOR.PATCH)
-- Document all changes in CHANGELOG.md
-- Test thoroughly before each release
+
+-   Use semantic versioning (MAJOR.MINOR.PATCH)
+-   Document all changes in CHANGELOG.md
+-   Test thoroughly before each release
 
 ### Quality Assurance
-- Always test on TestPyPI first
-- Never skip the validation steps
-- Maintain comprehensive test coverage
-- Document all breaking changes
 
----
+-   Always test on TestPyPI first
+-   Never skip the validation steps
+-   Maintain comprehensive test coverage
+-   Document all breaking changes
+
+------------------------------------------------------------------------
 
 ## Quick Commands Summary
 
 ### Initial Publication Workflow
-```bash
+
+``` bash
 # Complete publication workflow
 cd /Users/fbenitez/Documents/refactor_maggeo
 
@@ -857,7 +842,8 @@ mkdocs gh-deploy
 ```
 
 ### Future Updates Quick Workflow
-```bash
+
+``` bash
 # Complete update workflow (example: 0.2.1 → 0.2.2)
 cd /Users/fbenitez/Documents/refactor_maggeo
 
@@ -887,7 +873,8 @@ git push origin v0.2.2
 ```
 
 ### Emergency Hotfix Workflow
-```bash
+
+``` bash
 # For critical bug fixes
 cd /Users/fbenitez/Documents/refactor_maggeo
 
@@ -909,6 +896,6 @@ twine upload --repository testpypi dist/*
 twine upload dist/*  # If tests pass
 ```
 
-**🎉 MagGeo package is now ready for publication!** 
+**🎉 MagGeo package is now ready for publication!**
 
 Follow these steps carefully, and you'll have a professionally published Python package with comprehensive documentation and proper version control.
