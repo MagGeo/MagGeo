@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Fernando Benitez-Paez">
 <meta name="dcterms.date" content="2025-08-12">
 
-<title>MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
+<title>Troubleshooting Guide – MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,7 +66,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./ParallelMode.html" rel="prev">
 <link href=".//images/path1806.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -292,7 +326,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">What’s MagGeo</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./troubleshooting.html">Troubleshooting Guide</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -306,7 +340,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">What’s MagGeo</span></a>
   </div>
 </li>
@@ -405,7 +439,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./troubleshooting.html" class="sidebar-item-text sidebar-link">
+  <a href="./troubleshooting.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Troubleshooting Guide</span></a>
   </div>
 </li>
@@ -419,8 +453,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#whats-maggeo" id="toc-whats-maggeo" class="nav-link active" data-scroll-target="#whats-maggeo">What’s MagGeo</a></li>
-  <li><a href="#suggestions" id="toc-suggestions" class="nav-link" data-scroll-target="#suggestions">Suggestions?</a></li>
+  <li><a href="#before-seeking-help" id="toc-before-seeking-help" class="nav-link active" data-scroll-target="#before-seeking-help">Before Seeking Help</a></li>
+  <li><a href="#standardized-error-reporting" id="toc-standardized-error-reporting" class="nav-link" data-scroll-target="#standardized-error-reporting">Standardized Error Reporting</a></li>
+  <li><a href="#issue-1-conda-command-not-found" id="toc-issue-1-conda-command-not-found" class="nav-link" data-scroll-target="#issue-1-conda-command-not-found">Issue 1: “conda: command not found”</a></li>
+  <li><a href="#issue-2-environment-creation-fails" id="toc-issue-2-environment-creation-fails" class="nav-link" data-scroll-target="#issue-2-environment-creation-fails">Issue 2: Environment Creation Fails</a></li>
+  <li><a href="#issue-3-different-python-versions" id="toc-issue-3-different-python-versions" class="nav-link" data-scroll-target="#issue-3-different-python-versions">Issue 3: Different Python Versions</a></li>
+  <li><a href="#issue-4-package-conflicts-during-installation" id="toc-issue-4-package-conflicts-during-installation" class="nav-link" data-scroll-target="#issue-4-package-conflicts-during-installation">Issue 4: Package Conflicts During Installation</a></li>
+  <li><a href="#issue-5-jupyter-lab-wont-start" id="toc-issue-5-jupyter-lab-wont-start" class="nav-link" data-scroll-target="#issue-5-jupyter-lab-wont-start">Issue 5: Jupyter Lab Won’t Start</a></li>
+  <li><a href="#issue-6-import-errors-despite-successful-installation" id="toc-issue-6-import-errors-despite-successful-installation" class="nav-link" data-scroll-target="#issue-6-import-errors-despite-successful-installation">Issue 6: Import Errors Despite Successful Installation</a></li>
+  <li><a href="#emergency-reinstallation" id="toc-emergency-reinstallation" class="nav-link" data-scroll-target="#emergency-reinstallation">Emergency Reinstallation</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a>
+  <ul class="collapse">
+  <li><a href="#environment-management" id="toc-environment-management" class="nav-link" data-scroll-target="#environment-management">Environment Management - Useful Commands</a></li>
+  <li><a href="#updating-the-environment" id="toc-updating-the-environment" class="nav-link" data-scroll-target="#updating-the-environment">Updating the Environment</a></li>
+  <li><a href="#exporting-your-environment" id="toc-exporting-your-environment" class="nav-link" data-scroll-target="#exporting-your-environment">Exporting Your Environment</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -430,20 +477,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</h1>
-<p class="subtitle lead">Data-fusion tool to combine geo-magnetic data with GPS trajectories</p>
+<h1 class="title">Troubleshooting Guide</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Fernando Benitez-Paez </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -460,35 +500,157 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="whats-maggeo" class="level1 unnumbered">
-<h1 class="unnumbered">What’s MagGeo</h1>
-<p><img src="./images/GitHubImage2.png"></p>
-<p>MagGeo is a tool that helps ecologists or animal movement researchers to link earth’s magnetic field data from satellite source to GPS trajectories. Inspired by the Environmental Data Automated Track Annotation System (Env-DATA) Service a tool from Movebank and help researcher to get a better understanding about the geomagnetic variations across the GPS trajectories.</p>
-<p>MagGeo is entirely built-in python and includes a two Jupyter Notebooks that offer two ways to link GPS tracks with the geomagnetic components using the data from one of the up-to-date satellite sources - Swarm Constellation. MagGeo will create an enriched GPS track with the following components:</p>
-<ul>
-<li><strong>Latitude</strong> from the GPS Track.</li>
-<li><strong>Longitude</strong> from the GPS Track.</li>
-<li><strong>Timestamp</strong> from the GPS Track.</li>
-<li><strong>Magnetic Field Intensity</strong> mapped as Fgps in nanoTeslas (nT).</li>
-<li><strong>N (Northwards) component</strong> mapped as N in nanoTeslas (nT).</li>
-<li><strong>E (Eastwards) component</strong> mapped as E. in nanoteslas (nT).</li>
-<li><strong>C (Downwards or Center)</strong> component mapped as C in nanoTeslas (nT).</li>
-<li><strong>Horizontal component</strong> mapped as H in nanoTeslas (nT).</li>
-<li><strong>Magnetic Declination or dip angle</strong> mapped as D in degrees</li>
-<li><strong>Magnetic Inclination</strong> mapped as I in degrees</li>
-<li><strong>Kp Index</strong> mapped as kp</li>
-<li><strong>Total Points</strong> as the amount of Swarm measures included in the ST-IDW process from the trajectories requested in the three satellites.</li>
-<li><strong>Minimum Distance</strong> mapped as MinDist, representing the minimum distance amount the set of identified point inside the Space Time cylinder and each GPS point location.</li>
-<li><strong>Average Distance</strong> mapped as AvDist, representing the average distance amount the set of distances between the identified Swarm Point in the Space Time cylinder and the GPS Points location.</li>
+<section id="before-seeking-help" class="level3">
+<h3 class="anchored" data-anchor-id="before-seeking-help">Before Seeking Help</h3>
+<p><strong>You should complete this checklist:</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Miniconda is installed and <code>conda --version</code> works</label></li>
+<li><label><input type="checkbox">Environment was created without errors</label></li>
+<li><label><input type="checkbox">Environment shows <code>(maggeo)</code> when activated</label></li>
+<li><label><input type="checkbox">Verification script runs successfully</label></li>
+<li><label><input type="checkbox">Jupyter Lab starts without errors</label></li>
 </ul>
-<p>Researchers, particularly ecologists now can study the annotated table to analyze the geomagnetic Spatio-temporal variation across any GPS trajectory.</p>
 </section>
-<section id="suggestions" class="level1">
-<h1>Suggestions?</h1>
-<p><strong>MagGeo</strong> is work in progress and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general inquiries, scientific concepts, suggestions please email: <a href="mailto:Fernando.Benitez@st-andrews.ac.uk">Fernando.Benitez@st-andrews.ac.uk</a>, <a href="mailto:ud2@st-andrews.ac.uk">ud2@st-andrews.ac.uk</a>, <a href="mailto:jed.long@uwo.ca">jed.long@uwo.ca</a></p>
-<p>For <strong>errors</strong>, or <strong>improvements</strong> please submit an <a href="https://github.com/MagGeo/MagGeo/issues">issue</a> in this repo, describing the problem.</p>
+<section id="standardized-error-reporting" class="level3">
+<h3 class="anchored" data-anchor-id="standardized-error-reporting">Standardized Error Reporting</h3>
+<p><strong>When reporting problems, always include:</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run these commands and include output</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> info</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> list geopandas</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">--version</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="issue-1-conda-command-not-found" class="level3">
+<h3 class="anchored" data-anchor-id="issue-1-conda-command-not-found">Issue 1: “conda: command not found”</h3>
+<p><strong>This is the most common issue for beginners.</strong></p>
+<p><strong>Windows Solution</strong>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 1: Use the correct command prompt</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for "Anaconda Prompt" in Start Menu if available</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Or reinstall Miniconda ensuring PATH is added</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 2: Manually add to PATH</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> PATH=%PATH%<span class="kw">;</span><span class="ex">C:\Users\%USERNAME%\miniconda3\Scripts</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> PATH=%PATH%<span class="kw">;</span><span class="ex">C:\Users\%USERNAME%\miniconda3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>macOS Solution</strong>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add to PATH temporarily</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"</span><span class="va">$HOME</span><span class="st">/miniconda3/bin:</span><span class="va">$PATH</span><span class="st">"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add to PATH permanently</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'export PATH="$HOME/miniconda3/bin:$PATH"'</span> <span class="op">&gt;&gt;</span> ~/.bash_profile</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.bash_profile</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># For zsh users (macOS Catalina and later)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'export PATH="$HOME/miniconda3/bin:$PATH"'</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.zshrc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="issue-2-environment-creation-fails" class="level3">
+<h3 class="anchored" data-anchor-id="issue-2-environment-creation-fails">Issue 2: Environment Creation Fails</h3>
+<p><strong>Common causes and solutions:</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution 1: Clean conda cache</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> clean <span class="at">--all</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution 2: Update conda first</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update conda</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution 3: Try creating environment with explicit solver</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml <span class="at">--solver</span><span class="op">=</span>classic</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution 4: Check internet connection and try again</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Large downloads may timeout on slow connections</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="issue-3-different-python-versions" class="level3">
+<h3 class="anchored" data-anchor-id="issue-3-different-python-versions">Issue 3: Different Python Versions</h3>
+<p><strong>All students must have Python 3.10 for consistency.</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check your Python version</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">--version</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If incorrect, remove environment and recreate</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">--name</span> maggeo</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="issue-4-package-conflicts-during-installation" class="level3">
+<h3 class="anchored" data-anchor-id="issue-4-package-conflicts-during-installation">Issue 4: Package Conflicts During Installation</h3>
+<p><strong>This indicates environment file issues:</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution: Use mamba for faster, more reliable solving</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install mamba <span class="at">-n</span> base <span class="at">-c</span> conda-forge</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> env create <span class="at">-f</span> environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="issue-5-jupyter-lab-wont-start" class="level3">
+<h3 class="anchored" data-anchor-id="issue-5-jupyter-lab-wont-start">Issue 5: Jupyter Lab Won’t Start</h3>
+<p><strong>Consistency check:</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure environment is activated</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate maggeo</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify Jupyter installation</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> <span class="at">--version</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># If missing, reinstall</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install jupyter jupyterlab <span class="at">-c</span> conda-forge</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Start Jupyter Lab</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> lab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="issue-6-import-errors-despite-successful-installation" class="level3">
+<h3 class="anchored" data-anchor-id="issue-6-import-errors-despite-successful-installation">Issue 6: Import Errors Despite Successful Installation</h3>
+<p><strong>Environment activation problem:</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Always activate environment first</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate maggeo</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check which Python you're using</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> python     <span class="co"># macOS/Linux</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ex">where</span> python     <span class="co"># Windows</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Should show path to conda environment, not system Python</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="emergency-reinstallation" class="level3">
+<h3 class="anchored" data-anchor-id="emergency-reinstallation">Emergency Reinstallation</h3>
+<p><strong>If all else fails, sometimes it is better and quicker run a complete clean installation:</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove environment</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">--name</span> maggeo</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean all caches</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> clean <span class="at">--all</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Recreate environment</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="additional-resources" class="level1">
+<h1>Additional Resources</h1>
+<p>Use the following instructions as a guide for extra resources and better familiarity with working with Python. In case you want to manage your python environment, and get extra learning resources.</p>
+<section id="environment-management" class="level3">
+<h3 class="anchored" data-anchor-id="environment-management">Environment Management - Useful Commands</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List all environments</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Activate environment</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate maggeo</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Deactivate environment</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Update all packages in environment</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> update <span class="at">--all</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Install additional package</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install package-name</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove environment</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">--name</span> maggeo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="updating-the-environment" class="level3">
+<h3 class="anchored" data-anchor-id="updating-the-environment">Updating the Environment</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Update environment from file</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env update <span class="at">-f</span> environment.yml <span class="at">--prune</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exporting-your-environment" class="level3">
+<h3 class="anchored" data-anchor-id="exporting-your-environment">Exporting Your Environment</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Export current environment</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env export <span class="op">&gt;</span> my-environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -906,11 +1068,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./ParallelMode.html" class="pagination-link" aria-label="MagGeo - Parallel Mode">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">MagGeo - Parallel Mode</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="About MagGeo">
-        <span class="nav-page-text">About MagGeo</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Fernando Benitez-Paez">
 <meta name="dcterms.date" content="2025-08-12">
 
-<title>MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
+<title>How MagGeo Works – MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./SequentialMode.html" rel="next">
+<link href="./calculation_mag_components.html" rel="prev">
 <link href=".//images/path1806.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -292,7 +292,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">What’s MagGeo</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">The science behind</a></li><li class="breadcrumb-item"><a href="./how_does_it_works.html">How MagGeo Works</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -306,7 +306,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">What’s MagGeo</span></a>
   </div>
 </li>
@@ -374,7 +374,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./how_does_it_works.html" class="sidebar-item-text sidebar-link">
+  <a href="./how_does_it_works.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">How MagGeo Works</span></a>
   </div>
 </li>
@@ -419,8 +419,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#whats-maggeo" id="toc-whats-maggeo" class="nav-link active" data-scroll-target="#whats-maggeo">What’s MagGeo</a></li>
-  <li><a href="#suggestions" id="toc-suggestions" class="nav-link" data-scroll-target="#suggestions">Suggestions?</a></li>
+  <li><a href="#interpolation-st-idw-and-annotation-process" id="toc-interpolation-st-idw-and-annotation-process" class="nav-link active" data-scroll-target="#interpolation-st-idw-and-annotation-process">Interpolation (ST-IDW) and Annotation Process</a></li>
   </ul>
 </nav>
     </div>
@@ -428,22 +427,15 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">The science behind</a></li><li class="breadcrumb-item"><a href="./how_does_it_works.html">How MagGeo Works</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</h1>
-<p class="subtitle lead">Data-fusion tool to combine geo-magnetic data with GPS trajectories</p>
+<h1 class="title">How MagGeo Works</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Fernando Benitez-Paez </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -460,33 +452,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="whats-maggeo" class="level1 unnumbered">
-<h1 class="unnumbered">What’s MagGeo</h1>
-<p><img src="./images/GitHubImage2.png"></p>
-<p>MagGeo is a tool that helps ecologists or animal movement researchers to link earth’s magnetic field data from satellite source to GPS trajectories. Inspired by the Environmental Data Automated Track Annotation System (Env-DATA) Service a tool from Movebank and help researcher to get a better understanding about the geomagnetic variations across the GPS trajectories.</p>
-<p>MagGeo is entirely built-in python and includes a two Jupyter Notebooks that offer two ways to link GPS tracks with the geomagnetic components using the data from one of the up-to-date satellite sources - Swarm Constellation. MagGeo will create an enriched GPS track with the following components:</p>
-<ul>
-<li><strong>Latitude</strong> from the GPS Track.</li>
-<li><strong>Longitude</strong> from the GPS Track.</li>
-<li><strong>Timestamp</strong> from the GPS Track.</li>
-<li><strong>Magnetic Field Intensity</strong> mapped as Fgps in nanoTeslas (nT).</li>
-<li><strong>N (Northwards) component</strong> mapped as N in nanoTeslas (nT).</li>
-<li><strong>E (Eastwards) component</strong> mapped as E. in nanoteslas (nT).</li>
-<li><strong>C (Downwards or Center)</strong> component mapped as C in nanoTeslas (nT).</li>
-<li><strong>Horizontal component</strong> mapped as H in nanoTeslas (nT).</li>
-<li><strong>Magnetic Declination or dip angle</strong> mapped as D in degrees</li>
-<li><strong>Magnetic Inclination</strong> mapped as I in degrees</li>
-<li><strong>Kp Index</strong> mapped as kp</li>
-<li><strong>Total Points</strong> as the amount of Swarm measures included in the ST-IDW process from the trajectories requested in the three satellites.</li>
-<li><strong>Minimum Distance</strong> mapped as MinDist, representing the minimum distance amount the set of identified point inside the Space Time cylinder and each GPS point location.</li>
-<li><strong>Average Distance</strong> mapped as AvDist, representing the average distance amount the set of distances between the identified Swarm Point in the Space Time cylinder and the GPS Points location.</li>
-</ul>
-<p>Researchers, particularly ecologists now can study the annotated table to analyze the geomagnetic Spatio-temporal variation across any GPS trajectory.</p>
-</section>
-<section id="suggestions" class="level1">
-<h1>Suggestions?</h1>
-<p><strong>MagGeo</strong> is work in progress and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general inquiries, scientific concepts, suggestions please email: <a href="mailto:Fernando.Benitez@st-andrews.ac.uk">Fernando.Benitez@st-andrews.ac.uk</a>, <a href="mailto:ud2@st-andrews.ac.uk">ud2@st-andrews.ac.uk</a>, <a href="mailto:jed.long@uwo.ca">jed.long@uwo.ca</a></p>
-<p>For <strong>errors</strong>, or <strong>improvements</strong> please submit an <a href="https://github.com/MagGeo/MagGeo/issues">issue</a> in this repo, describing the problem.</p>
+<p>MagGeo is a tool that contains a set of python functions to carry out a data manipulation and mathematical processes to transform the data from Swarm Constellation,include the modelled values from CHAOS model ( last version in December 2019) and annotate the interpolated values into every GPS point in a given GPS trajectory.</p>
+<p>The following process is a set of three steps, <strong>1. Get the Swarm data</strong>, particularly the magnetic residuals in the NEC components. <strong>2. Run the Spatio-temporal kernel</strong> where the script will filter the Swarm data based on our spatial-temporal cylinder, to interpolate the magnetic components in the NEC frame for the given GPS track. Finally using the enriched GPS track, the final step will be the <strong>3. Calculation of Magnetic Components</strong> which use the CHAOS model to compute the magnetic components at the ground level. With the interpolated magnetic values corrected by the ionospheric contribution. The script will compute the other magnetic components including F (magnetic intensity), H (Horizontal component), Declination and Inclination. For detailed information of this process go to the Main Notebook.</p>
+<img src="./images/Workflow21042021.png" width="800">
+<section id="interpolation-st-idw-and-annotation-process" class="level2">
+<h2 class="anchored" data-anchor-id="interpolation-st-idw-and-annotation-process">Interpolation (ST-IDW) and Annotation Process</h2>
+<p>Once we have requested the data we need for each point in the GPS Track and considering we have gathered the available data from the three satellites for one day ( <em>24 hours, every 60 seconds around 1440 Swarm measures per satellite</em>). Now we need to <code>filter</code> in space and time the available points to compute the magnetic values for each GPS point in its particular date and time. Therefore, before running the interpolation process we set <strong>four</strong> functions that will require the <em>latitude</em> and <em>longitude</em> and the <em>epoch</em> time of each GPS point to filter the Swarm points into what we called <strong>Space-Time Cylinder</strong>. The following picture can provide a better explanation about how the points inside the space-time cylinder are included or excluded. <strong>Figure I</strong>, shows how the R of the Space-Time cylinder is based on the GPS point latitude. <strong>Figure II</strong>, illustrate the geometric components behind the space-time cylinder where the points are filtered and included in the interpolation process. Figure B, will help you to understand how the following functions compute the required parameters <strong>Figure III</strong> shows the idea behind the interpolation process for each GPS point, requesting and processing the available Swarm measures by the three satellites. For more information about the time-space windows please read the full paper where we explain the details of it.</p>
+<p><img src="./images/ST-IDWGitHub.png" width="800"></p>
+<div class="alert alert-info" role="alert">
+<p><strong>📘 SwarmMagAnnotation function:</strong></p>
+<p>Working as the main function for the annotation process, this functions meets the previous functions running the space-time window filters, and the computing the <code>ST- IDW process</code>. This function will run a interpolation process for each GPS Point considering only the Swarm points inside the Space-Time cylinder computed by the four previous functions. The return value will be an array with the values the annotated magnetic values for the GPS point. The function will be executed inside a loop going through the GPS track. This function is the annotation process per se, and through this process at first we run the interpolation getting the magnetic values in NEC reference frame and then we compute the extra magnetic values that are useful to get a better understating of the earth’s magnetic field at this particular location, date and time.</p>
+</div>
+<p>Therefore, before running the interpolation process we set <strong>four</strong> functions that will require the <em>latitude</em> and <em>longitude</em> and the <em>epoch</em> time of each GPS point to filter the Swarm points into what we called <strong>Space-Time Cylinder</strong>. The following picture can provide a better explanation about how the points inside the space-time cylinder are included or excluded. <strong>Figure I</strong>, shows how the R of the Space-Time cylinder is based on the GPS point latitude. <strong>Figure II</strong>, illustrate the geometric components behind the space-time cylinder where the points are filtered and included in the interpolation process. Figure B, will help you to understand how the following functions compute the required parameters <strong>Figure III</strong> shows the idea behind the interpolation process for each GPS point, requesting and processing the available Swarm measures by the three satellites. For more information about the time-space windows please read the full paper where we explain the details of it.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>📘 Auxiliary Functions:The function ST_IDW_Process includes 4 auxiliary functions to run the spatial-temporal kernel</strong></p>
+<ol>
+<li>
+<strong>distance_to_GPS</strong> function: Is the function in charge to calculate the distance between each GPS Point and the Swarm Point.
+</li>
+<li>
+<strong>Kradius</strong> function: Is the function in charge to compute the R (radius) value in the cylinder. The R value will be considered based on the latitude of each GPS Point.
+</li>
+<li>
+<strong>DistJ</strong> function: This function will calculate the <code>d</code> value as the hypotenuse created in the triangle created amount the locations of the GPS point, the location of the Swarm points and the radius value.
+</li>
+<li>
+<strong>DfTime_func</strong> function: This is a time function to selected the points in the range of a the DeltaTime - <code>DT</code> window. The Delta time window has been set as 4 hours for each satellite trajectory.
+</li>
+</ol>
+</div>
+</div>
 
 
 </section>
@@ -906,10 +910,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./calculation_mag_components.html" class="pagination-link" aria-label="Calculation of Magnetic Components">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Calculation of Magnetic Components</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="About MagGeo">
-        <span class="nav-page-text">About MagGeo</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./SequentialMode.html" class="pagination-link" aria-label="MagGeo - Sequential Mode">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">MagGeo - Sequential Mode</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Fernando Benitez-Paez">
 <meta name="dcterms.date" content="2025-08-12">
 
-<title>MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
+<title>Data requirements – MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./background.html" rel="next">
+<link href="./using_maggeo.html" rel="prev">
 <link href=".//images/path1806.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -292,7 +292,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">What’s MagGeo</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./installation.html">How to use it</a></li><li class="breadcrumb-item"><a href="./data_requirements.html">Data requirements</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -306,7 +306,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">What’s MagGeo</span></a>
   </div>
 </li>
@@ -339,7 +339,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_requirements.html" class="sidebar-item-text sidebar-link">
+  <a href="./data_requirements.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Data requirements</span></a>
   </div>
 </li>
@@ -419,8 +419,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#whats-maggeo" id="toc-whats-maggeo" class="nav-link active" data-scroll-target="#whats-maggeo">What’s MagGeo</a></li>
-  <li><a href="#suggestions" id="toc-suggestions" class="nav-link" data-scroll-target="#suggestions">Suggestions?</a></li>
+  <li><a href="#dataset-used-as-use-case" id="toc-dataset-used-as-use-case" class="nav-link active" data-scroll-target="#dataset-used-as-use-case">Dataset used as use-case</a></li>
   </ul>
 </nav>
     </div>
@@ -428,22 +427,15 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./installation.html">How to use it</a></li><li class="breadcrumb-item"><a href="./data_requirements.html">Data requirements</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</h1>
-<p class="subtitle lead">Data-fusion tool to combine geo-magnetic data with GPS trajectories</p>
+<h1 class="title">Data requirements</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Fernando Benitez-Paez </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -460,33 +452,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="whats-maggeo" class="level1 unnumbered">
-<h1 class="unnumbered">What’s MagGeo</h1>
-<p><img src="./images/GitHubImage2.png"></p>
-<p>MagGeo is a tool that helps ecologists or animal movement researchers to link earth’s magnetic field data from satellite source to GPS trajectories. Inspired by the Environmental Data Automated Track Annotation System (Env-DATA) Service a tool from Movebank and help researcher to get a better understanding about the geomagnetic variations across the GPS trajectories.</p>
-<p>MagGeo is entirely built-in python and includes a two Jupyter Notebooks that offer two ways to link GPS tracks with the geomagnetic components using the data from one of the up-to-date satellite sources - Swarm Constellation. MagGeo will create an enriched GPS track with the following components:</p>
-<ul>
-<li><strong>Latitude</strong> from the GPS Track.</li>
-<li><strong>Longitude</strong> from the GPS Track.</li>
-<li><strong>Timestamp</strong> from the GPS Track.</li>
-<li><strong>Magnetic Field Intensity</strong> mapped as Fgps in nanoTeslas (nT).</li>
-<li><strong>N (Northwards) component</strong> mapped as N in nanoTeslas (nT).</li>
-<li><strong>E (Eastwards) component</strong> mapped as E. in nanoteslas (nT).</li>
-<li><strong>C (Downwards or Center)</strong> component mapped as C in nanoTeslas (nT).</li>
-<li><strong>Horizontal component</strong> mapped as H in nanoTeslas (nT).</li>
-<li><strong>Magnetic Declination or dip angle</strong> mapped as D in degrees</li>
-<li><strong>Magnetic Inclination</strong> mapped as I in degrees</li>
-<li><strong>Kp Index</strong> mapped as kp</li>
-<li><strong>Total Points</strong> as the amount of Swarm measures included in the ST-IDW process from the trajectories requested in the three satellites.</li>
-<li><strong>Minimum Distance</strong> mapped as MinDist, representing the minimum distance amount the set of identified point inside the Space Time cylinder and each GPS point location.</li>
-<li><strong>Average Distance</strong> mapped as AvDist, representing the average distance amount the set of distances between the identified Swarm Point in the Space Time cylinder and the GPS Points location.</li>
-</ul>
-<p>Researchers, particularly ecologists now can study the annotated table to analyze the geomagnetic Spatio-temporal variation across any GPS trajectory.</p>
-</section>
-<section id="suggestions" class="level1">
-<h1>Suggestions?</h1>
-<p><strong>MagGeo</strong> is work in progress and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general inquiries, scientific concepts, suggestions please email: <a href="mailto:Fernando.Benitez@st-andrews.ac.uk">Fernando.Benitez@st-andrews.ac.uk</a>, <a href="mailto:ud2@st-andrews.ac.uk">ud2@st-andrews.ac.uk</a>, <a href="mailto:jed.long@uwo.ca">jed.long@uwo.ca</a></p>
-<p>For <strong>errors</strong>, or <strong>improvements</strong> please submit an <a href="https://github.com/MagGeo/MagGeo/issues">issue</a> in this repo, describing the problem.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>🔎 Your trajectory must be in a csv format:</p>
+<p>There are three columns that must be included in your GPS trajectory. Make sure your GPS trajectory includes <strong>Latitude</strong> , <strong>Longitude</strong> and <strong>timestamp</strong>. We suggest that the Timestamp column follow the day/month/year Hour:Minute (<strong>dd/mm/yyyy HH:MM:SS</strong>) format, Latitude and Longitude should be in decimal degrees (WGS84). If you have a <strong>altitude</strong> attribute, make sure that the units are in kilometers. Other columns will be ignored. Here it is an example of how your GPS track should looks like.</p>
+<p><img src="./images/TableExample.png"></p>
+<p>For this example we are reading the <strong>BirdGPSTrajectory.csv</strong> file. If you want to run the method using your own csv file, make sure you store your the file in the <code>/data</code> folder. For more information about the dataset we used in this example go to the Main Notebook.</p>
+</div>
+</div>
+<section id="dataset-used-as-use-case" class="level1">
+<h1>Dataset used as use-case</h1>
+<p>MagGeo comes with a dataset for the use case you see in the notebook outputs. This dataset comes from the MoveBank Data Repository (https://www.datarepository.movebank.org/)[1][2].</p>
+<p>We annotated tracking data of greater white-fronted geese (Anser albifrons), which migrate between northern Germany and the Russian Arctic. We annotated data for fifteen individuals in a single autumn migration (42 days) a total of 973 GPS location.</p>
+<p>[1] Kölzsch A, Müskens GJDM, Kruckenberg H, Glazov P, Weinzierl R, Nolet BA, Wikelski M (2016) Towards a new understanding of migration timing: slower spring than autumn migration in geese reflects different decision rules for stopover use and departure. Oikos. doi:10.1111/oik.03121</p>
+<p>[2] Kölzsch A, Kruckenberg H, Glazov P, Müskens GJDM, Wikelski M (2016) Data from: Towards a new understanding of migration timing: slower spring than autumn migration in geese reflects different decision rules for stopover use and departure. Movebank Data Repository. doi:10.5441/001/1.31c2v92f</p>
 
 
 </section>
@@ -906,10 +893,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./using_maggeo.html" class="pagination-link" aria-label="Run MagGeo using the sample data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Run MagGeo using the sample data</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="About MagGeo">
-        <span class="nav-page-text">About MagGeo</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./background.html" class="pagination-link" aria-label="Key Concepts">
+        <span class="nav-page-text">Key Concepts</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

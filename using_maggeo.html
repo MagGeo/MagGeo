@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Fernando Benitez-Paez">
 <meta name="dcterms.date" content="2025-08-12">
 
-<title>MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
+<title>Run MagGeo using the sample data – MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./data_requirements.html" rel="next">
+<link href="./installation.html" rel="prev">
 <link href=".//images/path1806.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -292,7 +292,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">What’s MagGeo</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./installation.html">How to use it</a></li><li class="breadcrumb-item"><a href="./using_maggeo.html">Run MagGeo using the sample data</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -306,7 +306,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">What’s MagGeo</span></a>
   </div>
 </li>
@@ -333,7 +333,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./using_maggeo.html" class="sidebar-item-text sidebar-link">
+  <a href="./using_maggeo.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Run MagGeo using the sample data</span></a>
   </div>
 </li>
@@ -419,8 +419,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#whats-maggeo" id="toc-whats-maggeo" class="nav-link active" data-scroll-target="#whats-maggeo">What’s MagGeo</a></li>
-  <li><a href="#suggestions" id="toc-suggestions" class="nav-link" data-scroll-target="#suggestions">Suggestions?</a></li>
+  <li><a href="#run-maggeo-using-your-data." id="toc-run-maggeo-using-your-data." class="nav-link active" data-scroll-target="#run-maggeo-using-your-data.">Run MagGeo using your data.</a></li>
+  <li><a href="#run-maggeo-step-by-step-using-jupyter-notebook." id="toc-run-maggeo-step-by-step-using-jupyter-notebook." class="nav-link" data-scroll-target="#run-maggeo-step-by-step-using-jupyter-notebook.">Run MagGeo step by step, using Jupyter Notebook.</a></li>
   </ul>
 </nav>
     </div>
@@ -428,22 +428,15 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./installation.html">How to use it</a></li><li class="breadcrumb-item"><a href="./using_maggeo.html">Run MagGeo using the sample data</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">MagGeo - Annotate geo-magnetic satellite data with GPS trajectories</h1>
-<p class="subtitle lead">Data-fusion tool to combine geo-magnetic data with GPS trajectories</p>
+<h1 class="title">Run MagGeo using the sample data</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Fernando Benitez-Paez </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -460,33 +453,46 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="whats-maggeo" class="level1 unnumbered">
-<h1 class="unnumbered">What’s MagGeo</h1>
-<p><img src="./images/GitHubImage2.png"></p>
-<p>MagGeo is a tool that helps ecologists or animal movement researchers to link earth’s magnetic field data from satellite source to GPS trajectories. Inspired by the Environmental Data Automated Track Annotation System (Env-DATA) Service a tool from Movebank and help researcher to get a better understanding about the geomagnetic variations across the GPS trajectories.</p>
-<p>MagGeo is entirely built-in python and includes a two Jupyter Notebooks that offer two ways to link GPS tracks with the geomagnetic components using the data from one of the up-to-date satellite sources - Swarm Constellation. MagGeo will create an enriched GPS track with the following components:</p>
+<p>MagGeo can be executed using the same terminal you have been using in the previous steps. If you want to get familiar with MagGeo and get an annotated GPS trajectory using the data we have included as an example (data folder), run the following command (replace your virES token where is requiered):</p>
+<pre><code>python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE</code></pre>
+<p>Now MagGeo will start to download the Swarm Data.</p>
+<p><img src="./images/poetry_data.png" class="img-fluid"></p>
+<p>Once the data has been downloaded, MagGeo will process it to make the annotation process ( for more information about how this is done, visit <a href="https://movementecologyjournal.biomedcentral.com/track/pdf/10.1186/s40462-021-00268-4.pdf">our methodological paper in Movement Ecology</a>)</p>
+<p>The last step MagGeo does is annotating the gathered data, that would take more time depending how big is your dataset. In our example it only takes 4 seconds.</p>
+<p><img src="./images/poetry_annotate.png" class="img-fluid"></p>
+<p>And <strong>Congrats</strong> <strong>you got annotated data</strong>. The results will be stored in the folder results for your futher analysis. You will find a .csv file named like <strong>GeoMagResult_+name_of_your_csv_file_trajectory.</strong></p>
+<section id="run-maggeo-using-your-data." class="level1">
+<h1>Run MagGeo using your data.</h1>
+<p>If you are ready to annotate your GPS trajectories. You need to update the parameters file in MagGeo to let the program know what are the correct values of your data.</p>
 <ul>
-<li><strong>Latitude</strong> from the GPS Track.</li>
-<li><strong>Longitude</strong> from the GPS Track.</li>
-<li><strong>Timestamp</strong> from the GPS Track.</li>
-<li><strong>Magnetic Field Intensity</strong> mapped as Fgps in nanoTeslas (nT).</li>
-<li><strong>N (Northwards) component</strong> mapped as N in nanoTeslas (nT).</li>
-<li><strong>E (Eastwards) component</strong> mapped as E. in nanoteslas (nT).</li>
-<li><strong>C (Downwards or Center)</strong> component mapped as C in nanoTeslas (nT).</li>
-<li><strong>Horizontal component</strong> mapped as H in nanoTeslas (nT).</li>
-<li><strong>Magnetic Declination or dip angle</strong> mapped as D in degrees</li>
-<li><strong>Magnetic Inclination</strong> mapped as I in degrees</li>
-<li><strong>Kp Index</strong> mapped as kp</li>
-<li><strong>Total Points</strong> as the amount of Swarm measures included in the ST-IDW process from the trajectories requested in the three satellites.</li>
-<li><strong>Minimum Distance</strong> mapped as MinDist, representing the minimum distance amount the set of identified point inside the Space Time cylinder and each GPS point location.</li>
-<li><strong>Average Distance</strong> mapped as AvDist, representing the average distance amount the set of distances between the identified Swarm Point in the Space Time cylinder and the GPS Points location.</li>
+<li>Copy the csv file with your trajectories into the data folder.</li>
+<li>Open and Update the following parameters in the file <code>default.yml</code> located in parameters folder:</li>
+<li><code>gpsfilename: "name_of_your_trajectory.cvs"</code> Include the name of your Input data. The GPS trajectory you need to annotate with the geomagnetic satellite data.</li>
+<li><code>Lat: "latitude_column_name_in_your_trajectory"</code></li>
+<li><code>Long: "longitude_column_name_in_your_trajectory"</code></li>
+<li><code>DateTime: "Date_Time_column_name_in_your_trajectory"</code> make sure you have one column that includes Date and Time values together.</li>
+<li><code>altitude: "altitude_column_name_in_your_trajectory"</code> if you do not have any altitute column, you can leave that in blank, including only <code>""</code></li>
 </ul>
-<p>Researchers, particularly ecologists now can study the annotated table to analyze the geomagnetic Spatio-temporal variation across any GPS trajectory.</p>
+<p>Save your changes, return to the Terminal and run:</p>
+<pre><code>python MagGeo_main.py -p parameters/default.yml --token YOUR_TOKEN_HERE</code></pre>
 </section>
-<section id="suggestions" class="level1">
-<h1>Suggestions?</h1>
-<p><strong>MagGeo</strong> is work in progress and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general inquiries, scientific concepts, suggestions please email: <a href="mailto:Fernando.Benitez@st-andrews.ac.uk">Fernando.Benitez@st-andrews.ac.uk</a>, <a href="mailto:ud2@st-andrews.ac.uk">ud2@st-andrews.ac.uk</a>, <a href="mailto:jed.long@uwo.ca">jed.long@uwo.ca</a></p>
-<p>For <strong>errors</strong>, or <strong>improvements</strong> please submit an <a href="https://github.com/MagGeo/MagGeo/issues">issue</a> in this repo, describing the problem.</p>
+<section id="run-maggeo-step-by-step-using-jupyter-notebook." class="level1">
+<h1>Run MagGeo step by step, using Jupyter Notebook.</h1>
+<p>MagGeo includes a set of Jupyter Notebooks, you will find four notebooks (.ipynp) in the Notebooks folder.</p>
+<blockquote class="blockquote">
+<p>In a Terminal, make sure you are using <code>MagGeoEnv</code> environment, and run:</p>
+</blockquote>
+<pre><code>jupyter notebook</code></pre>
+<p>A Jupyter Notebook dashboard will comes out in your browser locally (e.g.&nbsp;http://localhost:8888) then you can explore MagGeo and its content. Go to Notebooks folder and open any of the following notebook for a step by step process. You can add cells to make your own test or analysis, but be aware that any change you do at the code migth affects the correct performance of the program.</p>
+<p><img src="./images/JupyterDashboard.png" class="img-fluid"></p>
+<ul>
+<li><a href="https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/Notebooks/MagGeo%20-%20Home.ipynb">Main Notebook</a> : An initial and descriptive notebook where you can get detail information about MagGeo, the sample data used, background concepts and software requirements.</li>
+<li><a href="https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/Notebooks/MagGeo%20-%20Sequential%20Mode.ipynb">Sequential Mode</a>: Annotation Notebook applying a sequential mode. Using a traditional loop to going through the GPS track rows and process every row computing the magnetic components. Particularly useful for small datasets.</li>
+<li><a href="https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/Notebooks/MagGeo%20-%20Parallel%20Mode.ipynb">Parallel Mode</a>: If you have a “big” dataset ( e.g.&nbsp;1 million of records) you might want try the parallel mode. The parallel mode has some differences when you run the required libraries in a windows or Linux environment. We have tested <strong>MagGeo</strong> in a windows server environment.</li>
+<li><a href="https://github.com/MagGeo/MagGeo-Annotation-Program/blob/master/Notebooks/Notebook%20-%20Basics.ipynb">Notebook basics</a>: If you are not familiar with Jupiter Notebooks and want to learn about the basics over how to run the notebooks before try the annotate tool. You can try this notebook to get the basics elements to run cells, read data, and plot some a basic chart.</li>
+</ul>
+<p>The following image will help you to understand how the sequential and parallel mode differ, and how in parallel mode you should be able to use the full capacity of your machine. However it is quite important to identify when we need to use a parallel mode. For small datasets running <strong>MagGeo</strong> in Parallel mode could be even slower than the sequential mode.</p>
+<p><img src="./images/Sequential_ParallelMode-Jupyter.png"></p>
 
 
 </section>
@@ -906,10 +912,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./installation.html" class="pagination-link" aria-label="Installing MagGeo">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Installing MagGeo</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="About MagGeo">
-        <span class="nav-page-text">About MagGeo</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./data_requirements.html" class="pagination-link" aria-label="Data requirements">
+        <span class="nav-page-text">Data requirements</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
