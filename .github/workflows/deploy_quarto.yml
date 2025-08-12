@@ -31,6 +31,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install jupyter matplotlib pandas numpy
 
+    - name: Install TinyTeX
+      run: |
+        quarto install tinytex
+
     - name: Render Quarto project
       run: |
         cd docs
