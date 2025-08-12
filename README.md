@@ -1,3 +1,7 @@
+# THIS IS THE OLD VERSION OF MagGeo
+# For the new version of MagGeo check the main repository.
+
+
 # MagGeo: Data fusion tool to combine Earth's magnetic data from Swarm satellites with GPS trajectories
 
 [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.4543735.svg)](https://zenodo.org/badge/latestdoi/289120794)
