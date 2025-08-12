@@ -2,7 +2,7 @@ name: Deploy MkDocs API Site
 
 on:
   push:
-    branches: [ main, refactor_maggeo ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 

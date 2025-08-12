@@ -2,7 +2,7 @@ name: Deploy Quarto MagGeo site
 
 on:
   push:
-    branches: [main, refactor_maggeo]
+    branches: [main]
   pull_request:
     branches: [main]
 
