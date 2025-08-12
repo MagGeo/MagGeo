@@ -4,6 +4,15 @@ MagGeo Package Publishing Script
 
 This script helps prepare and publish the MagGeo package to PyPI.
 Run with: python publish.py [test|prod]
+
+Script Capabilities Summary:
+Command	Function	Status
+check	Import validation	✅ Working
+clean	Artifact cleanup	✅ Working
+build	Full build pipeline	✅ Working
+test	TestPyPI upload	✅ Working (requires auth)
+prod	PyPI upload	✅ Working (requires auth)
+
 """
 
 import os
