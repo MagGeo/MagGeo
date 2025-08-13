@@ -7,6 +7,8 @@
 
 **MagGeo** is a Python package to annotate GPS trajectories with geomagnetic data from ESA's Swarm satellite constellation. This tool enables researchers to annotate animal movement data with Earth's magnetic field measurements for animal movement analytics research.
 
+**Citation** | Benitez-Paez, F., Brum-Bastos, V.d., Beggan, C.D. et al. Fusion of wildlife tracking and satellite geomagnetic data for the study of animal migration. Mov Ecol 9, 31 (2021). https://doi.org/10.1186/s40462-021-00268-4
+
 ## Key Features
 
 - **GPS Trajectory Annotation**: Enrich GPS tracks with geomagnetic field components (N, E, C, H, D, I, F) and optionally witih indices (Kp, AE, SME)
@@ -19,7 +21,7 @@
 
 ## Documentation
 
-- **Full Documentation**: [MagGeo.github.io/MagGeo](https://MagGeo.github.io/MagGeo) *(available after publication)*
+- **Full Documentation**: [MagGeo.github.io/MagGeo](https://MagGeo.github.io/MagGeo)
 - **Quick Start Guide**: [Getting Started](https://MagGeo.github.io/MagGeo/getting-started/quickstart/)
 - **API Reference**: [API Documentation](https://MagGeo.github.io/MagGeo/api/)
 - **Examples**: [Usage Examples](https://MagGeo.github.io/MagGeo/examples/)
