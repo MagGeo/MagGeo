@@ -45,9 +45,6 @@ MagGeo provides a comprehensive API for geomagnetic field analysis and GPS traje
 
 | Module | Description |
 |--------|-------------|
-| [`interpolation`](interpolation.md) | Interpolation methods and utilities |
-| [`chaos`](chaos.md) | CHAOS geomagnetic model integration |
-| [`date_utils`](date_utils.md) | Date and time handling utilities |
 | [`parallel_processing`](parallel_processing.md) | Parallel processing utilities |
 | [`indices`](indices.md) | Geomagnetic indices and calculations |
 

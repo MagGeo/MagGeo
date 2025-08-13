@@ -385,7 +385,7 @@ except Exception as e:
 
 ## Next Steps
 
-- **Advanced Features**: See [SwarmDataManager Guide](swarm-data-manager.md) for persistent storage
-- **Performance**: Check [Parallel Processing Guide](parallel-processing.md) for large datasets
+- **Advanced Features**: See [SwarmDataManager Guide](../api/swarm_data_manager.md) for persistent storage
+- **Performance**: Check [Parallel Processing Guide](../api/parallel_processing.md) for large datasets
 - **Examples**: View [Basic Examples](../examples/basic.md) for practical use cases
 - **API Reference**: Consult [Core Functions](../api/core.md) for detailed documentation

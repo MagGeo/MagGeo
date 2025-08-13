@@ -72,7 +72,9 @@ These magnetic anomalies can range from subtle variations of a few nanoTesla to 
 
 The regular daily variations, known as Sq (solar quiet) currents, result from the regular heating of the ionosphere by solar radiation, which creates predictable current systems that vary with local time and season. These regular variations typically amount to 20-30 nanoTesla at mid-latitudes but can be significantly larger at high latitudes near the magnetic poles.
 
-![](images/paste-2.png)*Figure 1 showing magnetic field components and coordinate system, NOOA,* <https://www.ncei.noaa.gov/news/HDGM>
+Irregular disturbances, known as geomagnetic storms, occur during periods of enhanced solar activity when the solar wind interacts strongly with Earth's magnetosphere. These storms can create rapid, large-magnitude magnetic field changes that exceed 1000 nanoTesla in polar regions and 250 nanoTesla at mid-latitudes. The temporal characteristics of these disturbances are particularly relevant for animal navigation, as they can create rapid alterations in the magnetic environment that animals experience.
+
+![](../images/paste-2.png)*Figure 1 showing magnetic field components and coordinate system, NOOA,* <https://www.ncei.noaa.gov/news/HDGM>
 
 ### Magnetic Field Measurements and Coordinate Systems
 
@@ -108,7 +110,7 @@ This relationship between inclination and magnetic latitude has led researchers 
 
 In some regions, declination changes very gradually over large distances, while in other areas it can change by several degrees over distances of hundreds of kilometers. These declination patterns create distinctive regional magnetic signatures that could potentially serve as magnetic landmarks for animal navigation systems.
 
-![](./images/MagneticComponents-Jupyter.png){style="width:500px;height:400px;float: left; margin-right: 2em;margin-bottom: 1em;"}
+![](../images/MagneticComponents-Jupyter.png)*Figure 2 showing magnetic field components and coordinate system, Jupyter Notebook*
 
 ### Temporal Variations
 

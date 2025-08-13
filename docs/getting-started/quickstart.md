@@ -113,18 +113,12 @@ params['parallel'] = True
 params['n_cores'] = 4  # Use 4 CPU cores
 result = maggeo.annotate_gps_with_geomag(params)
 ```
+## 6. Documentation and Help
+For more details, check the [MagGeo Documentation](https://maggeo.github.io/MagGeo/).
 
-## What's Next?
-
-!!! tip "Continue Learning"
-
-    - **[User Guide](../user-guide/basic-usage.md)**: Comprehensive documentation
-    - **[API Reference](../api/index.md)**: Detailed function documentation  
-    - **[Examples](../examples/basic.md)**: Real-world use cases
-    - **[SwarmDataManager Guide](../user-guide/swarm-data-manager.md)**: Master the data management features
-
-## Need Help?
-
-- Check the [troubleshooting section](installation.md#troubleshooting)
-- Browse [examples](../examples/basic.md) for common use cases
-- [Open an issue](https://github.com/fbenitez92/maggeo/issues) on GitHub
+## 7. Troubleshooting
+If you encounter issues:
+- Ensure your CSV has the correct column names
+- Check your ViRES token is valid
+- Review the logs for any errors during processing
+  
