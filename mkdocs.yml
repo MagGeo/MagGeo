@@ -40,6 +40,10 @@ theme:
 
 plugins:
   - search
+  - mkdocs-jupyter:
+      kernel_name: python3
+      execute: false
+      include_source: true
   - mkdocstrings:
       handlers:
         python:
@@ -78,6 +82,10 @@ nav:
   - Examples:
     - Basic Examples: examples/basic.md
     - Advanced Workflows: examples/advanced.md
+    - Interactive Notebooks:
+      - Overview: notebooks/index.md
+      - MagGeo Guide: notebooks/MagGeo_Guideline.ipynb
+      - Swarm Data Manager: notebooks/Swarm Data Manager Guide.md
   - About:
     - Changelog: about/changelog.md
     - Citation: about/citation.md

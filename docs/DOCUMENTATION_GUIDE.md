@@ -2,7 +2,8 @@
 
 ## Overview
 
-MagGeo now uses a simplified documentation approach with **MkDocs only**. The previous dual-system approach (Quarto + MkDocs) has been replaced with a unified MkDocs-based documentation system.
+MagGeo uses a simplified documentation approach with **MkDocs only**. 
+
 
 ## Documentation Structure
 
