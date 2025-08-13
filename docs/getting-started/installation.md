@@ -73,8 +73,3 @@ print("✅ MagGeo installed successfully!")
 !!! failure "Permission denied when writing files"
     **Solution**: Ensure you have write permissions to your data directory.
 
-## Next Steps
-
-- [Quick Start Guide](quickstart.md) - Get up and running in 5 minutes
-- [Basic Usage](../user-guide/basic-usage.md) - Learn the fundamentals
-- [Examples](../examples/basic.md) - See MagGeo in action
