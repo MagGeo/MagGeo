@@ -1,4 +1,4 @@
-name: Deploy Combined Documentation
+name: Deploy MkDocs Documentation
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  deploy-combined:
+  deploy-docs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
@@ -33,29 +33,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e ".[docs]"
 
-      - name: Setup Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          version: "1.7.32"
-          tinytex: true
-
-      - name: Render Quarto site
+      - name: Build MkDocs site
         run: |
-          cd docs
-          quarto render
-
-      - name: Build MkDocs API site
-        run: |
-          mkdocs build
-
-      - name: Combine documentation sites
-        run: |
-          mkdir -p _combined_site
-          # Copy Quarto site (main documentation)
-          cp -r docs/_book/* _combined_site/
-          # Copy MkDocs site (API documentation) to /api subdirectory
-          mkdir -p _combined_site/api
-          cp -r site/* _combined_site/api/
+          mkdocs build --strict
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -63,7 +43,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _combined_site/
+          path: site/
 
       - name: Deploy to GitHub Pages
         id: deployment

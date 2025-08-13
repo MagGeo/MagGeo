@@ -100,6 +100,6 @@ If you use MagGeo in your research, please cite:
 !!! quote "Primary Citation"
     Benitez-Paez, F., Brum-Bastos, V.d., Beggan, C.D. et al. Fusion of wildlife tracking and satellite geomagnetic data for the study of animal migration. *Mov Ecol* **9**, 31 (2021). https://doi.org/10.1186/s40462-021-00268-4
 
-[**Complete citation guide →**](about/citation/)
+[**Complete citation guide →**](./about/citation/)
 
 ---

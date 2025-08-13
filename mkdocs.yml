@@ -1,13 +1,15 @@
-site_name: MagGeo API Documentation
+site_name: MagGeo Documentation
 site_description: API Reference and User Guide for MagGeo - GPS trajectory annotation with geomagnetic data
-site_url: https://maggeo.github.io/MagGeo/api/
+site_url: https://maggeo.github.io/MagGeo/
 repo_url: https://github.com/MagGeo/MagGeo
 repo_name: MagGeo/MagGeo
-edit_uri: blob/main/api_docs/
-docs_dir: api_docs
+edit_uri: blob/main/docs/
+docs_dir: docs
 
 theme:
   name: material
+  logo: images/logo.png
+  favicon: images/logo.png
   palette:
     # Palette toggle for light mode
     - scheme: default
@@ -53,6 +55,11 @@ plugins:
 
 nav:
   - Home: index.md
+  - The Science behind:
+    - What is MagGeo: science-behind/intro.md
+    - Key Concepts: science-behind/background.md
+    - Calculation of Magnetic Components: science-behind/calculation_mag_components.md
+    - How does it work?: science-behind/how_does_it_works.md
   - Getting Started:
     - Installation: getting-started/installation.md
     - Quick Start: getting-started/quickstart.md
@@ -80,6 +87,10 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.tabbed
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
 
 extra_css:
   - stylesheets/extra.css

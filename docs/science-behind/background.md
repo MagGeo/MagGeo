@@ -1,9 +1,6 @@
----
-bibliography: references.bib
----
-# Key Concepts {.unnumbered}
+# Key Concepts
 
-## 1. Animal Navigation Fundamentals 
+## 1. Animal Navigation Fundamentals
 
 This is not a comprehensive book related to animal navigation fundamental, however there are certain concepts you might want to recall and understand that establish the foundations of what you have built **MagGeo**.
 
