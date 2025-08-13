@@ -22,23 +22,24 @@ Welcome to the **MagGeo API Documentation** - A comprehensive guide to GPS traje
     Practical examples from basic usage to advanced workflows
 
 
-### **For Researchers & Scientists**  
+### **For Researchers**  
 
-- **[Scientific Background](https://maggeo.github.io/MagGeo/)**
+- **[Scientific Background](https://maggeo.github.io/MagGeo/science-behind/intro/)**
     ---
     Research methodology, geomagnetic theory, and scientific foundation
 
-- **[Methods & Validation](https://maggeo.github.io/MagGeo/background)**
+- **[Methods](https://maggeo.github.io/MagGeo/science-behind/intro/)**
     ---
     Detailed Method and validation of MagGeo's approach to GPS annotation
-- **[How does it work](https://maggeo.github.io/MagGeo/how_does_it_works)**
+
+- **[How does it work](https://maggeo.github.io/MagGeo/science-behind/how_does_it_works/)**
     ---
     What happens under the hood? A deep dive into MagGeo's architecture and algorithms
 
-- **[Case Studies](https://maggeo.github.io/case-studies/)**
+<!-- - **[Case Studies](https://maggeo.github.io/case-studies/)**
     ---
     Use cases of MagGeo in wildlife tracking and migration studies
-
+ -->
 ## **Package Information**
 
 !!! info "Installation"
