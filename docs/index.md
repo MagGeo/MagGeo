@@ -13,28 +13,31 @@ Welcome to the **MagGeo API Documentation** - A comprehensive guide to GPS traje
     ---
     Complete function reference with examples and parameters
 
-- **[User Guide](user-guide/)**
+- **[User Guide](user-guide/basic-usage.md)**
     ---
     Comprehensive guides for all MagGeo features and workflows
 
-- **[Examples](examples/)**
+- **[Examples](examples/basic.md)**
     ---
-    Practical examples from basic usage to advanced workflows
+    Practical examples from basic usage of MagGeo to advanced parallel processing
 
 
 ### **For Researchers**  
 
 - **[Scientific Background](https://maggeo.github.io/MagGeo/science-behind/intro/)**
     ---
-    Research methodology, geomagnetic theory, and scientific foundation
-
-- **[Methods](https://maggeo.github.io/MagGeo/science-behind/intro/)**
+    Research methodology, and scientific foundation
+- **[Key Concepts](https://maggeo.github.io/MagGeo/science-behind/background/)**
     ---
-    Detailed Method and validation of MagGeo's approach to GPS annotation
+    Understanding geomagnetic data and its components
+
+- **[How to Calculate Magnetic Components](https://maggeo.github.io/MagGeo/science-behind/calculation_mag_components/)**
+    ---
+    Explanation of how MagGeo calculate the geomagnetic components to the exact location and time of the GPS trajectory
 
 - **[How does it work](https://maggeo.github.io/MagGeo/science-behind/how_does_it_works/)**
     ---
-    What happens under the hood? A deep dive into MagGeo's architecture and algorithms
+    How MagGeo processes GPS trajectories with geomagnetic data from satellite. 
 
 <!-- - **[Case Studies](https://maggeo.github.io/case-studies/)**
     ---
