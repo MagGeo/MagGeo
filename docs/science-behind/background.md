@@ -2,7 +2,7 @@
 
 ## 1. Animal Navigation Fundamentals
 
-This is not a comprehensive book related to animal navigation fundamental, however there are certain concepts you might want to recall and understand that establish the foundations of what you have built **MagGeo**.
+This is not a comprehensive book related to animal navigation, however there are certain concepts you might to understand that establish the foundations of why we have built **MagGeo**.
 
 ### True Navigation
 
