@@ -34,7 +34,7 @@
 pip install maggeo
 ```
 
-### Development Install
+### Development Install (Optional)
 
 ```bash
 # Clone the repository
@@ -45,7 +45,7 @@ cd MagGeo
 pip install -e ".[dev,docs]"
 ```
 
-### Dependencies
+### Dependencies 
 
 MagGeo requires Python 3.8+ and depends on:
 - `numpy`, `scipy`, `pandas` - Core data processing
@@ -55,9 +55,7 @@ MagGeo requires Python 3.8+ and depends on:
 - `click` - Command-line interface
 - `tqdm` - Progress bars for long operations
 
-## Quick Start
-
-### Python API
+## Quick Example - How to use it
 
 ```python
 import pandas as pd
@@ -80,7 +78,7 @@ annotated_data = annotate_gps_with_geomag(
 annotated_data.to_csv('trajectory_with_geomag.csv', index=False)
 ```
 
-### Command Line Interface
+### MagGeo also comes with a CLI - Command Line Interface
 
 ```bash
 # Annotate a GPS trajectory file
@@ -168,9 +166,6 @@ Benitez-Paez, F., Demšar, U., Long, J. A., & Beggan, C. D. (2025). MagGeo: A Py
 for fusion of GPS trajectories and satellite geomagnetic data (Version 0.2.0) [Computer software]. 
 https://github.com/MagGeo/MagGeo
 ```
-
-📋 **[Complete citation guidelines with multiple formats →](https://MagGeo.github.io/MagGeo/about/citation/)**
-
 ## Authors & Initial Contributors
 
 - **Fernando Benitez-Paez** - *Lead Author and Developer* - University of St Andrews
@@ -221,4 +216,3 @@ MagGeo is released under the [MIT License](LICENSE), allowing free use for acade
 **MagGeo** is a work in progress, and we are constantly making improvements that you can follow up with the commits made in the pubic GitHub repo. For general enquiries, scientific concepts, suggestions, please email: [Fernando.Benitez@st-andrews.ac.uk](mailto:fbenitez@turing.ac.uk), [ud2@st-andrews.ac.uk](mailto:ud2@st-andrews.ac.uk), [jed.long@uwo.ca](mailto:jed.long@uwo.ca)
 
 For **errors**, or **improvements**, please submit an issue in this repo, describing the problem you have.
-
