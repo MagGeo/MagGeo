@@ -101,3 +101,5 @@ swarm_data_cache/
 docs/_build/
 site/
 test_env/
+*guidelines/
+
